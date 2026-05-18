@@ -1,0 +1,489 @@
+{
+  "page": 8,
+  "elapsed_s": 18.84,
+  "page_type_detected": "bank_statement",
+  "non_null_fields": {
+    "page_number": 8,
+    "page_type": "bank_statement",
+    "raw_text": "Savings Account\nPage    of  \n8\n38\nDate\nTransaction Id\nRemarks\nAmount( )\nBalance( )\n03-10-2025\nW67535230\nUPIAB/043294329641/CR/REDDY VE/UTIB/ 9182240851@ax\n400.0(Cr)\n30084.37(Cr)\n03-10-2025\nW74021681\nUPIAR/522661787264/DR/Mr Bandi/YESB/ Q669290821@yb\n36.0(Dr)\n30048.37(Cr)\n03-10-2025\nW74284043\nUPIAR/894019215323/DR/Mrs Ter/YESB/ Q246787037@yb\n27.0(Dr)\n30021.37(Cr)\n04-10-2025\nX3413451\nUPIAR/988812903453/DR/SAMANVIT/YESB/paytm-9183714e\n100.0(Dr)\n29921.37(Cr)\n04-10-2025\nX42104803\nUPIAR/806276460674/DR/RAJESH K/YESB/ Q789179142@yb\n578.0(Dr)\n29343.37(Cr)\n04-10-2025\nX43279910\nUPIAR/913160391960/DR/Mr KANTU/YESB/ Q735997505@yb\n260.0(Dr)\n29083.37(Cr)\n05-10-2025\nX70584637\nUPIAR/812146826601/DR/SVC RANJ/YESB/paytm-82825578\n354.0(Dr)\n28729.37(Cr)\n05-10-2025\nY4917836\nUPIAR/808059779124/DR/ APSRTC/YESB/APSRTCOFFLINEE\n110.0(Dr)\n28619.37(Cr)\n06-10-2025\nY21235466\nUPIAR/185356979158/DR/IRCTC Ra/YESB/IRCTCPGONLINE@\n952.7(Dr)\n27666.67(Cr)\n06-10-2025\nY25303806\nUPIAR/318868988277/DR/ irctc/UTIB/irctcretiringr\n808.0(Dr)\n26858.67(Cr)\n06-10-2025\nY48548843\nUPIAB/414086259057/CR/REDDY VE/UTIB/ 9182240851@ax\n4800.0(Cr)\n31658.67(Cr)\n06-10-2025\nY55969117\nUPIAB/287496605747/CR/JUTTADA /SBIN/ 9989398325@yb\n3000.0(Cr)\n34658.67(Cr)\n07-10-2025\nS5100243\nUPIAB/804932680974/CR/POTNURU /SBIN/ 8885608388@ax\n5000.0(Cr)\n39658.67(Cr)\n07-10-2025\nS29752867\nUPIAB/490792134304/CR/DARLA VE/BARB/venkatesh.darl\n3000.0(Cr)\n42658.67(Cr)\n08-10-2025\nS50152341\nUPIAB/245490458019/CR/MALLEPAL/HDFC/rajan.reddy123\n50000.0(Cr)\n92658.67(Cr)\n08-10-2025\nS55476164\nUPIAB/528135901104/CR/KUSUMA K/YESB/westernunion@y\n39115.0(Cr)\n131773.67(Cr)\n08-10-2025\nS62438972\nUPIAR/899117121794/DR/NM VET M/HDFC/Vyapar.1702323\n150.0(Dr)\n131623.67(Cr)\n08-10-2025\nS74425752\nUPIAB/700081737862/CR/SAKKURU /HDFC/9346383101-2@a\n1500.0(Cr)\n133123.67(Cr)\n08-10-2025\nT10673685\nUPIAB/289191899982/CR/A RAMANA/ICIC/ 9007553335@yb\n3000.0(Cr)\n136123.67(Cr)\n09-10-2025\nT16350985\nUPIAB/064880629005/CR/POTNURU /SBIN/ 8885608388@ax\n3000.0(Cr)\n139123.67(Cr)\n09-10-2025\nT16618597\nUPIAB/341103804653/CR/POTNURU /SBIN/ 8885608388@yb\n500.0(Cr)\n139623.67(Cr)\n09-10-2025\nT16624374\nUPIAR/528284214946/DR/ ICCL/YESB/ ICCLMF@yb\n1000.0(Dr)\n138623.67(Cr)\n09-10-2025\nT18686532\nUPIAR/528250314783/DR/ ICCL/YESB/ ICCLMF@yb\n1000.0(Dr)\n137623.67(Cr)\n09-10-2025\nT30772120\nUPIAB/528265356733/CR/Nowdasar/SBIN/sekharnowdasar\n1500.0(Cr)\n139123.67(Cr)\n09-10-2025\nT78403614\nUPIAR/447537772413/DR/VENKATA /YESB/paytm.s19rbx8@\n40.0(Dr)\n139083.67(Cr)\n10-10-2025\nT84544735\nUPIAR/164562162065/DR/IRCTC Ra/YESB/IRCTCPGONLINE@\n1074.5(Dr)\n138009.17(Cr)\n10-10-2025\nU28396427\nUPIAR/927555327548/DR/VARANASI/ANDB/ Q550209813@yb\n180.0(Dr)\n137829.17(Cr)\n10-10-2025\nU29722233\nUPIAR/039743405541/DR/SWEET IN/YESB/ Q821835848@yb\n310.0(Dr)\n137519.17(Cr)\n",
+    "currency": "INR",
+    "opening_balance": 30084.37,
+    "closing_balance": 137519.17,
+    "transactions": [
+      {
+        "date": "03-10-2025",
+        "description": "W67535230 UPIAB/043294329641/CR/REDDY VE/UTIB/ 9182240851@ax",
+        "amount": 400.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "03-10-2025",
+        "description": "W74021681 UPIAR/522661787264/DR/Mr Bandi/YESB/ Q669290821@yb",
+        "amount": 36.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "03-10-2025",
+        "description": "W74284043 UPIAR/894019215323/DR/Mrs Ter/YESB/ Q246787037@yb",
+        "amount": 27.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "04-10-2025",
+        "description": "X3413451 UPIAR/988812903453/DR/SAMANVIT/YESB/paytm-9183714e",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "04-10-2025",
+        "description": "X42104803 UPIAR/806276460674/DR/RAJESH K/YESB/ Q789179142@yb",
+        "amount": 578.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "04-10-2025",
+        "description": "X43279910 UPIAR/913160391960/DR/Mr KANTU/YESB/ Q735997505@yb",
+        "amount": 260.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "05-10-2025",
+        "description": "X70584637 UPIAR/812146826601/DR/SVC RANJ/YESB/paytm-82825578",
+        "amount": 354.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "05-10-2025",
+        "description": "Y4917836 UPIAR/808059779124/DR/ APSRTC/YESB/APSRTCOFFLINEE",
+        "amount": 110.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-10-2025",
+        "description": "Y21235466 UPIAR/185356979158/DR/IRCTC Ra/YESB/IRCTCPGONLINE@",
+        "amount": 952.7,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-10-2025",
+        "description": "Y25303806 UPIAR/318868988277/DR/ irctc/UTIB/irctcretiringr",
+        "amount": 808.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-10-2025",
+        "description": "Y48548843 UPIAB/414086259057/CR/REDDY VE/UTIB/ 9182240851@ax",
+        "amount": 4800.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-10-2025",
+        "description": "Y55969117 UPIAB/287496605747/CR/JUTTADA /SBIN/ 9989398325@yb",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "07-10-2025",
+        "description": "S5100243 UPIAB/804932680974/CR/POTNURU /SBIN/ 8885608388@ax",
+        "amount": 5000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "07-10-2025",
+        "description": "S29752867 UPIAB/490792134304/CR/DARLA VE/BARB/venkatesh.darl",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "08-10-2025",
+        "description": "S50152341 UPIAB/245490458019/CR/MALLEPAL/HDFC/rajan.reddy123",
+        "amount": 50000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "08-10-2025",
+        "description": "S55476164 UPIAB/528135901104/CR/KUSUMA K/YESB/westernunion@y",
+        "amount": 39115.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "08-10-2025",
+        "description": "S62438972 UPIAR/899117121794/DR/NM VET M/HDFC/Vyapar.1702323",
+        "amount": 150.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "08-10-2025",
+        "description": "S74425752 UPIAB/700081737862/CR/SAKKURU /HDFC/9346383101-2@a",
+        "amount": 1500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "08-10-2025",
+        "description": "T10673685 UPIAB/289191899982/CR/A RAMANA/ICIC/ 9007553335@yb",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "09-10-2025",
+        "description": "T16350985 UPIAB/064880629005/CR/POTNURU /SBIN/ 8885608388@ax",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "09-10-2025",
+        "description": "T16618597 UPIAB/341103804653/CR/POTNURU /SBIN/ 8885608388@yb",
+        "amount": 500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "09-10-2025",
+        "description": "T16624374 UPIAR/528284214946/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "09-10-2025",
+        "description": "T18686532 UPIAR/528250314783/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "09-10-2025",
+        "description": "T30772120 UPIAB/528265356733/CR/Nowdasar/SBIN/sekharnowdasar",
+        "amount": 1500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "09-10-2025",
+        "description": "T78403614 UPIAR/447537772413/DR/VENKATA /YESB/paytm.s19rbx8@",
+        "amount": 40.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "10-10-2025",
+        "description": "T84544735 UPIAR/164562162065/DR/IRCTC Ra/YESB/IRCTCPGONLINE@",
+        "amount": 1074.5,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "10-10-2025",
+        "description": "U28396427 UPIAR/927555327548/DR/VARANASI/ANDB/ Q550209813@yb",
+        "amount": 180.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "10-10-2025",
+        "description": "U29722233 UPIAR/039743405541/DR/SWEET IN/YESB/ Q821835848@yb",
+        "amount": 310.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      }
+    ],
+    "period_start": "03-10-2025",
+    "period_end": "10-10-2025",
+    "anomaly_flags": [
+      "large_unlabeled_deposit"
+    ]
+  },
+  "null_or_empty_fields": [
+    "person_name",
+    "date_of_birth",
+    "applicant_dob",
+    "nationality",
+    "passport_number",
+    "employer_name",
+    "job_title",
+    "monthly_salary",
+    "annual_income",
+    "document_date",
+    "employment_start",
+    "employment_end",
+    "sponsor_name",
+    "sponsor_relationship",
+    "sponsor_declared_income",
+    "sponsor_income_currency",
+    "applicant_name",
+    "declared_liquid_assets",
+    "declared_movable_assets",
+    "declared_property_value",
+    "declared_annual_income",
+    "declared_assets_total",
+    "institution_name",
+    "program_name",
+    "program_cost",
+    "program_duration_months",
+    "enrollment_start",
+    "tax_year",
+    "taxable_income",
+    "tax_paid"
+  ],
+  "raw_extraction": {
+    "page_number": 8,
+    "page_type": "bank_statement",
+    "raw_text": "Savings Account\nPage    of  \n8\n38\nDate\nTransaction Id\nRemarks\nAmount( )\nBalance( )\n03-10-2025\nW67535230\nUPIAB/043294329641/CR/REDDY VE/UTIB/ 9182240851@ax\n400.0(Cr)\n30084.37(Cr)\n03-10-2025\nW74021681\nUPIAR/522661787264/DR/Mr Bandi/YESB/ Q669290821@yb\n36.0(Dr)\n30048.37(Cr)\n03-10-2025\nW74284043\nUPIAR/894019215323/DR/Mrs Ter/YESB/ Q246787037@yb\n27.0(Dr)\n30021.37(Cr)\n04-10-2025\nX3413451\nUPIAR/988812903453/DR/SAMANVIT/YESB/paytm-9183714e\n100.0(Dr)\n29921.37(Cr)\n04-10-2025\nX42104803\nUPIAR/806276460674/DR/RAJESH K/YESB/ Q789179142@yb\n578.0(Dr)\n29343.37(Cr)\n04-10-2025\nX43279910\nUPIAR/913160391960/DR/Mr KANTU/YESB/ Q735997505@yb\n260.0(Dr)\n29083.37(Cr)\n05-10-2025\nX70584637\nUPIAR/812146826601/DR/SVC RANJ/YESB/paytm-82825578\n354.0(Dr)\n28729.37(Cr)\n05-10-2025\nY4917836\nUPIAR/808059779124/DR/ APSRTC/YESB/APSRTCOFFLINEE\n110.0(Dr)\n28619.37(Cr)\n06-10-2025\nY21235466\nUPIAR/185356979158/DR/IRCTC Ra/YESB/IRCTCPGONLINE@\n952.7(Dr)\n27666.67(Cr)\n06-10-2025\nY25303806\nUPIAR/318868988277/DR/ irctc/UTIB/irctcretiringr\n808.0(Dr)\n26858.67(Cr)\n06-10-2025\nY48548843\nUPIAB/414086259057/CR/REDDY VE/UTIB/ 9182240851@ax\n4800.0(Cr)\n31658.67(Cr)\n06-10-2025\nY55969117\nUPIAB/287496605747/CR/JUTTADA /SBIN/ 9989398325@yb\n3000.0(Cr)\n34658.67(Cr)\n07-10-2025\nS5100243\nUPIAB/804932680974/CR/POTNURU /SBIN/ 8885608388@ax\n5000.0(Cr)\n39658.67(Cr)\n07-10-2025\nS29752867\nUPIAB/490792134304/CR/DARLA VE/BARB/venkatesh.darl\n3000.0(Cr)\n42658.67(Cr)\n08-10-2025\nS50152341\nUPIAB/245490458019/CR/MALLEPAL/HDFC/rajan.reddy123\n50000.0(Cr)\n92658.67(Cr)\n08-10-2025\nS55476164\nUPIAB/528135901104/CR/KUSUMA K/YESB/westernunion@y\n39115.0(Cr)\n131773.67(Cr)\n08-10-2025\nS62438972\nUPIAR/899117121794/DR/NM VET M/HDFC/Vyapar.1702323\n150.0(Dr)\n131623.67(Cr)\n08-10-2025\nS74425752\nUPIAB/700081737862/CR/SAKKURU /HDFC/9346383101-2@a\n1500.0(Cr)\n133123.67(Cr)\n08-10-2025\nT10673685\nUPIAB/289191899982/CR/A RAMANA/ICIC/ 9007553335@yb\n3000.0(Cr)\n136123.67(Cr)\n09-10-2025\nT16350985\nUPIAB/064880629005/CR/POTNURU /SBIN/ 8885608388@ax\n3000.0(Cr)\n139123.67(Cr)\n09-10-2025\nT16618597\nUPIAB/341103804653/CR/POTNURU /SBIN/ 8885608388@yb\n500.0(Cr)\n139623.67(Cr)\n09-10-2025\nT16624374\nUPIAR/528284214946/DR/ ICCL/YESB/ ICCLMF@yb\n1000.0(Dr)\n138623.67(Cr)\n09-10-2025\nT18686532\nUPIAR/528250314783/DR/ ICCL/YESB/ ICCLMF@yb\n1000.0(Dr)\n137623.67(Cr)\n09-10-2025\nT30772120\nUPIAB/528265356733/CR/Nowdasar/SBIN/sekharnowdasar\n1500.0(Cr)\n139123.67(Cr)\n09-10-2025\nT78403614\nUPIAR/447537772413/DR/VENKATA /YESB/paytm.s19rbx8@\n40.0(Dr)\n139083.67(Cr)\n10-10-2025\nT84544735\nUPIAR/164562162065/DR/IRCTC Ra/YESB/IRCTCPGONLINE@\n1074.5(Dr)\n138009.17(Cr)\n10-10-2025\nU28396427\nUPIAR/927555327548/DR/VARANASI/ANDB/ Q550209813@yb\n180.0(Dr)\n137829.17(Cr)\n10-10-2025\nU29722233\nUPIAR/039743405541/DR/SWEET IN/YESB/ Q821835848@yb\n310.0(Dr)\n137519.17(Cr)\n",
+    "person_name": null,
+    "date_of_birth": null,
+    "applicant_dob": null,
+    "nationality": null,
+    "passport_number": null,
+    "currency": "INR",
+    "opening_balance": 30084.37,
+    "closing_balance": 137519.17,
+    "transactions": [
+      {
+        "date": "03-10-2025",
+        "description": "W67535230 UPIAB/043294329641/CR/REDDY VE/UTIB/ 9182240851@ax",
+        "amount": 400.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "03-10-2025",
+        "description": "W74021681 UPIAR/522661787264/DR/Mr Bandi/YESB/ Q669290821@yb",
+        "amount": 36.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "03-10-2025",
+        "description": "W74284043 UPIAR/894019215323/DR/Mrs Ter/YESB/ Q246787037@yb",
+        "amount": 27.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "04-10-2025",
+        "description": "X3413451 UPIAR/988812903453/DR/SAMANVIT/YESB/paytm-9183714e",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "04-10-2025",
+        "description": "X42104803 UPIAR/806276460674/DR/RAJESH K/YESB/ Q789179142@yb",
+        "amount": 578.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "04-10-2025",
+        "description": "X43279910 UPIAR/913160391960/DR/Mr KANTU/YESB/ Q735997505@yb",
+        "amount": 260.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "05-10-2025",
+        "description": "X70584637 UPIAR/812146826601/DR/SVC RANJ/YESB/paytm-82825578",
+        "amount": 354.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "05-10-2025",
+        "description": "Y4917836 UPIAR/808059779124/DR/ APSRTC/YESB/APSRTCOFFLINEE",
+        "amount": 110.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-10-2025",
+        "description": "Y21235466 UPIAR/185356979158/DR/IRCTC Ra/YESB/IRCTCPGONLINE@",
+        "amount": 952.7,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-10-2025",
+        "description": "Y25303806 UPIAR/318868988277/DR/ irctc/UTIB/irctcretiringr",
+        "amount": 808.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-10-2025",
+        "description": "Y48548843 UPIAB/414086259057/CR/REDDY VE/UTIB/ 9182240851@ax",
+        "amount": 4800.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-10-2025",
+        "description": "Y55969117 UPIAB/287496605747/CR/JUTTADA /SBIN/ 9989398325@yb",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "07-10-2025",
+        "description": "S5100243 UPIAB/804932680974/CR/POTNURU /SBIN/ 8885608388@ax",
+        "amount": 5000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "07-10-2025",
+        "description": "S29752867 UPIAB/490792134304/CR/DARLA VE/BARB/venkatesh.darl",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "08-10-2025",
+        "description": "S50152341 UPIAB/245490458019/CR/MALLEPAL/HDFC/rajan.reddy123",
+        "amount": 50000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "08-10-2025",
+        "description": "S55476164 UPIAB/528135901104/CR/KUSUMA K/YESB/westernunion@y",
+        "amount": 39115.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "08-10-2025",
+        "description": "S62438972 UPIAR/899117121794/DR/NM VET M/HDFC/Vyapar.1702323",
+        "amount": 150.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "08-10-2025",
+        "description": "S74425752 UPIAB/700081737862/CR/SAKKURU /HDFC/9346383101-2@a",
+        "amount": 1500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "08-10-2025",
+        "description": "T10673685 UPIAB/289191899982/CR/A RAMANA/ICIC/ 9007553335@yb",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "09-10-2025",
+        "description": "T16350985 UPIAB/064880629005/CR/POTNURU /SBIN/ 8885608388@ax",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "09-10-2025",
+        "description": "T16618597 UPIAB/341103804653/CR/POTNURU /SBIN/ 8885608388@yb",
+        "amount": 500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "09-10-2025",
+        "description": "T16624374 UPIAR/528284214946/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "09-10-2025",
+        "description": "T18686532 UPIAR/528250314783/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "09-10-2025",
+        "description": "T30772120 UPIAB/528265356733/CR/Nowdasar/SBIN/sekharnowdasar",
+        "amount": 1500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "09-10-2025",
+        "description": "T78403614 UPIAR/447537772413/DR/VENKATA /YESB/paytm.s19rbx8@",
+        "amount": 40.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "10-10-2025",
+        "description": "T84544735 UPIAR/164562162065/DR/IRCTC Ra/YESB/IRCTCPGONLINE@",
+        "amount": 1074.5,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "10-10-2025",
+        "description": "U28396427 UPIAR/927555327548/DR/VARANASI/ANDB/ Q550209813@yb",
+        "amount": 180.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "10-10-2025",
+        "description": "U29722233 UPIAR/039743405541/DR/SWEET IN/YESB/ Q821835848@yb",
+        "amount": 310.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      }
+    ],
+    "employer_name": null,
+    "job_title": null,
+    "monthly_salary": null,
+    "annual_income": null,
+    "document_date": null,
+    "period_start": "03-10-2025",
+    "period_end": "10-10-2025",
+    "employment_start": null,
+    "employment_end": null,
+    "sponsor_name": null,
+    "sponsor_relationship": null,
+    "sponsor_declared_income": null,
+    "sponsor_income_currency": null,
+    "applicant_name": null,
+    "declared_liquid_assets": null,
+    "declared_movable_assets": null,
+    "declared_property_value": null,
+    "declared_annual_income": null,
+    "declared_assets_total": null,
+    "institution_name": null,
+    "program_name": null,
+    "program_cost": null,
+    "program_duration_months": null,
+    "enrollment_start": null,
+    "tax_year": null,
+    "taxable_income": null,
+    "tax_paid": null,
+    "anomaly_flags": [
+      "large_unlabeled_deposit"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+=== GRAPH SUMMARY (run: 20260518_152624) ===
+Source pages: 38  |  Doc types: ['bank_statement']
+Token count: 2693  |  Compression: 76,000 -> 2,693
+
+--- IDENTITY ---
+  canonical_name:  MR KORADA SATYANARAYANA
+  date_of_birth:   None
+  nationality:     None
+  passport_number: None
+  name_variants:   ['MR KORADA SATYANARAYANA', 'SATYANARAYANA', 'SATYANARAYANA KORAD']
+
+--- FINANCIAL ---
+  source_is_affidavit:   False
+  currency:              INR
+  closing_balance:       141083.88
+  avg_monthly_income:    None
+  transaction_count:     1036
+  declared_property:     None
+  declared_movables:     None
+
+--- SPONSOR ---
+  sponsor_name:     None
+  relationship:     None
+  declared_income:  None
+
+  enrollment:  null
+  edges:       [<EdgeType.INCOME_LINK: 'income_link'>]

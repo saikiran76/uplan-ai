@@ -1,0 +1,937 @@
+{
+  "semantic_graph": {
+    "identity": {
+      "name_variants": [
+        "KORADA SATYANARAYANA",
+        "K Satyanarayana",
+        "SATYANARAYANA KORAD",
+        "SATYANARAYANA KORADA"
+      ],
+      "canonical_name": "KORADA SATYANARAYANA",
+      "date_of_birth": null,
+      "nationality": null,
+      "passport_number": null,
+      "transliteration_flags": [
+        "'K Satyanarayana' vs 'KORADA SATYANARAYANA'",
+        "'SATYANARAYANA KORAD' vs 'KORADA SATYANARAYANA'",
+        "'SATYANARAYANA KORADA' vs 'KORADA SATYANARAYANA'"
+      ],
+      "cross_doc_name_match": false
+    },
+    "financial": {
+      "currency": "INR",
+      "opening_balance": 46479.31,
+      "closing_balance": 141083.88,
+      "avg_monthly_income": null,
+      "total_credits": 1805222.0,
+      "total_debits": 1703231.3,
+      "transaction_count": 1036,
+      "spikes": [
+        {
+          "date": "13-07-2025",
+          "amount": 20000.0,
+          "label": "transfer",
+          "ratio_to_average": 3.89
+        },
+        {
+          "date": "17-08-2025",
+          "amount": 30000.0,
+          "label": "transfer",
+          "ratio_to_average": 5.83
+        },
+        {
+          "date": "18-08-2025",
+          "amount": 30000.0,
+          "label": "transfer",
+          "ratio_to_average": 5.83
+        },
+        {
+          "date": "20-08-2025",
+          "amount": 30000.0,
+          "label": null,
+          "ratio_to_average": 5.83
+        },
+        {
+          "date": "21-08-2025",
+          "amount": 25000.0,
+          "label": null,
+          "ratio_to_average": 4.86
+        },
+        {
+          "date": "23-08-2025",
+          "amount": 30000.0,
+          "label": null,
+          "ratio_to_average": 5.83
+        },
+        {
+          "date": "08-10-2025",
+          "amount": 50000.0,
+          "label": "transfer",
+          "ratio_to_average": 9.72
+        },
+        {
+          "date": "08-10-2025",
+          "amount": 39115.0,
+          "label": "transfer",
+          "ratio_to_average": 7.61
+        },
+        {
+          "date": "28-10-2025",
+          "amount": 100000.0,
+          "label": null,
+          "ratio_to_average": 19.44
+        },
+        {
+          "date": "29-10-2025",
+          "amount": 50000.0,
+          "label": "large_unlabeled_deposit",
+          "ratio_to_average": 9.72
+        },
+        {
+          "date": "30-10-2025",
+          "amount": 50000.0,
+          "label": "large_unlabeled_deposit",
+          "ratio_to_average": 9.72
+        },
+        {
+          "date": "12-11-2025",
+          "amount": 20000.0,
+          "label": "transfer",
+          "ratio_to_average": 3.89
+        },
+        {
+          "date": "19-11-2025",
+          "amount": 20000.0,
+          "label": null,
+          "ratio_to_average": 3.89
+        },
+        {
+          "date": "20-01-2026",
+          "amount": 27000.0,
+          "label": "transfer",
+          "ratio_to_average": 5.25
+        },
+        {
+          "date": "31-01-2026",
+          "amount": 16500.0,
+          "label": null,
+          "ratio_to_average": 3.21
+        },
+        {
+          "date": "01-03-2026",
+          "amount": 30000.0,
+          "label": null,
+          "ratio_to_average": 5.83
+        },
+        {
+          "date": "01-03-2026",
+          "amount": 30000.0,
+          "label": "transfer",
+          "ratio_to_average": 5.83
+        },
+        {
+          "date": "03-03-2026",
+          "amount": 30000.0,
+          "label": "transfer",
+          "ratio_to_average": 5.83
+        },
+        {
+          "date": "03-03-2026",
+          "amount": 30000.0,
+          "label": "transfer",
+          "ratio_to_average": 5.83
+        },
+        {
+          "date": "03-03-2026",
+          "amount": 30000.0,
+          "label": "transfer",
+          "ratio_to_average": 5.83
+        },
+        {
+          "date": "03-03-2026",
+          "amount": 30000.0,
+          "label": "transfer",
+          "ratio_to_average": 5.83
+        },
+        {
+          "date": "03-03-2026",
+          "amount": 20000.0,
+          "label": "transfer",
+          "ratio_to_average": 3.89
+        },
+        {
+          "date": "21-04-2026",
+          "amount": 20000.0,
+          "label": "transfer",
+          "ratio_to_average": 3.89
+        },
+        {
+          "date": "24-04-2026",
+          "amount": 20000.0,
+          "label": "transfer",
+          "ratio_to_average": 3.89
+        }
+      ],
+      "unlabeled_deposit_count": 198,
+      "income_percentile": null,
+      "declared_property_value": null,
+      "declared_movable_assets": null,
+      "source_is_affidavit": false
+    },
+    "temporal": {
+      "doc_date_ranges": [
+        {
+          "source": "bank_statement",
+          "page": 1,
+          "start": "24-04-2025",
+          "end": "24-04-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 2,
+          "start": "29-05-2025",
+          "end": "16-07-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 3,
+          "start": "16-07-2025",
+          "end": "18-08-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 4,
+          "start": "18-08-2025",
+          "end": "10-09-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 5,
+          "start": "11-09-2025",
+          "end": "20-09-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 6,
+          "start": "20-09-2025",
+          "end": "27-09-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 7,
+          "start": "28-09-2025",
+          "end": "02-10-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 8,
+          "start": "03-10-2025",
+          "end": "10-10-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 9,
+          "start": "10-10-2025",
+          "end": "20-10-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 10,
+          "start": "20-10-2025",
+          "end": "28-10-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 11,
+          "start": "28-10-2025",
+          "end": "07-11-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 12,
+          "start": "07-11-2025",
+          "end": "13-11-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 13,
+          "start": "13-11-2025",
+          "end": "20-11-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 14,
+          "start": "20-11-2025",
+          "end": "27-11-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 15,
+          "start": "27-11-2025",
+          "end": "04-12-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 16,
+          "start": "05-12-2025",
+          "end": "13-12-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 17,
+          "start": "14-12-2025",
+          "end": "18-12-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 18,
+          "start": "18-12-2025",
+          "end": "24-12-2025"
+        },
+        {
+          "source": "bank_statement",
+          "page": 19,
+          "start": "24-12-2025",
+          "end": "02-01-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 20,
+          "start": "02-01-2026",
+          "end": "09-01-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 21,
+          "start": "11-01-2026",
+          "end": "20-01-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 22,
+          "start": "20-01-2026",
+          "end": "25-01-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 23,
+          "start": "25-01-2026",
+          "end": "01-02-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 24,
+          "start": "01-02-2026",
+          "end": "06-02-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 25,
+          "start": "06-02-2026",
+          "end": "13-02-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 26,
+          "start": "13-02-2026",
+          "end": "17-02-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 27,
+          "start": "17-02-2026",
+          "end": "22-02-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 28,
+          "start": "22-02-2026",
+          "end": "01-03-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 29,
+          "start": "01-03-2026",
+          "end": "05-03-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 30,
+          "start": "05-03-2026",
+          "end": "09-03-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 31,
+          "start": "09-03-2026",
+          "end": "15-03-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 32,
+          "start": "15-03-2026",
+          "end": "19-03-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 33,
+          "start": "19-03-2026",
+          "end": "28-03-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 34,
+          "start": "28-03-2026",
+          "end": "02-04-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 35,
+          "start": "02-04-2026",
+          "end": "04-04-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 36,
+          "start": "04-04-2026",
+          "end": "13-04-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 37,
+          "start": "13-04-2026",
+          "end": "21-04-2026"
+        },
+        {
+          "source": "bank_statement",
+          "page": 38,
+          "start": "21-04-2026",
+          "end": "24-04-2026"
+        }
+      ],
+      "employment_start": null,
+      "employment_end": null,
+      "visa_window_start": null,
+      "visa_window_end": null,
+      "gap_flags": [],
+      "chronology_valid": true
+    },
+    "sponsor": null,
+    "enrollment": null,
+    "edges": [
+      {
+        "edge_type": "income_link",
+        "source_node": "identity",
+        "target_node": "financial",
+        "coherent": true,
+        "detail": null
+      }
+    ],
+    "token_count": 2725,
+    "source_page_count": 38,
+    "estimated_raw_tokens": 76000,
+    "source_doc_types": [
+      "bank_statement"
+    ]
+  },
+  "encoding_metadata": {
+    "token_count": 2725,
+    "page_count": 38,
+    "estimated_raw_tokens": 76000,
+    "duration_ms": 210559,
+    "source_doc_types": [
+      "bank_statement"
+    ],
+    "source_is_affidavit": false
+  },
+  "rule_findings": [
+    {
+      "rule_id": "FIN-001",
+      "severity": "critical",
+      "field_path": "financial.spikes[date=20-08-2025]",
+      "message": "Transaction on 20-08-2025 is 5.83× the average credit — NO SOURCE LABEL (unlabeled deposit)",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 5.83"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "critical",
+      "field_path": "financial.spikes[date=21-08-2025]",
+      "message": "Transaction on 21-08-2025 is 4.86× the average credit — NO SOURCE LABEL (unlabeled deposit)",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 4.86"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "critical",
+      "field_path": "financial.spikes[date=23-08-2025]",
+      "message": "Transaction on 23-08-2025 is 5.83× the average credit — NO SOURCE LABEL (unlabeled deposit)",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 5.83"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "critical",
+      "field_path": "financial.spikes[date=28-10-2025]",
+      "message": "Transaction on 28-10-2025 is 19.44× the average credit — NO SOURCE LABEL (unlabeled deposit)",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 19.44"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "critical",
+      "field_path": "financial.spikes[date=19-11-2025]",
+      "message": "Transaction on 19-11-2025 is 3.89× the average credit — NO SOURCE LABEL (unlabeled deposit)",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 3.89"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "critical",
+      "field_path": "financial.spikes[date=31-01-2026]",
+      "message": "Transaction on 31-01-2026 is 3.21× the average credit — NO SOURCE LABEL (unlabeled deposit)",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 3.21"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "critical",
+      "field_path": "financial.spikes[date=01-03-2026]",
+      "message": "Transaction on 01-03-2026 is 5.83× the average credit — NO SOURCE LABEL (unlabeled deposit)",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 5.83"
+    },
+    {
+      "rule_id": "FIN-004",
+      "severity": "critical",
+      "field_path": "financial.closing_balance",
+      "message": "Closing balance (141,084 JPY) below minimum requirement (2,000,000 JPY). Shortfall: 1,858,916 JPY",
+      "expected": "balance ≥ 2,000,000 JPY",
+      "actual": "141,084 JPY"
+    },
+    {
+      "rule_id": "IDN-001",
+      "severity": "critical",
+      "field_path": "identity.cross_doc_name_match",
+      "message": "Name mismatch across documents: ['KORADA SATYANARAYANA', 'K Satyanarayana', 'SATYANARAYANA KORAD', 'SATYANARAYANA KORADA']. Possible transliteration issues: [\"'K Satyanarayana' vs 'KORADA SATYANARAYANA'\", \"'SATYANARAYANA KORAD' vs 'KORADA SATYANARAYANA'\", \"'SATYANARAYANA KORADA' vs 'KORADA SATYANARAYANA'\"]",
+      "expected": "Consistent name across all documents",
+      "actual": "4 variants found"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=13-07-2025]",
+      "message": "Transaction on 13-07-2025 is 3.89× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 3.89"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=17-08-2025]",
+      "message": "Transaction on 17-08-2025 is 5.83× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 5.83"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=18-08-2025]",
+      "message": "Transaction on 18-08-2025 is 5.83× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 5.83"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=08-10-2025]",
+      "message": "Transaction on 08-10-2025 is 9.72× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 9.72"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=08-10-2025]",
+      "message": "Transaction on 08-10-2025 is 7.61× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 7.61"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=29-10-2025]",
+      "message": "Transaction on 29-10-2025 is 9.72× the average credit — labeled: large_unlabeled_deposit",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 9.72"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=30-10-2025]",
+      "message": "Transaction on 30-10-2025 is 9.72× the average credit — labeled: large_unlabeled_deposit",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 9.72"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=12-11-2025]",
+      "message": "Transaction on 12-11-2025 is 3.89× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 3.89"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=20-01-2026]",
+      "message": "Transaction on 20-01-2026 is 5.25× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 5.25"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=01-03-2026]",
+      "message": "Transaction on 01-03-2026 is 5.83× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 5.83"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=03-03-2026]",
+      "message": "Transaction on 03-03-2026 is 5.83× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 5.83"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=03-03-2026]",
+      "message": "Transaction on 03-03-2026 is 5.83× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 5.83"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=03-03-2026]",
+      "message": "Transaction on 03-03-2026 is 5.83× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 5.83"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=03-03-2026]",
+      "message": "Transaction on 03-03-2026 is 5.83× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 5.83"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=03-03-2026]",
+      "message": "Transaction on 03-03-2026 is 3.89× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 3.89"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=21-04-2026]",
+      "message": "Transaction on 21-04-2026 is 3.89× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 3.89"
+    },
+    {
+      "rule_id": "FIN-001",
+      "severity": "warning",
+      "field_path": "financial.spikes[date=24-04-2026]",
+      "message": "Transaction on 24-04-2026 is 3.89× the average credit — labeled: transfer",
+      "expected": "ratio ≤ 3.0",
+      "actual": "ratio = 3.89"
+    },
+    {
+      "rule_id": "FIN-002",
+      "severity": "warning",
+      "field_path": "financial.unlabeled_deposit_count",
+      "message": "198 deposit(s) have no source label",
+      "expected": "0 unlabeled deposits",
+      "actual": "198"
+    }
+  ],
+  "agent_findings": [
+    {
+      "agent_id": "identity_agent",
+      "anomalies": [
+        {
+          "field_path": "identity.cross_doc_name_match",
+          "severity": "warning",
+          "explanation": "Multiple name variations detected across documents, though they are plausible permutations involving initial usage and order swaps.",
+          "rule_id": "IDN-001"
+        },
+        {
+          "field_path": "identity.date_of_birth",
+          "severity": "info",
+          "explanation": "Document not provided — required for complete audit.",
+          "rule_id": null
+        },
+        {
+          "field_path": "identity.nationality",
+          "severity": "info",
+          "explanation": "Document not provided — required for complete audit.",
+          "rule_id": null
+        },
+        {
+          "field_path": "identity.passport_number",
+          "severity": "info",
+          "explanation": "Document not provided — required for complete audit.",
+          "rule_id": null
+        }
+      ],
+      "confidence": 0.95,
+      "agent_verdict": "flag",
+      "summary": "Identity data shows plausible name permutations, but core verification is currently blocked due to unsubmitted passport documents."
+    },
+    {
+      "agent_id": "financial_agent",
+      "anomalies": [
+        {
+          "field_path": "financial.spikes[date=03-03-2026]",
+          "severity": "critical",
+          "explanation": "Five separate transfer deposits (four at 30,000 INR and one at 20,000 INR) were made on a single day (03-03-2026). This extreme clustering of identical amounts is a clear indicator of smurfing or structuring to artificially inflate the balance while evading large-transaction scrutiny.",
+          "rule_id": "FIN-001"
+        },
+        {
+          "field_path": "financial.spikes[date=17-08-2025]",
+          "severity": "critical",
+          "explanation": "Multiple rapid deposits of 25,000 to 30,000 INR occurred almost daily between 17-08-2025 and 23-08-2025. This highly unnatural sequence represents organized fund parking or structuring.",
+          "rule_id": "FIN-001"
+        },
+        {
+          "field_path": "financial.spikes[date=28-10-2025]",
+          "severity": "critical",
+          "explanation": "A massive cluster of unexplained deposits totaling 200,000 INR occurred between 28-10-2025 and 30-10-2025, including a 100,000 INR unlabeled deposit. This indicates sudden fund manipulation just before a potential statement boundary.",
+          "rule_id": "FIN-001"
+        },
+        {
+          "field_path": "financial.closing_balance",
+          "severity": "warning",
+          "explanation": "The current documented closing balance is 141,083.88, which is below the ¥2,000,000 threshold. Please upload statements for any additional bank accounts so balances can be aggregated to meet the requirement.",
+          "rule_id": "FIN-004"
+        },
+        {
+          "field_path": "avg_monthly_income",
+          "severity": "info",
+          "explanation": "Document not provided — required for complete audit. Cannot perform cross-document income verification or assess capacity to cover costs until payslips and sponsor letters are uploaded.",
+          "rule_id": null
+        }
+      ],
+      "confidence": 0.98,
+      "agent_verdict": "critical",
+      "summary": "The provided bank statement reveals critical signs of fund manipulation, including aggressive smurfing in August 2025 and March 2026, alongside insufficient balances and pending income verification documents."
+    },
+    {
+      "agent_id": "temporal_agent",
+      "anomalies": [
+        {
+          "field_path": "employment_start",
+          "severity": "info",
+          "explanation": "Document not provided — required for complete audit.",
+          "rule_id": null
+        },
+        {
+          "field_path": "employment_end",
+          "severity": "info",
+          "explanation": "Document not provided — required for complete audit.",
+          "rule_id": null
+        },
+        {
+          "field_path": "visa_window_start",
+          "severity": "info",
+          "explanation": "Document not provided — required for complete audit.",
+          "rule_id": null
+        },
+        {
+          "field_path": "visa_window_end",
+          "severity": "info",
+          "explanation": "Document not provided — required for complete audit.",
+          "rule_id": null
+        },
+        {
+          "field_path": "doc_date_ranges[20].start",
+          "severity": "critical",
+          "explanation": "Bank statement dates show a chronological discontinuity: page 20 ends on 09-01-2026, but page 21 starts on 11-01-2026, leaving 10-01-2026 unaccounted for.",
+          "rule_id": null
+        },
+        {
+          "field_path": "doc_date_ranges[1].start",
+          "severity": "critical",
+          "explanation": "While page 1 implies a start date of 24-04-2025, sequential detailed transactions on page 2 do not begin until 29-05-2025, indicating missing pages or a gap in early records.",
+          "rule_id": null
+        }
+      ],
+      "confidence": 0.95,
+      "agent_verdict": "critical",
+      "summary": "Identified critical temporal discontinuities within the provided bank statements, alongside several missing required documents."
+    },
+    {
+      "agent_id": "sponsor_agent",
+      "anomalies": [
+        {
+          "field_path": "sponsor",
+          "severity": "info",
+          "explanation": "Document not provided — required for complete audit. The sponsor dataset is completely null.",
+          "rule_id": null
+        },
+        {
+          "field_path": "identity.passport_number",
+          "severity": "info",
+          "explanation": "Document not provided — required for complete audit.",
+          "rule_id": null
+        },
+        {
+          "field_path": "financial.closing_balance",
+          "severity": "critical",
+          "explanation": "The applicant's personal closing balance of 141,083.88 INR falls severely short of the ¥2,000,000 (approx. 1,150,000 INR) minimum requirement for a Japanese Student visa, making a verified sponsor absolutely mandatory.",
+          "rule_id": null
+        },
+        {
+          "field_path": "financial.spikes",
+          "severity": "critical",
+          "explanation": "Strong evidence of smurfing/fund inflation on 03-03-2026, featuring five separate immediate transfers totaling 140,000 INR in a single day.",
+          "rule_id": null
+        },
+        {
+          "field_path": "financial.unlabeled_deposit_count",
+          "severity": "warning",
+          "explanation": "The account contains 198 unlabeled deposits, which obfuscates the origin of funds and directly violates the requirement that all large deposits have documented sources.",
+          "rule_id": null
+        }
+      ],
+      "confidence": 0.98,
+      "agent_verdict": "critical",
+      "summary": "Sponsorship documentation is entirely missing, which is highly problematic given the applicant's severe personal balance shortfall and blatant smurfing anomalies in their financial record."
+    },
+    {
+      "agent_id": "enrollment_agent",
+      "anomalies": [
+        {
+          "field_path": "enrollment",
+          "severity": "info",
+          "explanation": "Document not provided — required for complete audit.",
+          "rule_id": null
+        },
+        {
+          "field_path": "financial.closing_balance",
+          "severity": "critical",
+          "explanation": "Closing balance of 141,083.88 INR is severely below the estimated equivalent of the ¥2,000,000 (approx. 1,100,000 INR) minimum requirement for a Japanese Student COE.",
+          "rule_id": null
+        },
+        {
+          "field_path": "financial.spikes",
+          "severity": "critical",
+          "explanation": "Five identical incoming transfers of 30,000 INR on 03-03-2026 indicate smurfing or structured deposits designed to obscure the source of funds.",
+          "rule_id": null
+        },
+        {
+          "field_path": "financial.unlabeled_deposit_count",
+          "severity": "critical",
+          "explanation": "198 unlabeled deposits are present, including successive 50,000 INR deposits in October 2025, violating the requirement that all large deposits have documented sources.",
+          "rule_id": null
+        },
+        {
+          "field_path": "financial.avg_monthly_income",
+          "severity": "info",
+          "explanation": "Document not provided — required for complete audit.",
+          "rule_id": null
+        }
+      ],
+      "confidence": 0.95,
+      "agent_verdict": "critical",
+      "summary": "Critical financial anomalies detected including severe balance shortfall for COE requirements and evidence of structured deposits (smurfing), alongside informational gaps for missing enrollment documents."
+    }
+  ],
+  "completed_agents": [
+    "identity_agent",
+    "financial_agent",
+    "temporal_agent",
+    "sponsor_agent",
+    "enrollment_agent"
+  ],
+  "visa_context": {
+    "visa_type": "student",
+    "destination": "japan",
+    "applicant_country": null,
+    "min_balance": 2000000,
+    "balance_currency": "JPY",
+    "spike_ratio_alpha": 3.0,
+    "income_balance_epsilon": 0.15,
+    "income_months_required": 6,
+    "gap_warn_days": 30,
+    "gap_crit_days": 90,
+    "sponsor_coverage_multiplier": 1.2,
+    "required_doc_types": [
+      "passport",
+      "bank_statement",
+      "payslip",
+      "enrollment_letter"
+    ],
+    "jurisdiction_context": "Japanese Student (COE) visa requirements: Minimum bank balance of ¥2,000,000. 6 months of consecutive bank statements required. Certificate of Eligibility (COE) must match visa application dates. All large deposits must have documented sources. Sponsor must demonstrate income ≥1.2× total program costs."
+  },
+  "document_checklist": [
+    {
+      "label": "bank_statement",
+      "status": "uploaded"
+    }
+  ],
+  "verdict": {
+    "verdict": "INCOMPLETE_DOSSIER",
+    "risk_score": 0.88,
+    "missing_documents": [
+      "passport",
+      "payslip",
+      "tax_return",
+      "sponsor_letter",
+      "employment_letter",
+      "enrollment_letter",
+      "affidavit"
+    ],
+    "critical_issues": [
+      "Temporal discontinuities within the bank statement: an unaccounted-for gap on 10-01-2026 between pages 20 and 21, and a detailed transaction gap between 24-04-2025 and 29-05-2025.",
+      "Blatant fund structuring (smurfing) on 03-03-2026, comprising five separate transfers totaling 140,000 INR in a single day.",
+      "Organized fund parking between 17-08-2025 and 23-08-2025 consisting of rapid, successive 25,000 to 30,000 INR deposits.",
+      "Massive cluster of unexplained deposits between 28-10-2025 and 30-10-2025 totaling 200,000 INR (including a single 100,000 INR unlabeled deposit).",
+      "198 unlabeled deposits throughout the statement, heavily obfuscating the origin of funds.",
+      "Severe closing balance shortfall (141,083.88 INR), far below typical minimum visa requirements, making strong sponsorship absolutely mandatory."
+    ],
+    "warning_issues": [
+      "Internal name variations across the provided document (KORADA SATYANARAYANA, K Satyanarayana, etc.) which require passport verification.",
+      "Multiple other anomalous spikes exceeding 3x the average credit (e.g., 13-07-2025, 08-10-2025) that lack clear source attribution."
+    ],
+    "rejection_narrative": "This is a pre-submission audit report. The current dossier is incomplete and cannot be submitted in its present state. A review of the provided bank statement reveals critical anomalies that pose a near-certain risk of visa refusal if not addressed prior to submission. First, the statement contains temporal discontinuities, notably a missing day (10-01-2026) between pages 20 and 21, and a transaction gap between April and May 2025, suggesting missing pages or tampered records. Second, there is prominent evidence of fund structuring (smurfing). This is most visible on 03-03-2026, where five consecutive transfers totaling 140,000 INR were deposited in a single day, as well as an unnatural sequence of rapid deposits in August 2025. Third, the account exhibits 198 unlabeled deposits, including a sudden, unexplained influx of 200,000 INR in late October 2025, which obfuscates the true origin of funds. Finally, the closing balance of 141,083.88 INR is critically below standard financial thresholds for this visa category. In addition to resolving these financial anomalies, the applicant must upload the following missing documents to complete the dossier: passport, payslip, tax return, sponsor letter, employment letter, enrollment letter, and an affidavit.",
+    "rebuttal_guidance": [
+      "Upload a complete, contiguous bank statement directly issued by the financial institution to resolve the temporal gaps (e.g., missing records for 10-01-2026).",
+      "Provide formal source-of-funds documentation (e.g., loan agreements, asset sales, or official payslips) to explain the clustered deposits on 03-03-2026, 17-08-2025 to 23-08-2025, and late October 2025.",
+      "Provide an affidavit or detailed letter of explanation explicitly clarifying the nature and source of the 198 unlabeled deposits.",
+      "Upload a valid passport to confirm the applicant's canonical identity and resolve the internal name variations.",
+      "Upload a formal Sponsor Letter along with the sponsor's financial documents to compensate for the primary applicant's severe balance shortfall.",
+      "Upload all outstanding required documents (payslip, tax_return, employment_letter, enrollment_letter) to complete the visa dossier."
+    ],
+    "citations": [
+      "temporal.doc_date_ranges[20].start",
+      "temporal.doc_date_ranges[1].start",
+      "financial.spikes[date=03-03-2026]",
+      "financial.spikes[date=17-08-2025]",
+      "financial.spikes[date=28-10-2025]",
+      "financial.unlabeled_deposit_count",
+      "financial.closing_balance",
+      "identity.cross_doc_name_match"
+    ]
+  },
+  "risk_score": 0.88,
+  "raw_purged": true,
+  "_debug_logger": "<debug.logger.DebugLogger object at 0x000002432E6C3CB0>"
+}

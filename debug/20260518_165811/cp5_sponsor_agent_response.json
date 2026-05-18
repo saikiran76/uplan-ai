@@ -1,0 +1,47 @@
+{
+  "agent_id": "sponsor_agent",
+  "elapsed_s": 18.22,
+  "parse_error": null,
+  "verdict": "critical",
+  "confidence": 0.98,
+  "anomaly_count": 5,
+  "summary": "Sponsorship documentation is entirely missing, which is highly problematic given the applicant's severe personal balance shortfall and blatant smurfing anomalies in their financial record.",
+  "full_finding": {
+    "agent_id": "sponsor_agent",
+    "anomalies": [
+      {
+        "field_path": "sponsor",
+        "severity": "info",
+        "explanation": "Document not provided — required for complete audit. The sponsor dataset is completely null.",
+        "rule_id": null
+      },
+      {
+        "field_path": "identity.passport_number",
+        "severity": "info",
+        "explanation": "Document not provided — required for complete audit.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.closing_balance",
+        "severity": "critical",
+        "explanation": "The applicant's personal closing balance of 141,083.88 INR falls severely short of the ¥2,000,000 (approx. 1,150,000 INR) minimum requirement for a Japanese Student visa, making a verified sponsor absolutely mandatory.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.spikes",
+        "severity": "critical",
+        "explanation": "Strong evidence of smurfing/fund inflation on 03-03-2026, featuring five separate immediate transfers totaling 140,000 INR in a single day.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.unlabeled_deposit_count",
+        "severity": "warning",
+        "explanation": "The account contains 198 unlabeled deposits, which obfuscates the origin of funds and directly violates the requirement that all large deposits have documented sources.",
+        "rule_id": null
+      }
+    ],
+    "confidence": 0.98,
+    "agent_verdict": "critical",
+    "summary": "Sponsorship documentation is entirely missing, which is highly problematic given the applicant's severe personal balance shortfall and blatant smurfing anomalies in their financial record."
+  }
+}

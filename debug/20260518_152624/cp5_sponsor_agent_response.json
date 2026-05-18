@@ -1,0 +1,47 @@
+{
+  "agent_id": "sponsor_agent",
+  "elapsed_s": 23.36,
+  "parse_error": null,
+  "verdict": "critical",
+  "confidence": 0.99,
+  "anomaly_count": 5,
+  "summary": "The application lacks a financial sponsor, while the applicant's personal accounts demonstrate severe fund-parking behavior and fall drastically short of the ¥2,000,000 COE minimum balance requirement.",
+  "full_finding": {
+    "agent_id": "sponsor_agent",
+    "anomalies": [
+      {
+        "field_path": "sponsor",
+        "severity": "warning",
+        "explanation": "No sponsor data exists (null), meaning the application lacks financial sponsorship documentation. The applicant must therefore qualify as entirely self-funded, shifting all financial scrutiny to their personal accounts.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.closing_balance",
+        "severity": "critical",
+        "explanation": "The applicant's closing balance of 141,083.88 INR (approx. ¥255,000 JPY) is massively deficient. It falls short of the ¥2,000,000 Japan COE minimum requirement by approximately ¥1,745,000.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.spikes[8].amount",
+        "severity": "critical",
+        "explanation": "A massive, unlabeled deposit of 100,000 INR (19.44 times the average monthly activity) occurred on 28-10-2025, which violates the strict COE requirement that all large deposits must have documented sources.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.unlabeled_deposit_count",
+        "severity": "critical",
+        "explanation": "The account contains 189 unlabeled deposits and highly suspicious structured transfer clusters (e.g., four identical 30,000 INR deposits on 03-03-2026), indicative of systemic fund parking to artificially inflate the balance.",
+        "rule_id": null
+      },
+      {
+        "field_path": "identity.cross_doc_name_match",
+        "severity": "warning",
+        "explanation": "Applicant identity documents fail cross-document name matching due to missing transliteration consistency between 'MR KORADA SATYANARAYANA' and 'SATYANARAYANA KORAD'.",
+        "rule_id": null
+      }
+    ],
+    "confidence": 0.99,
+    "agent_verdict": "critical",
+    "summary": "The application lacks a financial sponsor, while the applicant's personal accounts demonstrate severe fund-parking behavior and fall drastically short of the ¥2,000,000 COE minimum balance requirement."
+  }
+}

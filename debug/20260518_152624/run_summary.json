@@ -1,0 +1,431 @@
+{
+  "run_id": "20260518_152624",
+  "total_elapsed_s": 1011.3,
+  "checkpoints": [
+    {
+      "checkpoint": "CP0",
+      "timestamp": "2026-05-18T15:26:24.434186+00:00",
+      "file": "document_1.pdf",
+      "pages": 38,
+      "electronic": true
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:26:45.400799+00:00",
+      "page": 3,
+      "type": "bank_statement",
+      "non_null_count": 7,
+      "elapsed_s": 20.88
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:26:49.252082+00:00",
+      "page": 5,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 24.72
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:26:50.506490+00:00",
+      "page": 1,
+      "type": "bank_statement",
+      "non_null_count": 11,
+      "elapsed_s": 26.01
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:26:55.320182+00:00",
+      "page": 4,
+      "type": "bank_statement",
+      "non_null_count": 10,
+      "elapsed_s": 30.79
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:27:03.387705+00:00",
+      "page": 2,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 38.87
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:27:08.294179+00:00",
+      "page": 8,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 17.79
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:27:14.139120+00:00",
+      "page": 7,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 24.89
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:27:15.461707+00:00",
+      "page": 6,
+      "type": "bank_statement",
+      "non_null_count": 8,
+      "elapsed_s": 30.06
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:27:30.349271+00:00",
+      "page": 9,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 35.03
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:27:30.550297+00:00",
+      "page": 12,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 16.41
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:27:30.552065+00:00",
+      "page": 10,
+      "type": "bank_statement",
+      "non_null_count": 8,
+      "elapsed_s": 27.16
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:27:34.406242+00:00",
+      "page": 13,
+      "type": "bank_statement",
+      "non_null_count": 8,
+      "elapsed_s": 18.94
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:27:41.165314+00:00",
+      "page": 11,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 32.87
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:27:45.394778+00:00",
+      "page": 15,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 14.84
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:27:46.185763+00:00",
+      "page": 14,
+      "type": "bank_statement",
+      "non_null_count": 8,
+      "elapsed_s": 15.83
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:27:46.821574+00:00",
+      "page": 16,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 16.26
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:28:01.957123+00:00",
+      "page": 20,
+      "type": "bank_statement",
+      "non_null_count": 8,
+      "elapsed_s": 15.77
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:28:02.842515+00:00",
+      "page": 21,
+      "type": "bank_statement",
+      "non_null_count": 8,
+      "elapsed_s": 16.02
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:28:04.515023+00:00",
+      "page": 17,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 30.11
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:28:12.503974+00:00",
+      "page": 18,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 31.34
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:28:18.249875+00:00",
+      "page": 19,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 32.85
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:28:26.122081+00:00",
+      "page": 22,
+      "type": "bank_statement",
+      "non_null_count": 10,
+      "elapsed_s": 24.16
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:28:27.962326+00:00",
+      "page": 23,
+      "type": "bank_statement",
+      "non_null_count": 10,
+      "elapsed_s": 25.12
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:28:32.378783+00:00",
+      "page": 24,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 27.86
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:28:34.106313+00:00",
+      "page": 25,
+      "type": "bank_statement",
+      "non_null_count": 8,
+      "elapsed_s": 21.6
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:28:46.463825+00:00",
+      "page": 26,
+      "type": "bank_statement",
+      "non_null_count": 10,
+      "elapsed_s": 28.21
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:28:48.586867+00:00",
+      "page": 29,
+      "type": "bank_statement",
+      "non_null_count": 8,
+      "elapsed_s": 16.21
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:28:52.482338+00:00",
+      "page": 28,
+      "type": "bank_statement",
+      "non_null_count": 10,
+      "elapsed_s": 24.52
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:28:52.948857+00:00",
+      "page": 27,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 26.83
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:29:02.983822+00:00",
+      "page": 30,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 28.88
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:29:11.429639+00:00",
+      "page": 31,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 24.96
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:29:16.607946+00:00",
+      "page": 32,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 28.02
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:29:20.187353+00:00",
+      "page": 34,
+      "type": "bank_statement",
+      "non_null_count": 8,
+      "elapsed_s": 27.24
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:29:27.786174+00:00",
+      "page": 36,
+      "type": "bank_statement",
+      "non_null_count": 8,
+      "elapsed_s": 16.35
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:29:29.801359+00:00",
+      "page": 38,
+      "type": "bank_statement",
+      "non_null_count": 7,
+      "elapsed_s": 9.61
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:29:30.692696+00:00",
+      "page": 33,
+      "type": "bank_statement",
+      "non_null_count": 10,
+      "elapsed_s": 38.21
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:29:35.304926+00:00",
+      "page": 37,
+      "type": "bank_statement",
+      "non_null_count": 8,
+      "elapsed_s": 18.69
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T15:29:43.191185+00:00",
+      "page": 35,
+      "type": "bank_statement",
+      "non_null_count": 9,
+      "elapsed_s": 40.21
+    },
+    {
+      "checkpoint": "CP3",
+      "timestamp": "2026-05-18T15:29:43.538534+00:00",
+      "canonical_name": "MR KORADA SATYANARAYANA",
+      "doc_types": [
+        "bank_statement"
+      ],
+      "closing_balance": 141083.88,
+      "token_count": 2693
+    },
+    {
+      "checkpoint": "CP4",
+      "timestamp": "2026-05-18T15:29:43.541213+00:00",
+      "agent": "identity_agent",
+      "estimated_tokens": 506,
+      "graph_keys": [
+        "identity"
+      ]
+    },
+    {
+      "checkpoint": "CP5",
+      "timestamp": "2026-05-18T15:39:55.315444+00:00",
+      "agent": "identity_agent",
+      "verdict": "critical",
+      "confidence": 0.99,
+      "elapsed_s": 611.77,
+      "parse_error": null
+    },
+    {
+      "checkpoint": "CP4",
+      "timestamp": "2026-05-18T15:39:56.325480+00:00",
+      "agent": "financial_agent",
+      "estimated_tokens": 3097,
+      "graph_keys": [
+        "financial",
+        "identity"
+      ]
+    },
+    {
+      "checkpoint": "CP5",
+      "timestamp": "2026-05-18T15:41:10.454693+00:00",
+      "agent": "financial_agent",
+      "verdict": "critical",
+      "confidence": 0.99,
+      "elapsed_s": 74.13,
+      "parse_error": null
+    },
+    {
+      "checkpoint": "CP4",
+      "timestamp": "2026-05-18T15:41:11.459770+00:00",
+      "agent": "temporal_agent",
+      "estimated_tokens": 2330,
+      "graph_keys": [
+        "temporal",
+        "financial"
+      ]
+    },
+    {
+      "checkpoint": "CP5",
+      "timestamp": "2026-05-18T15:42:03.086202+00:00",
+      "agent": "temporal_agent",
+      "verdict": "critical",
+      "confidence": 0.95,
+      "elapsed_s": 51.63,
+      "parse_error": null
+    },
+    {
+      "checkpoint": "CP4",
+      "timestamp": "2026-05-18T15:42:04.101936+00:00",
+      "agent": "sponsor_agent",
+      "estimated_tokens": 1253,
+      "graph_keys": [
+        "sponsor",
+        "identity",
+        "financial"
+      ]
+    },
+    {
+      "checkpoint": "CP5",
+      "timestamp": "2026-05-18T15:42:27.463989+00:00",
+      "agent": "sponsor_agent",
+      "verdict": "critical",
+      "confidence": 0.99,
+      "elapsed_s": 23.36,
+      "parse_error": null
+    },
+    {
+      "checkpoint": "CP4",
+      "timestamp": "2026-05-18T15:42:28.468940+00:00",
+      "agent": "enrollment_agent",
+      "estimated_tokens": 2324,
+      "graph_keys": [
+        "enrollment",
+        "financial",
+        "temporal"
+      ]
+    },
+    {
+      "checkpoint": "CP5",
+      "timestamp": "2026-05-18T15:42:55.616358+00:00",
+      "agent": "enrollment_agent",
+      "verdict": "critical",
+      "confidence": 1.0,
+      "elapsed_s": 27.15,
+      "parse_error": null
+    },
+    {
+      "checkpoint": "CP6",
+      "timestamp": "2026-05-18T15:43:15.583898+00:00",
+      "verdict": "FAIL",
+      "risk_score": 0.99,
+      "elapsed_s": 18.93
+    }
+  ],
+  "output_dir": "C:\\Users\\ksk76\\Downloads\\uplan-hackathon-space-amd\\refined\\new-plan\\debug\\20260518_152624"
+}

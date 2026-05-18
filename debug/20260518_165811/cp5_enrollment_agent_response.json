@@ -1,0 +1,47 @@
+{
+  "agent_id": "enrollment_agent",
+  "elapsed_s": 13.83,
+  "parse_error": null,
+  "verdict": "critical",
+  "confidence": 0.95,
+  "anomaly_count": 5,
+  "summary": "Critical financial anomalies detected including severe balance shortfall for COE requirements and evidence of structured deposits (smurfing), alongside informational gaps for missing enrollment documents.",
+  "full_finding": {
+    "agent_id": "enrollment_agent",
+    "anomalies": [
+      {
+        "field_path": "enrollment",
+        "severity": "info",
+        "explanation": "Document not provided — required for complete audit.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.closing_balance",
+        "severity": "critical",
+        "explanation": "Closing balance of 141,083.88 INR is severely below the estimated equivalent of the ¥2,000,000 (approx. 1,100,000 INR) minimum requirement for a Japanese Student COE.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.spikes",
+        "severity": "critical",
+        "explanation": "Five identical incoming transfers of 30,000 INR on 03-03-2026 indicate smurfing or structured deposits designed to obscure the source of funds.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.unlabeled_deposit_count",
+        "severity": "critical",
+        "explanation": "198 unlabeled deposits are present, including successive 50,000 INR deposits in October 2025, violating the requirement that all large deposits have documented sources.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.avg_monthly_income",
+        "severity": "info",
+        "explanation": "Document not provided — required for complete audit.",
+        "rule_id": null
+      }
+    ],
+    "confidence": 0.95,
+    "agent_verdict": "critical",
+    "summary": "Critical financial anomalies detected including severe balance shortfall for COE requirements and evidence of structured deposits (smurfing), alongside informational gaps for missing enrollment documents."
+  }
+}

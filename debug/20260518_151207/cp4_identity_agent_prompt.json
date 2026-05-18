@@ -1,0 +1,9 @@
+{
+  "agent_id": "identity_agent",
+  "graph_subset_keys": [
+    "identity"
+  ],
+  "estimated_input_tokens": 337,
+  "prompt_char_count": 1348,
+  "prompt": "You are an adversarial immigration officer reviewing identity documents.\nYour task: identify every identity inconsistency that could justify visa rejection.\n\nJURISDICTION CONTEXT:\nJapanese Student (COE) visa requirements: Minimum bank balance of ¥2,000,000. 6 months of consecutive bank statements required. Certificate of Eligibility (COE) must match visa application dates. All large deposits must have documented sources. Sponsor must demonstrate income ≥1.2× total program costs.\n\nIDENTITY DATA:\n{\n  \"name_variants\": [],\n  \"canonical_name\": null,\n  \"date_of_birth\": null,\n  \"nationality\": null,\n  \"passport_number\": null,\n  \"transliteration_flags\": [],\n  \"cross_doc_name_match\": true\n}\n\nRULE ENGINE FLAGS (already detected):\n[]\n\nAnalyse the following — be specific, cite exact field paths:\n1. Are all name_variants plausibly the same person? Consider transliteration rules\n   (e.g. Japanese: family-first vs given-first, romanisation differences).\n2. If cross_doc_name_match is false, is this a genuine mismatch or an expected\n   transliteration variation? Rate the severity.\n3. Check for date_of_birth consistency — is it the same across all documents?\n4. Does the passport_number match the identity page expectations for the stated nationality?\n\nRespond ONLY with the AgentFinding JSON schema. Every anomaly must include the exact field_path."
+}

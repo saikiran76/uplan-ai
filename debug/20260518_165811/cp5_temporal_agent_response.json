@@ -1,0 +1,53 @@
+{
+  "agent_id": "temporal_agent",
+  "elapsed_s": 22.03,
+  "parse_error": null,
+  "verdict": "critical",
+  "confidence": 0.95,
+  "anomaly_count": 6,
+  "summary": "Identified critical temporal discontinuities within the provided bank statements, alongside several missing required documents.",
+  "full_finding": {
+    "agent_id": "temporal_agent",
+    "anomalies": [
+      {
+        "field_path": "employment_start",
+        "severity": "info",
+        "explanation": "Document not provided — required for complete audit.",
+        "rule_id": null
+      },
+      {
+        "field_path": "employment_end",
+        "severity": "info",
+        "explanation": "Document not provided — required for complete audit.",
+        "rule_id": null
+      },
+      {
+        "field_path": "visa_window_start",
+        "severity": "info",
+        "explanation": "Document not provided — required for complete audit.",
+        "rule_id": null
+      },
+      {
+        "field_path": "visa_window_end",
+        "severity": "info",
+        "explanation": "Document not provided — required for complete audit.",
+        "rule_id": null
+      },
+      {
+        "field_path": "doc_date_ranges[20].start",
+        "severity": "critical",
+        "explanation": "Bank statement dates show a chronological discontinuity: page 20 ends on 09-01-2026, but page 21 starts on 11-01-2026, leaving 10-01-2026 unaccounted for.",
+        "rule_id": null
+      },
+      {
+        "field_path": "doc_date_ranges[1].start",
+        "severity": "critical",
+        "explanation": "While page 1 implies a start date of 24-04-2025, sequential detailed transactions on page 2 do not begin until 29-05-2025, indicating missing pages or a gap in early records.",
+        "rule_id": null
+      }
+    ],
+    "confidence": 0.95,
+    "agent_verdict": "critical",
+    "summary": "Identified critical temporal discontinuities within the provided bank statements, alongside several missing required documents."
+  }
+}

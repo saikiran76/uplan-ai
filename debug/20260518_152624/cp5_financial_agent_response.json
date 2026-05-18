@@ -1,0 +1,53 @@
+{
+  "agent_id": "financial_agent",
+  "elapsed_s": 74.13,
+  "parse_error": null,
+  "verdict": "critical",
+  "confidence": 0.99,
+  "anomaly_count": 6,
+  "summary": "Visa rejection is strongly justified due to extreme account churning, 189 unlabeled deposits including multiple smurfed spikes, zero verifiable income, and a massive shortfall from the 2000000 JPY requirement.",
+  "full_finding": {
+    "agent_id": "financial_agent",
+    "anomalies": [
+      {
+        "field_path": "financial.closing_balance",
+        "severity": "critical",
+        "explanation": "Closing balance of 141083.88 INR is severely below the 2000000 JPY minimum requirement for a Japanese Student visa.",
+        "rule_id": "FIN-004"
+      },
+      {
+        "field_path": "financial.avg_monthly_income",
+        "severity": "critical",
+        "explanation": "Average monthly income is null, making it impossible to calculate if the sponsor meets the 1.2x program cost requirement or verify cross-document payslips.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.spikes[8].amount",
+        "severity": "critical",
+        "explanation": "Deposit of 100000 INR on 28-10-2025 is 19.44x the average and lacks a plausible source label, violating rules on documented funds.",
+        "rule_id": "FIN-001"
+      },
+      {
+        "field_path": "financial.spikes[17].amount",
+        "severity": "critical",
+        "explanation": "Six rapid, unlabeled deposits of 30000 INR on 03-03-2026 exhibit clear smurfing patterns to artificially inflate the balance without documentation.",
+        "rule_id": "FIN-001"
+      },
+      {
+        "field_path": "financial.total_credits",
+        "severity": "critical",
+        "explanation": "Despite zero declared income, the account shows 1.8M INR in credits and 1.7M INR in debits across 1036 transactions, indicating severe account churning rather than genuine savings.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.unlabeled_deposit_count",
+        "severity": "warning",
+        "explanation": "There are 189 total deposits with no documented source, completely contradicting the strict visa requirement for transparent financial provenance.",
+        "rule_id": "FIN-002"
+      }
+    ],
+    "confidence": 0.99,
+    "agent_verdict": "critical",
+    "summary": "Visa rejection is strongly justified due to extreme account churning, 189 unlabeled deposits including multiple smurfed spikes, zero verifiable income, and a massive shortfall from the 2000000 JPY requirement."
+  }
+}

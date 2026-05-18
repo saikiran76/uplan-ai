@@ -1,0 +1,287 @@
+{
+  "page": 1,
+  "elapsed_s": 8.39,
+  "page_type_detected": "bank_statement",
+  "non_null_fields": {
+    "page_number": 1,
+    "page_type": "bank_statement",
+    "person_name": "MR KORADA SATYANARAYANA",
+    "currency": "INR",
+    "closing_balance": 46479.31,
+    "transactions": [
+      {
+        "date": "07-05-2025",
+        "description": "UPIAB/947649841934/CR/KUSUMAPU/BARB/korada30112@yb",
+        "amount": 5500.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "09-05-2025",
+        "description": "UPIAR/512904295285/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-05-2025",
+        "description": "UPIAR/512959089143/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-05-2025",
+        "description": "UPIAR/179115800459/DR/KOYYANA /YESB/ Q828679696@yb",
+        "amount": 80.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "10-05-2025",
+        "description": "UPIAR/360531308162/DR/SWEET IN/YESB/ Q821835848@yb",
+        "amount": 120.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "11-05-2025",
+        "description": "UPIAR/575983610436/DR/SWEET IN/YESB/ Q163232668@yb",
+        "amount": 60.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "15-05-2025",
+        "description": "UPIAB/616804691415/CR/KUSUMAPU/BARB/korada30112@yb",
+        "amount": 4500.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "21-05-2025",
+        "description": "UPIAR/865110402342/DR/IRCTC UT/YESB/paytm-8796946@",
+        "amount": 45.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "23-05-2025",
+        "description": "UPIAR/599355269095/DR/SHEK RAH/IPOS/ul65up8xeq@pos",
+        "amount": 60.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "23-05-2025",
+        "description": "JNS-PMSBY-23-24-00027537318-600-56789958",
+        "amount": 20.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "25-05-2025",
+        "description": "UPIAR/506453464451/DR/A A brot/YESB/ Q074920615@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "26-05-2025",
+        "description": "UPIAR/740150367802/DR/LIFE LIN/YESB/ Q940692407@yb",
+        "amount": 24.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "27-05-2025",
+        "description": "UPIAR/770638729387/DR/ APSRTC/YESB/APSRTCOFFLINEE",
+        "amount": 45.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "27-05-2025",
+        "description": "UPIAR/971365912771/DR/SWEET IN/YESB/ Q163232668@yb",
+        "amount": 60.0,
+        "transaction_type": "debit",
+        "label": null
+      }
+    ],
+    "document_date": "24-04-2026",
+    "period_start": "24-04-2025",
+    "period_end": "24-04-2026"
+  },
+  "null_or_empty_fields": [
+    "date_of_birth",
+    "applicant_dob",
+    "nationality",
+    "passport_number",
+    "opening_balance",
+    "employer_name",
+    "job_title",
+    "monthly_salary",
+    "annual_income",
+    "employment_start",
+    "employment_end",
+    "sponsor_name",
+    "sponsor_relationship",
+    "sponsor_declared_income",
+    "sponsor_income_currency",
+    "applicant_name",
+    "declared_liquid_assets",
+    "declared_movable_assets",
+    "declared_property_value",
+    "declared_annual_income",
+    "declared_assets_total",
+    "institution_name",
+    "program_name",
+    "program_cost",
+    "program_duration_months",
+    "enrollment_start",
+    "tax_year",
+    "taxable_income",
+    "tax_paid",
+    "anomaly_flags"
+  ],
+  "raw_extraction": {
+    "page_number": 1,
+    "page_type": "bank_statement",
+    "person_name": "MR KORADA SATYANARAYANA",
+    "date_of_birth": null,
+    "applicant_dob": null,
+    "nationality": null,
+    "passport_number": null,
+    "currency": "INR",
+    "opening_balance": null,
+    "closing_balance": 46479.31,
+    "transactions": [
+      {
+        "date": "07-05-2025",
+        "description": "UPIAB/947649841934/CR/KUSUMAPU/BARB/korada30112@yb",
+        "amount": 5500.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "09-05-2025",
+        "description": "UPIAR/512904295285/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-05-2025",
+        "description": "UPIAR/512959089143/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-05-2025",
+        "description": "UPIAR/179115800459/DR/KOYYANA /YESB/ Q828679696@yb",
+        "amount": 80.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "10-05-2025",
+        "description": "UPIAR/360531308162/DR/SWEET IN/YESB/ Q821835848@yb",
+        "amount": 120.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "11-05-2025",
+        "description": "UPIAR/575983610436/DR/SWEET IN/YESB/ Q163232668@yb",
+        "amount": 60.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "15-05-2025",
+        "description": "UPIAB/616804691415/CR/KUSUMAPU/BARB/korada30112@yb",
+        "amount": 4500.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "21-05-2025",
+        "description": "UPIAR/865110402342/DR/IRCTC UT/YESB/paytm-8796946@",
+        "amount": 45.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "23-05-2025",
+        "description": "UPIAR/599355269095/DR/SHEK RAH/IPOS/ul65up8xeq@pos",
+        "amount": 60.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "23-05-2025",
+        "description": "JNS-PMSBY-23-24-00027537318-600-56789958",
+        "amount": 20.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "25-05-2025",
+        "description": "UPIAR/506453464451/DR/A A brot/YESB/ Q074920615@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "26-05-2025",
+        "description": "UPIAR/740150367802/DR/LIFE LIN/YESB/ Q940692407@yb",
+        "amount": 24.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "27-05-2025",
+        "description": "UPIAR/770638729387/DR/ APSRTC/YESB/APSRTCOFFLINEE",
+        "amount": 45.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "27-05-2025",
+        "description": "UPIAR/971365912771/DR/SWEET IN/YESB/ Q163232668@yb",
+        "amount": 60.0,
+        "transaction_type": "debit",
+        "label": null
+      }
+    ],
+    "employer_name": null,
+    "job_title": null,
+    "monthly_salary": null,
+    "annual_income": null,
+    "document_date": "24-04-2026",
+    "period_start": "24-04-2025",
+    "period_end": "24-04-2026",
+    "employment_start": null,
+    "employment_end": null,
+    "sponsor_name": null,
+    "sponsor_relationship": null,
+    "sponsor_declared_income": null,
+    "sponsor_income_currency": null,
+    "applicant_name": null,
+    "declared_liquid_assets": null,
+    "declared_movable_assets": null,
+    "declared_property_value": null,
+    "declared_annual_income": null,
+    "declared_assets_total": null,
+    "institution_name": null,
+    "program_name": null,
+    "program_cost": null,
+    "program_duration_months": null,
+    "enrollment_start": null,
+    "tax_year": null,
+    "taxable_income": null,
+    "tax_paid": null,
+    "anomaly_flags": []
+  }
+}

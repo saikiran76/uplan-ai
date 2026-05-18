@@ -1,0 +1,483 @@
+{
+  "page": 2,
+  "elapsed_s": 33.45,
+  "page_type_detected": "bank_statement",
+  "non_null_fields": {
+    "page_number": 2,
+    "page_type": "bank_statement",
+    "currency": "INR",
+    "opening_balance": 46479.31,
+    "closing_balance": 18064.14,
+    "transactions": [
+      {
+        "date": "29-05-2025",
+        "description": "UPIAR/017412959933/DR/ APSRTC/YESB/APSRTCOFFLINEE",
+        "amount": 105.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "01-06-2025",
+        "description": "UPIAR/826566078890/DR/KELLA BA/YESB/ Q403062371@yb",
+        "amount": 140.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "04-06-2025",
+        "description": "UPIAB/679706761084/CR/KUSUMAPU/BARB/korada30112@yb",
+        "amount": 5500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "09-06-2025",
+        "description": "UPIAR/516004560116/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-06-2025",
+        "description": "UPIAR/516072632025/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "17-06-2025",
+        "description": "UPIAB/226299238238/CR/KUSUMAPU/BARB/korada30112@yb",
+        "amount": 4500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "19-06-2025",
+        "description": "UPIAR/361471293879/DR/LIFE LIN/YESB/ Q940692407@yb",
+        "amount": 22.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "20-06-2025",
+        "description": "UPIAR/119857614179/DR/JAMI KRI/YESB/paytm.s1f7mjh@",
+        "amount": 150.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-06-2025",
+        "description": "UPIAR/864788380486/DR/Mr BOORL/YESB/ Q341673737@yb",
+        "amount": 28.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-06-2025",
+        "description": "UPIAR/381794698386/DR/MS ESWAR/YESB/paytmqr6dcxym@",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-06-2025",
+        "description": "UPIAR/507042785844/DR/SRI BHAG/KARB/ 7386384718@kb",
+        "amount": 270.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-06-2025",
+        "description": "UPIAR/856741353466/DR/A A brot/YESB/ Q588733211@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "28-06-2025",
+        "description": "Sms Charges For June Qtr ,2025",
+        "amount": 7.4,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "30-06-2025",
+        "description": "UPIAR/108770003647/DR/AVENUE S/ICIC/innovdmartap@i",
+        "amount": 660.8,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "01-07-2025",
+        "description": "UPIAR/551100840104/DR/Shek Rah/UTIB/gpay-112601924",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "01-07-2025",
+        "description": "UPIAB/623385939677/CR/KUSUMAPU/BARB/korada30112@yb",
+        "amount": 4000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "01-07-2025",
+        "description": "UPIAR/515309604832/DR/SRI LAKS/FDRL/BHARATPE.9K0K0",
+        "amount": 200.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "05-07-2025",
+        "description": "253110100033102:Int.Pd:01-04-2025 to 30-06-2025",
+        "amount": 304.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "06-07-2025",
+        "description": "UPIAR/469027217618/DR/BSNL Rec/YESB/PHONEPEBSNLSU",
+        "amount": 109.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "06-07-2025",
+        "description": "UPIAR/856393883906/DR/BSNL Rec/YESB/PHONEPEBSNLSO",
+        "amount": 10.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-07-2025",
+        "description": "UPIAR/519089563803/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-07-2025",
+        "description": "UPIAR/519051991337/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-07-2025",
+        "description": "UPIAR/721381374170/DR/ Inditab/YESB/PAYUPAYMENTS@y",
+        "amount": 107.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "10-07-2025",
+        "description": "UPIAR/263796388009/DR/ APSRTC/YESB/APSRTCOFFLINEE",
+        "amount": 85.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "11-07-2025",
+        "description": "UPIAR/343579499403/DR/Vizianag/YESB/ Q573638207@yb",
+        "amount": 150.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "11-07-2025",
+        "description": "UPIAR/872694645556/DR/PEDDAGOW/SBIN/ 8367202767@yb",
+        "amount": 35000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "13-07-2025",
+        "description": "IMPSAB/519500859054/Mr SATYANARAYANA /6303357650",
+        "amount": 20000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "16-07-2025",
+        "description": "UPIAR/351511528836/DR/Care Hea/UTIB/careinsurance.",
+        "amount": 21375.0,
+        "transaction_type": "debit",
+        "label": null
+      }
+    ],
+    "period_start": "29-05-2025",
+    "period_end": "16-07-2025"
+  },
+  "null_or_empty_fields": [
+    "person_name",
+    "date_of_birth",
+    "applicant_dob",
+    "nationality",
+    "passport_number",
+    "employer_name",
+    "job_title",
+    "monthly_salary",
+    "annual_income",
+    "document_date",
+    "employment_start",
+    "employment_end",
+    "sponsor_name",
+    "sponsor_relationship",
+    "sponsor_declared_income",
+    "sponsor_income_currency",
+    "applicant_name",
+    "declared_liquid_assets",
+    "declared_movable_assets",
+    "declared_property_value",
+    "declared_annual_income",
+    "declared_assets_total",
+    "institution_name",
+    "program_name",
+    "program_cost",
+    "program_duration_months",
+    "enrollment_start",
+    "tax_year",
+    "taxable_income",
+    "tax_paid",
+    "anomaly_flags"
+  ],
+  "raw_extraction": {
+    "page_number": 2,
+    "page_type": "bank_statement",
+    "person_name": null,
+    "date_of_birth": null,
+    "applicant_dob": null,
+    "nationality": null,
+    "passport_number": null,
+    "currency": "INR",
+    "opening_balance": 46479.31,
+    "closing_balance": 18064.14,
+    "transactions": [
+      {
+        "date": "29-05-2025",
+        "description": "UPIAR/017412959933/DR/ APSRTC/YESB/APSRTCOFFLINEE",
+        "amount": 105.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "01-06-2025",
+        "description": "UPIAR/826566078890/DR/KELLA BA/YESB/ Q403062371@yb",
+        "amount": 140.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "04-06-2025",
+        "description": "UPIAB/679706761084/CR/KUSUMAPU/BARB/korada30112@yb",
+        "amount": 5500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "09-06-2025",
+        "description": "UPIAR/516004560116/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-06-2025",
+        "description": "UPIAR/516072632025/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "17-06-2025",
+        "description": "UPIAB/226299238238/CR/KUSUMAPU/BARB/korada30112@yb",
+        "amount": 4500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "19-06-2025",
+        "description": "UPIAR/361471293879/DR/LIFE LIN/YESB/ Q940692407@yb",
+        "amount": 22.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "20-06-2025",
+        "description": "UPIAR/119857614179/DR/JAMI KRI/YESB/paytm.s1f7mjh@",
+        "amount": 150.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-06-2025",
+        "description": "UPIAR/864788380486/DR/Mr BOORL/YESB/ Q341673737@yb",
+        "amount": 28.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-06-2025",
+        "description": "UPIAR/381794698386/DR/MS ESWAR/YESB/paytmqr6dcxym@",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-06-2025",
+        "description": "UPIAR/507042785844/DR/SRI BHAG/KARB/ 7386384718@kb",
+        "amount": 270.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-06-2025",
+        "description": "UPIAR/856741353466/DR/A A brot/YESB/ Q588733211@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "28-06-2025",
+        "description": "Sms Charges For June Qtr ,2025",
+        "amount": 7.4,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "30-06-2025",
+        "description": "UPIAR/108770003647/DR/AVENUE S/ICIC/innovdmartap@i",
+        "amount": 660.8,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "01-07-2025",
+        "description": "UPIAR/551100840104/DR/Shek Rah/UTIB/gpay-112601924",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "01-07-2025",
+        "description": "UPIAB/623385939677/CR/KUSUMAPU/BARB/korada30112@yb",
+        "amount": 4000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "01-07-2025",
+        "description": "UPIAR/515309604832/DR/SRI LAKS/FDRL/BHARATPE.9K0K0",
+        "amount": 200.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "05-07-2025",
+        "description": "253110100033102:Int.Pd:01-04-2025 to 30-06-2025",
+        "amount": 304.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "06-07-2025",
+        "description": "UPIAR/469027217618/DR/BSNL Rec/YESB/PHONEPEBSNLSU",
+        "amount": 109.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "06-07-2025",
+        "description": "UPIAR/856393883906/DR/BSNL Rec/YESB/PHONEPEBSNLSO",
+        "amount": 10.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-07-2025",
+        "description": "UPIAR/519089563803/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-07-2025",
+        "description": "UPIAR/519051991337/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-07-2025",
+        "description": "UPIAR/721381374170/DR/ Inditab/YESB/PAYUPAYMENTS@y",
+        "amount": 107.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "10-07-2025",
+        "description": "UPIAR/263796388009/DR/ APSRTC/YESB/APSRTCOFFLINEE",
+        "amount": 85.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "11-07-2025",
+        "description": "UPIAR/343579499403/DR/Vizianag/YESB/ Q573638207@yb",
+        "amount": 150.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "11-07-2025",
+        "description": "UPIAR/872694645556/DR/PEDDAGOW/SBIN/ 8367202767@yb",
+        "amount": 35000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "13-07-2025",
+        "description": "IMPSAB/519500859054/Mr SATYANARAYANA /6303357650",
+        "amount": 20000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "16-07-2025",
+        "description": "UPIAR/351511528836/DR/Care Hea/UTIB/careinsurance.",
+        "amount": 21375.0,
+        "transaction_type": "debit",
+        "label": null
+      }
+    ],
+    "employer_name": null,
+    "job_title": null,
+    "monthly_salary": null,
+    "annual_income": null,
+    "document_date": null,
+    "period_start": "29-05-2025",
+    "period_end": "16-07-2025",
+    "employment_start": null,
+    "employment_end": null,
+    "sponsor_name": null,
+    "sponsor_relationship": null,
+    "sponsor_declared_income": null,
+    "sponsor_income_currency": null,
+    "applicant_name": null,
+    "declared_liquid_assets": null,
+    "declared_movable_assets": null,
+    "declared_property_value": null,
+    "declared_annual_income": null,
+    "declared_assets_total": null,
+    "institution_name": null,
+    "program_name": null,
+    "program_cost": null,
+    "program_duration_months": null,
+    "enrollment_start": null,
+    "tax_year": null,
+    "taxable_income": null,
+    "tax_paid": null,
+    "anomaly_flags": []
+  }
+}

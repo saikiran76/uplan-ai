@@ -1,0 +1,199 @@
+{
+  "file_path": "document_1.pdf",
+  "file_size_bytes": 685797,
+  "page_count": 38,
+  "is_electronic": true,
+  "is_scanned": false,
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 1877,
+      "has_text_layer": true
+    },
+    {
+      "page": 2,
+      "char_count": 2693,
+      "has_text_layer": true
+    },
+    {
+      "page": 3,
+      "char_count": 2700,
+      "has_text_layer": true
+    },
+    {
+      "page": 4,
+      "char_count": 2726,
+      "has_text_layer": true
+    },
+    {
+      "page": 5,
+      "char_count": 2742,
+      "has_text_layer": true
+    },
+    {
+      "page": 6,
+      "char_count": 2737,
+      "has_text_layer": true
+    },
+    {
+      "page": 7,
+      "char_count": 2722,
+      "has_text_layer": true
+    },
+    {
+      "page": 8,
+      "char_count": 2746,
+      "has_text_layer": true
+    },
+    {
+      "page": 9,
+      "char_count": 2749,
+      "has_text_layer": true
+    },
+    {
+      "page": 10,
+      "char_count": 2745,
+      "has_text_layer": true
+    },
+    {
+      "page": 11,
+      "char_count": 2771,
+      "has_text_layer": true
+    },
+    {
+      "page": 12,
+      "char_count": 2743,
+      "has_text_layer": true
+    },
+    {
+      "page": 13,
+      "char_count": 2752,
+      "has_text_layer": true
+    },
+    {
+      "page": 14,
+      "char_count": 2735,
+      "has_text_layer": true
+    },
+    {
+      "page": 15,
+      "char_count": 2745,
+      "has_text_layer": true
+    },
+    {
+      "page": 16,
+      "char_count": 2721,
+      "has_text_layer": true
+    },
+    {
+      "page": 17,
+      "char_count": 2747,
+      "has_text_layer": true
+    },
+    {
+      "page": 18,
+      "char_count": 2742,
+      "has_text_layer": true
+    },
+    {
+      "page": 19,
+      "char_count": 2721,
+      "has_text_layer": true
+    },
+    {
+      "page": 20,
+      "char_count": 2700,
+      "has_text_layer": true
+    },
+    {
+      "page": 21,
+      "char_count": 2723,
+      "has_text_layer": true
+    },
+    {
+      "page": 22,
+      "char_count": 2727,
+      "has_text_layer": true
+    },
+    {
+      "page": 23,
+      "char_count": 2734,
+      "has_text_layer": true
+    },
+    {
+      "page": 24,
+      "char_count": 2741,
+      "has_text_layer": true
+    },
+    {
+      "page": 25,
+      "char_count": 2711,
+      "has_text_layer": true
+    },
+    {
+      "page": 26,
+      "char_count": 2738,
+      "has_text_layer": true
+    },
+    {
+      "page": 27,
+      "char_count": 2748,
+      "has_text_layer": true
+    },
+    {
+      "page": 28,
+      "char_count": 2762,
+      "has_text_layer": true
+    },
+    {
+      "page": 29,
+      "char_count": 2766,
+      "has_text_layer": true
+    },
+    {
+      "page": 30,
+      "char_count": 2757,
+      "has_text_layer": true
+    },
+    {
+      "page": 31,
+      "char_count": 2774,
+      "has_text_layer": true
+    },
+    {
+      "page": 32,
+      "char_count": 2779,
+      "has_text_layer": true
+    },
+    {
+      "page": 33,
+      "char_count": 2743,
+      "has_text_layer": true
+    },
+    {
+      "page": 34,
+      "char_count": 2753,
+      "has_text_layer": true
+    },
+    {
+      "page": 35,
+      "char_count": 2729,
+      "has_text_layer": true
+    },
+    {
+      "page": 36,
+      "char_count": 2732,
+      "has_text_layer": true
+    },
+    {
+      "page": 37,
+      "char_count": 2755,
+      "has_text_layer": true
+    },
+    {
+      "page": 38,
+      "char_count": 1440,
+      "has_text_layer": true
+    }
+  ]
+}

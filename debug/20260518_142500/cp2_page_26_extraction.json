@@ -1,0 +1,487 @@
+{
+  "page": 26,
+  "elapsed_s": 33.93,
+  "page_type_detected": "bank_statement",
+  "non_null_fields": {
+    "page_number": 26,
+    "page_type": "bank_statement",
+    "currency": "INR",
+    "opening_balance": 69828.9,
+    "closing_balance": 55934.25,
+    "transactions": [
+      {
+        "date": "13-02-2026",
+        "description": "UPIAB/076345404310/CR/LATCHIRE/SBIN/ 9052669014@yb",
+        "amount": 2000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "13-02-2026",
+        "description": "UPIAB/907389772155/CR/TADDEE S/HDFC/9490971239-2@y",
+        "amount": 5000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "13-02-2026",
+        "description": "UPIAR/194599874286/DR/Kalyanam/SBIN/9494547686-2@y",
+        "amount": 190.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "13-02-2026",
+        "description": "UPIAB/254686515945/CR/GOWRI RA/SBIN/penkigowriraju",
+        "amount": 1.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "13-02-2026",
+        "description": "UPIAB/042063618497/CR/GOWRI RA/SBIN/penkigowriraju",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "13-02-2026",
+        "description": "UPIAR/922041235357/DR/Bank Acc/SBIN/38487860368@SB",
+        "amount": 9.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "13-02-2026",
+        "description": "UPIAR/766566309730/DR/Bank Acc/SBIN/38487860368@SB",
+        "amount": 10000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "14-02-2026",
+        "description": "UPIAR/946126615061/DR/Indian R/SBIN/railsbiupi11.8",
+        "amount": 1790.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "14-02-2026",
+        "description": "UPIAR/525610815199/DR/Indian R/SBIN/railsbiupi11.8",
+        "amount": 2625.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "14-02-2026",
+        "description": "UPIAR/155386195166/DR/Indian R/SBIN/railsbiupi11.8",
+        "amount": 2670.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "14-02-2026",
+        "description": "UPIAR/759840407706/DR/Indian R/SBIN/railsbiupi11.8",
+        "amount": 1700.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "14-02-2026",
+        "description": "UPIAR/298394705953/DR/DHANA LA/YESB/ Q608527185@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "14-02-2026",
+        "description": "UPIAR/898495994140/DR/Smart Vi/JIOP/2305852734107-",
+        "amount": 476.6,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "15-02-2026",
+        "description": "UPIAR/129603611429/DR/Sayyad R/YESB/paytmqr6xm2cb@",
+        "amount": 80.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "15-02-2026",
+        "description": "UPIAR/787770812241/DR/SAMANVIT/YESB/paytm-9183714e",
+        "amount": 200.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "15-02-2026",
+        "description": "UPIAR/773512016734/DR/Bank Acc/CBIN/5666322276@CBI",
+        "amount": 9.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "15-02-2026",
+        "description": "UPIAR/553386503085/DR/Bank Acc/CBIN/5666322276@CBI",
+        "amount": 12000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "15-02-2026",
+        "description": "UPIAR/192992058610/DR/Bank Acc/CBIN/5575400361@CBI",
+        "amount": 10116.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "15-02-2026",
+        "description": "UPIAR/845668729151/DR/Mr UTTAM/YESB/ Q351987005@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "16-02-2026",
+        "description": "UPIAB/712582528001/CR/SHANMUKH/CNRB/ 9014489591@yb",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "16-02-2026",
+        "description": "UPIAB/029843297197/CR/CHUKKA /SBIN/ 9885033407@ax",
+        "amount": 3500.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "17-02-2026",
+        "description": "UPIAR/505601270657/DR/SHEK RAH/YESB/ Q324807443@yb",
+        "amount": 120.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "17-02-2026",
+        "description": "UPIAB/266928782584/CR/NADIPALL/IOBA/nsramakrishna@",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "17-02-2026",
+        "description": "UPIAB/403294234408/CR/SRI SAI /KVBL/ 9346072459@yb",
+        "amount": 7000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "17-02-2026",
+        "description": "UPIAB/149554780019/CR/BHEEMARA/SBIN/ sagarsuni9@yb",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "17-02-2026",
+        "description": "UPIAB/077708012533/CR/RABIYA /SBIN/irshadalam2005",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "17-02-2026",
+        "description": "UPIAR/813482578005/DR/SHEK RAH/YESB/ Q324807443@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "17-02-2026",
+        "description": "UPIAR/493836162249/DR/OMMI BHA/CBIN/202509PRT00Fhz",
+        "amount": 110.0,
+        "transaction_type": "debit",
+        "label": null
+      }
+    ],
+    "period_start": "13-02-2026",
+    "period_end": "17-02-2026",
+    "institution_name": "Union Bank of India",
+    "anomaly_flags": [
+      "balance_discontinuity"
+    ]
+  },
+  "null_or_empty_fields": [
+    "person_name",
+    "date_of_birth",
+    "applicant_dob",
+    "nationality",
+    "passport_number",
+    "employer_name",
+    "job_title",
+    "monthly_salary",
+    "annual_income",
+    "document_date",
+    "employment_start",
+    "employment_end",
+    "sponsor_name",
+    "sponsor_relationship",
+    "sponsor_declared_income",
+    "sponsor_income_currency",
+    "applicant_name",
+    "declared_liquid_assets",
+    "declared_movable_assets",
+    "declared_property_value",
+    "declared_annual_income",
+    "declared_assets_total",
+    "program_name",
+    "program_cost",
+    "program_duration_months",
+    "enrollment_start",
+    "tax_year",
+    "taxable_income",
+    "tax_paid"
+  ],
+  "raw_extraction": {
+    "page_number": 26,
+    "page_type": "bank_statement",
+    "person_name": null,
+    "date_of_birth": null,
+    "applicant_dob": null,
+    "nationality": null,
+    "passport_number": null,
+    "currency": "INR",
+    "opening_balance": 69828.9,
+    "closing_balance": 55934.25,
+    "transactions": [
+      {
+        "date": "13-02-2026",
+        "description": "UPIAB/076345404310/CR/LATCHIRE/SBIN/ 9052669014@yb",
+        "amount": 2000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "13-02-2026",
+        "description": "UPIAB/907389772155/CR/TADDEE S/HDFC/9490971239-2@y",
+        "amount": 5000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "13-02-2026",
+        "description": "UPIAR/194599874286/DR/Kalyanam/SBIN/9494547686-2@y",
+        "amount": 190.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "13-02-2026",
+        "description": "UPIAB/254686515945/CR/GOWRI RA/SBIN/penkigowriraju",
+        "amount": 1.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "13-02-2026",
+        "description": "UPIAB/042063618497/CR/GOWRI RA/SBIN/penkigowriraju",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "13-02-2026",
+        "description": "UPIAR/922041235357/DR/Bank Acc/SBIN/38487860368@SB",
+        "amount": 9.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "13-02-2026",
+        "description": "UPIAR/766566309730/DR/Bank Acc/SBIN/38487860368@SB",
+        "amount": 10000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "14-02-2026",
+        "description": "UPIAR/946126615061/DR/Indian R/SBIN/railsbiupi11.8",
+        "amount": 1790.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "14-02-2026",
+        "description": "UPIAR/525610815199/DR/Indian R/SBIN/railsbiupi11.8",
+        "amount": 2625.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "14-02-2026",
+        "description": "UPIAR/155386195166/DR/Indian R/SBIN/railsbiupi11.8",
+        "amount": 2670.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "14-02-2026",
+        "description": "UPIAR/759840407706/DR/Indian R/SBIN/railsbiupi11.8",
+        "amount": 1700.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "14-02-2026",
+        "description": "UPIAR/298394705953/DR/DHANA LA/YESB/ Q608527185@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "14-02-2026",
+        "description": "UPIAR/898495994140/DR/Smart Vi/JIOP/2305852734107-",
+        "amount": 476.6,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "15-02-2026",
+        "description": "UPIAR/129603611429/DR/Sayyad R/YESB/paytmqr6xm2cb@",
+        "amount": 80.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "15-02-2026",
+        "description": "UPIAR/787770812241/DR/SAMANVIT/YESB/paytm-9183714e",
+        "amount": 200.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "15-02-2026",
+        "description": "UPIAR/773512016734/DR/Bank Acc/CBIN/5666322276@CBI",
+        "amount": 9.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "15-02-2026",
+        "description": "UPIAR/553386503085/DR/Bank Acc/CBIN/5666322276@CBI",
+        "amount": 12000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "15-02-2026",
+        "description": "UPIAR/192992058610/DR/Bank Acc/CBIN/5575400361@CBI",
+        "amount": 10116.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "15-02-2026",
+        "description": "UPIAR/845668729151/DR/Mr UTTAM/YESB/ Q351987005@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "16-02-2026",
+        "description": "UPIAB/712582528001/CR/SHANMUKH/CNRB/ 9014489591@yb",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "16-02-2026",
+        "description": "UPIAB/029843297197/CR/CHUKKA /SBIN/ 9885033407@ax",
+        "amount": 3500.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "17-02-2026",
+        "description": "UPIAR/505601270657/DR/SHEK RAH/YESB/ Q324807443@yb",
+        "amount": 120.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "17-02-2026",
+        "description": "UPIAB/266928782584/CR/NADIPALL/IOBA/nsramakrishna@",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "17-02-2026",
+        "description": "UPIAB/403294234408/CR/SRI SAI /KVBL/ 9346072459@yb",
+        "amount": 7000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "17-02-2026",
+        "description": "UPIAB/149554780019/CR/BHEEMARA/SBIN/ sagarsuni9@yb",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "17-02-2026",
+        "description": "UPIAB/077708012533/CR/RABIYA /SBIN/irshadalam2005",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "17-02-2026",
+        "description": "UPIAR/813482578005/DR/SHEK RAH/YESB/ Q324807443@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "17-02-2026",
+        "description": "UPIAR/493836162249/DR/OMMI BHA/CBIN/202509PRT00Fhz",
+        "amount": 110.0,
+        "transaction_type": "debit",
+        "label": null
+      }
+    ],
+    "employer_name": null,
+    "job_title": null,
+    "monthly_salary": null,
+    "annual_income": null,
+    "document_date": null,
+    "period_start": "13-02-2026",
+    "period_end": "17-02-2026",
+    "employment_start": null,
+    "employment_end": null,
+    "sponsor_name": null,
+    "sponsor_relationship": null,
+    "sponsor_declared_income": null,
+    "sponsor_income_currency": null,
+    "applicant_name": null,
+    "declared_liquid_assets": null,
+    "declared_movable_assets": null,
+    "declared_property_value": null,
+    "declared_annual_income": null,
+    "declared_assets_total": null,
+    "institution_name": "Union Bank of India",
+    "program_name": null,
+    "program_cost": null,
+    "program_duration_months": null,
+    "enrollment_start": null,
+    "tax_year": null,
+    "taxable_income": null,
+    "tax_paid": null,
+    "anomaly_flags": [
+      "balance_discontinuity"
+    ]
+  }
+}

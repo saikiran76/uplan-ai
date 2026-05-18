@@ -1,0 +1,35 @@
+{
+  "agent_id": "temporal_agent",
+  "elapsed_s": 51.63,
+  "parse_error": null,
+  "verdict": "critical",
+  "confidence": 0.95,
+  "anomaly_count": 3,
+  "summary": "Critical temporal anomalies detected, including a complete lack of employment dates for sponsor verification, a 35-day gap in detailed statement records, and suspicious temporal clustering of deposits near the application window.",
+  "full_finding": {
+    "agent_id": "temporal_agent",
+    "anomalies": [
+      {
+        "field_path": "temporal.doc_date_ranges[0].start",
+        "severity": "warning",
+        "explanation": "Page 1 indicates a statement period from 24-04-2025 to 24-04-2026, but the subsequent detailed page (Page 2) begins on 29-05-2025. This leaves a 35-day gap in the detailed transaction history at the beginning of the required period.",
+        "rule_id": null
+      },
+      {
+        "field_path": "temporal.employment_start",
+        "severity": "critical",
+        "explanation": "Employment start and end dates are entirely missing from the application data. Without verifiable employment dates, it is impossible to establish the sponsor's continuous income capacity required for the COE.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.spikes[17].date",
+        "severity": "critical",
+        "explanation": "There is a highly suspicious temporal clustering of five large, unlabeled deposits on a single day (03-03-2026) totaling 140,000 INR. This abrupt influx of funds shortly before the end of the statement period strongly suggests artificial fund parking rather than organic income.",
+        "rule_id": null
+      }
+    ],
+    "confidence": 0.95,
+    "agent_verdict": "critical",
+    "summary": "Critical temporal anomalies detected, including a complete lack of employment dates for sponsor verification, a 35-day gap in detailed statement records, and suspicious temporal clustering of deposits near the application window."
+  }
+}

@@ -1,0 +1,485 @@
+{
+  "page": 19,
+  "elapsed_s": 19.04,
+  "page_type_detected": "bank_statement",
+  "non_null_fields": {
+    "page_number": 19,
+    "page_type": "bank_statement",
+    "raw_text": "Savings Account\nPage  \n  of  \n19\n38\nDate\nTransaction Id\nRemarks\nAmount( )\nBalance( )\n24-12-2025\nU10110933\nUPIAR/811390116794/DR/PAVAN PU/CNRB/11011085900188\n402.0(Dr)\n52134.98(Cr)\n25-12-2025\nU33900758\nUPIAB/306580414048/CR/VENKATA /SBIN/ 9849666083@ax\n10000.0(Cr)\n62134.98(Cr)\n25-12-2025\nU52945799\n6522029812982622/000000000185/253110100033102\n20000.0(Dr)\n42134.98(Cr)\n25-12-2025\nU57658287\nUPIAR/612765371988/DR/REDDI A/YESB/ Q989592951@yb\n1100.0(Dr)\n41034.98(Cr)\n25-12-2025\nU60482354\nUPIAR/007381753244/DR/Max Reta/UTIB/LANDMARKMAXRET\n2404.3(Dr)\n38630.66(Cr)\n26-12-2025\nU95921097\nUPIAB/763632551359/CR/SREE LAS/BARB/ 9441259231@yb\n1000.0(Cr)\n39630.66(Cr)\n26-12-2025\nV25057805\nUPIAR/052442984754/DR/BARATAM /YESB/paytm.s15g4i2@\n200.0(Dr)\n39430.66(Cr)\n26-12-2025\nV26955326\nUPIAB/577266029437/CR/RAMA RAO/SBIN/ramugirada1@yb\n7000.0(Cr)\n46430.66(Cr)\n27-12-2025\nV82152260\nUPIAR/892970619899/DR/Bhavani /YESB/paytmqr6u48ag@\n320.0(Dr)\n46110.66(Cr)\n27-12-2025\nW17646231\nSms Charges For Dec Qtr ,2025\n95.6(Dr)\n46015.08(Cr)\n28-12-2025\nW46177477\nUPIAB/042531213453/CR/PISINI S/HDFC/ 9966679555@yb\n3000.0(Cr)\n49015.08(Cr)\n28-12-2025\nW46837518\nUPIAR/237483244908/DR/MOHAMMED/YESB/ Q276430404@yb\n200.0(Dr)\n48815.08(Cr)\n28-12-2025\nW49425861\nUPIAR/927540309096/DR/KELLA BA/YESB/ Q403062371@yb\n90.0(Dr)\n48725.08(Cr)\n28-12-2025\nW58072135\nUPIAR/136119667106/DR/MOPADA S/HDFC/ 9676973264@yb\n500.0(Dr)\n48225.08(Cr)\n28-12-2025\nW68349859\nUPIAR/717463884828/DR/CMRVIZIA/PPIW/ombk.AAEM68264\n5095.0(Dr)\n43130.08(Cr)\n28-12-2025\nW71652084\nUPIAR/798822257121/DR/RAVIRAJ /UBIN/QR918985828626\n3300.0(Dr)\n39830.08(Cr)\n29-12-2025\nX45357832\n6522029812982622/000000008090/253110100033102\n10000.0(Dr)\n29830.08(Cr)\n29-12-2025\nX45420361\n6522029812982622/000000008091/253110100033102\n5000.0(Dr)\n24830.08(Cr)\n30-12-2025\nX70014946\nUPIAB/293267762202/CR/GANGA SI/SBIN/ 8074595524@yb\n1500.0(Cr)\n26330.08(Cr)\n31-12-2025\nY34848247\nUPIAR/143052805954/DR/SAMANVIT/YESB/paytm-9183714e\n250.0(Dr)\n26080.08(Cr)\n31-12-2025\nY63281251\nUPIAR/612631838392/DR/DMART AV/HDFC/DMARTAVENUESUP\n2005.5(Dr)\n24074.54(Cr)\n01-01-2026\nS18269396\nUPIAB/777015278789/CR/Mr NANDE/CBIN/8309078589-4@y\n3000.0(Cr)\n27074.54(Cr)\n01-01-2026\nS24942956\nUPIAB/518629329057/CR/KORADA /SBIN/srinivasit1220\n1000.0(Cr)\n28074.54(Cr)\n02-01-2026\nS62639590\n253110100033102:Int.Pd:01-10-2025 to 31-12-2025\n362.0(Cr)\n28436.54(Cr)\n02-01-2026\nS74049290\nUPIAB/744127739063/CR/JAGARAPU/SBIN/ 9542310662@ax\n10.0(Cr)\n28446.54(Cr)\n02-01-2026\nS74117018\nUPIAB/132557247787/CR/JAGARAPU/SBIN/ 9542310662@yb\n5000.0(Cr)\n33446.54(Cr)\n02-01-2026\nS79167891\nUPIAR/753149180463/DR/JAGARAPU/SBIN/ 9542310662@yb\n5000.0(Dr)\n28446.54(Cr)\n02-01-2026\nS81812614\nUPIAB/667177762374/CR/CHENAPAT/SBIN/ 9490304473@yb\n3500.0(Cr)\n31946.54(Cr)\n",
+    "opening_balance": 52134.98,
+    "closing_balance": 31946.54,
+    "transactions": [
+      {
+        "date": "24-12-2025",
+        "description": "UPIAR/811390116794/DR/PAVAN PU/CNRB/11011085900188",
+        "amount": 402.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-12-2025",
+        "description": "UPIAB/306580414048/CR/VENKATA /SBIN/ 9849666083@ax",
+        "amount": 10000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-12-2025",
+        "description": "6522029812982622/000000000185/253110100033102",
+        "amount": 20000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "25-12-2025",
+        "description": "UPIAR/612765371988/DR/REDDI A/YESB/ Q989592951@yb",
+        "amount": 1100.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-12-2025",
+        "description": "UPIAR/007381753244/DR/Max Reta/UTIB/LANDMARKMAXRET",
+        "amount": 2404.3,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "26-12-2025",
+        "description": "UPIAB/763632551359/CR/SREE LAS/BARB/ 9441259231@yb",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "26-12-2025",
+        "description": "UPIAR/052442984754/DR/BARATAM /YESB/paytm.s15g4i2@",
+        "amount": 200.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "26-12-2025",
+        "description": "UPIAB/577266029437/CR/RAMA RAO/SBIN/ramugirada1@yb",
+        "amount": 7000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "27-12-2025",
+        "description": "UPIAR/892970619899/DR/Bhavani /YESB/paytmqr6u48ag@",
+        "amount": 320.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "27-12-2025",
+        "description": "Sms Charges For Dec Qtr ,2025",
+        "amount": 95.6,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "28-12-2025",
+        "description": "UPIAB/042531213453/CR/PISINI S/HDFC/ 9966679555@yb",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-12-2025",
+        "description": "UPIAR/237483244908/DR/MOHAMMED/YESB/ Q276430404@yb",
+        "amount": 200.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-12-2025",
+        "description": "UPIAR/927540309096/DR/KELLA BA/YESB/ Q403062371@yb",
+        "amount": 90.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-12-2025",
+        "description": "UPIAR/136119667106/DR/MOPADA S/HDFC/ 9676973264@yb",
+        "amount": 500.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-12-2025",
+        "description": "UPIAR/717463884828/DR/CMRVIZIA/PPIW/ombk.AAEM68264",
+        "amount": 5095.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-12-2025",
+        "description": "UPIAR/798822257121/DR/RAVIRAJ /UBIN/QR918985828626",
+        "amount": 3300.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "29-12-2025",
+        "description": "6522029812982622/000000008090/253110100033102",
+        "amount": 10000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "29-12-2025",
+        "description": "6522029812982622/000000008091/253110100033102",
+        "amount": 5000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "30-12-2025",
+        "description": "UPIAB/293267762202/CR/GANGA SI/SBIN/ 8074595524@yb",
+        "amount": 1500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "31-12-2025",
+        "description": "UPIAR/143052805954/DR/SAMANVIT/YESB/paytm-9183714e",
+        "amount": 250.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "31-12-2025",
+        "description": "UPIAR/612631838392/DR/DMART AV/HDFC/DMARTAVENUESUP",
+        "amount": 2005.5,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "01-01-2026",
+        "description": "UPIAB/777015278789/CR/Mr NANDE/CBIN/8309078589-4@y",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "01-01-2026",
+        "description": "UPIAB/518629329057/CR/KORADA /SBIN/srinivasit1220",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "02-01-2026",
+        "description": "253110100033102:Int.Pd:01-10-2025 to 31-12-2025",
+        "amount": 362.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "02-01-2026",
+        "description": "UPIAB/744127739063/CR/JAGARAPU/SBIN/ 9542310662@ax",
+        "amount": 10.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "02-01-2026",
+        "description": "UPIAB/132557247787/CR/JAGARAPU/SBIN/ 9542310662@yb",
+        "amount": 5000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "02-01-2026",
+        "description": "UPIAR/753149180463/DR/JAGARAPU/SBIN/ 9542310662@yb",
+        "amount": 5000.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "02-01-2026",
+        "description": "UPIAB/667177762374/CR/CHENAPAT/SBIN/ 9490304473@yb",
+        "amount": 3500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      }
+    ],
+    "period_start": "24-12-2025",
+    "period_end": "02-01-2026"
+  },
+  "null_or_empty_fields": [
+    "person_name",
+    "date_of_birth",
+    "applicant_dob",
+    "nationality",
+    "passport_number",
+    "currency",
+    "employer_name",
+    "job_title",
+    "monthly_salary",
+    "annual_income",
+    "document_date",
+    "employment_start",
+    "employment_end",
+    "sponsor_name",
+    "sponsor_relationship",
+    "sponsor_declared_income",
+    "sponsor_income_currency",
+    "applicant_name",
+    "declared_liquid_assets",
+    "declared_movable_assets",
+    "declared_property_value",
+    "declared_annual_income",
+    "declared_assets_total",
+    "institution_name",
+    "program_name",
+    "program_cost",
+    "program_duration_months",
+    "enrollment_start",
+    "tax_year",
+    "taxable_income",
+    "tax_paid",
+    "anomaly_flags"
+  ],
+  "raw_extraction": {
+    "page_number": 19,
+    "page_type": "bank_statement",
+    "raw_text": "Savings Account\nPage  \n  of  \n19\n38\nDate\nTransaction Id\nRemarks\nAmount( )\nBalance( )\n24-12-2025\nU10110933\nUPIAR/811390116794/DR/PAVAN PU/CNRB/11011085900188\n402.0(Dr)\n52134.98(Cr)\n25-12-2025\nU33900758\nUPIAB/306580414048/CR/VENKATA /SBIN/ 9849666083@ax\n10000.0(Cr)\n62134.98(Cr)\n25-12-2025\nU52945799\n6522029812982622/000000000185/253110100033102\n20000.0(Dr)\n42134.98(Cr)\n25-12-2025\nU57658287\nUPIAR/612765371988/DR/REDDI A/YESB/ Q989592951@yb\n1100.0(Dr)\n41034.98(Cr)\n25-12-2025\nU60482354\nUPIAR/007381753244/DR/Max Reta/UTIB/LANDMARKMAXRET\n2404.3(Dr)\n38630.66(Cr)\n26-12-2025\nU95921097\nUPIAB/763632551359/CR/SREE LAS/BARB/ 9441259231@yb\n1000.0(Cr)\n39630.66(Cr)\n26-12-2025\nV25057805\nUPIAR/052442984754/DR/BARATAM /YESB/paytm.s15g4i2@\n200.0(Dr)\n39430.66(Cr)\n26-12-2025\nV26955326\nUPIAB/577266029437/CR/RAMA RAO/SBIN/ramugirada1@yb\n7000.0(Cr)\n46430.66(Cr)\n27-12-2025\nV82152260\nUPIAR/892970619899/DR/Bhavani /YESB/paytmqr6u48ag@\n320.0(Dr)\n46110.66(Cr)\n27-12-2025\nW17646231\nSms Charges For Dec Qtr ,2025\n95.6(Dr)\n46015.08(Cr)\n28-12-2025\nW46177477\nUPIAB/042531213453/CR/PISINI S/HDFC/ 9966679555@yb\n3000.0(Cr)\n49015.08(Cr)\n28-12-2025\nW46837518\nUPIAR/237483244908/DR/MOHAMMED/YESB/ Q276430404@yb\n200.0(Dr)\n48815.08(Cr)\n28-12-2025\nW49425861\nUPIAR/927540309096/DR/KELLA BA/YESB/ Q403062371@yb\n90.0(Dr)\n48725.08(Cr)\n28-12-2025\nW58072135\nUPIAR/136119667106/DR/MOPADA S/HDFC/ 9676973264@yb\n500.0(Dr)\n48225.08(Cr)\n28-12-2025\nW68349859\nUPIAR/717463884828/DR/CMRVIZIA/PPIW/ombk.AAEM68264\n5095.0(Dr)\n43130.08(Cr)\n28-12-2025\nW71652084\nUPIAR/798822257121/DR/RAVIRAJ /UBIN/QR918985828626\n3300.0(Dr)\n39830.08(Cr)\n29-12-2025\nX45357832\n6522029812982622/000000008090/253110100033102\n10000.0(Dr)\n29830.08(Cr)\n29-12-2025\nX45420361\n6522029812982622/000000008091/253110100033102\n5000.0(Dr)\n24830.08(Cr)\n30-12-2025\nX70014946\nUPIAB/293267762202/CR/GANGA SI/SBIN/ 8074595524@yb\n1500.0(Cr)\n26330.08(Cr)\n31-12-2025\nY34848247\nUPIAR/143052805954/DR/SAMANVIT/YESB/paytm-9183714e\n250.0(Dr)\n26080.08(Cr)\n31-12-2025\nY63281251\nUPIAR/612631838392/DR/DMART AV/HDFC/DMARTAVENUESUP\n2005.5(Dr)\n24074.54(Cr)\n01-01-2026\nS18269396\nUPIAB/777015278789/CR/Mr NANDE/CBIN/8309078589-4@y\n3000.0(Cr)\n27074.54(Cr)\n01-01-2026\nS24942956\nUPIAB/518629329057/CR/KORADA /SBIN/srinivasit1220\n1000.0(Cr)\n28074.54(Cr)\n02-01-2026\nS62639590\n253110100033102:Int.Pd:01-10-2025 to 31-12-2025\n362.0(Cr)\n28436.54(Cr)\n02-01-2026\nS74049290\nUPIAB/744127739063/CR/JAGARAPU/SBIN/ 9542310662@ax\n10.0(Cr)\n28446.54(Cr)\n02-01-2026\nS74117018\nUPIAB/132557247787/CR/JAGARAPU/SBIN/ 9542310662@yb\n5000.0(Cr)\n33446.54(Cr)\n02-01-2026\nS79167891\nUPIAR/753149180463/DR/JAGARAPU/SBIN/ 9542310662@yb\n5000.0(Dr)\n28446.54(Cr)\n02-01-2026\nS81812614\nUPIAB/667177762374/CR/CHENAPAT/SBIN/ 9490304473@yb\n3500.0(Cr)\n31946.54(Cr)\n",
+    "person_name": null,
+    "date_of_birth": null,
+    "applicant_dob": null,
+    "nationality": null,
+    "passport_number": null,
+    "currency": null,
+    "opening_balance": 52134.98,
+    "closing_balance": 31946.54,
+    "transactions": [
+      {
+        "date": "24-12-2025",
+        "description": "UPIAR/811390116794/DR/PAVAN PU/CNRB/11011085900188",
+        "amount": 402.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-12-2025",
+        "description": "UPIAB/306580414048/CR/VENKATA /SBIN/ 9849666083@ax",
+        "amount": 10000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-12-2025",
+        "description": "6522029812982622/000000000185/253110100033102",
+        "amount": 20000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "25-12-2025",
+        "description": "UPIAR/612765371988/DR/REDDI A/YESB/ Q989592951@yb",
+        "amount": 1100.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-12-2025",
+        "description": "UPIAR/007381753244/DR/Max Reta/UTIB/LANDMARKMAXRET",
+        "amount": 2404.3,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "26-12-2025",
+        "description": "UPIAB/763632551359/CR/SREE LAS/BARB/ 9441259231@yb",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "26-12-2025",
+        "description": "UPIAR/052442984754/DR/BARATAM /YESB/paytm.s15g4i2@",
+        "amount": 200.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "26-12-2025",
+        "description": "UPIAB/577266029437/CR/RAMA RAO/SBIN/ramugirada1@yb",
+        "amount": 7000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "27-12-2025",
+        "description": "UPIAR/892970619899/DR/Bhavani /YESB/paytmqr6u48ag@",
+        "amount": 320.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "27-12-2025",
+        "description": "Sms Charges For Dec Qtr ,2025",
+        "amount": 95.6,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "28-12-2025",
+        "description": "UPIAB/042531213453/CR/PISINI S/HDFC/ 9966679555@yb",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-12-2025",
+        "description": "UPIAR/237483244908/DR/MOHAMMED/YESB/ Q276430404@yb",
+        "amount": 200.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-12-2025",
+        "description": "UPIAR/927540309096/DR/KELLA BA/YESB/ Q403062371@yb",
+        "amount": 90.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-12-2025",
+        "description": "UPIAR/136119667106/DR/MOPADA S/HDFC/ 9676973264@yb",
+        "amount": 500.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-12-2025",
+        "description": "UPIAR/717463884828/DR/CMRVIZIA/PPIW/ombk.AAEM68264",
+        "amount": 5095.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-12-2025",
+        "description": "UPIAR/798822257121/DR/RAVIRAJ /UBIN/QR918985828626",
+        "amount": 3300.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "29-12-2025",
+        "description": "6522029812982622/000000008090/253110100033102",
+        "amount": 10000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "29-12-2025",
+        "description": "6522029812982622/000000008091/253110100033102",
+        "amount": 5000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "30-12-2025",
+        "description": "UPIAB/293267762202/CR/GANGA SI/SBIN/ 8074595524@yb",
+        "amount": 1500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "31-12-2025",
+        "description": "UPIAR/143052805954/DR/SAMANVIT/YESB/paytm-9183714e",
+        "amount": 250.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "31-12-2025",
+        "description": "UPIAR/612631838392/DR/DMART AV/HDFC/DMARTAVENUESUP",
+        "amount": 2005.5,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "01-01-2026",
+        "description": "UPIAB/777015278789/CR/Mr NANDE/CBIN/8309078589-4@y",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "01-01-2026",
+        "description": "UPIAB/518629329057/CR/KORADA /SBIN/srinivasit1220",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "02-01-2026",
+        "description": "253110100033102:Int.Pd:01-10-2025 to 31-12-2025",
+        "amount": 362.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "02-01-2026",
+        "description": "UPIAB/744127739063/CR/JAGARAPU/SBIN/ 9542310662@ax",
+        "amount": 10.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "02-01-2026",
+        "description": "UPIAB/132557247787/CR/JAGARAPU/SBIN/ 9542310662@yb",
+        "amount": 5000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "02-01-2026",
+        "description": "UPIAR/753149180463/DR/JAGARAPU/SBIN/ 9542310662@yb",
+        "amount": 5000.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "02-01-2026",
+        "description": "UPIAB/667177762374/CR/CHENAPAT/SBIN/ 9490304473@yb",
+        "amount": 3500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      }
+    ],
+    "employer_name": null,
+    "job_title": null,
+    "monthly_salary": null,
+    "annual_income": null,
+    "document_date": null,
+    "period_start": "24-12-2025",
+    "period_end": "02-01-2026",
+    "employment_start": null,
+    "employment_end": null,
+    "sponsor_name": null,
+    "sponsor_relationship": null,
+    "sponsor_declared_income": null,
+    "sponsor_income_currency": null,
+    "applicant_name": null,
+    "declared_liquid_assets": null,
+    "declared_movable_assets": null,
+    "declared_property_value": null,
+    "declared_annual_income": null,
+    "declared_assets_total": null,
+    "institution_name": null,
+    "program_name": null,
+    "program_cost": null,
+    "program_duration_months": null,
+    "enrollment_start": null,
+    "tax_year": null,
+    "taxable_income": null,
+    "tax_paid": null,
+    "anomaly_flags": []
+  }
+}

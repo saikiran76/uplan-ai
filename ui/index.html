@@ -73,6 +73,33 @@
         }
 
         /* ═══════════════════════════════════════════════
+   MODAL
+═══════════════════════════════════════════════ */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(4px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeIn 0.2s forwards;
+        }
+
+        .modal-content {
+            background: var(--surface);
+            border: 1px solid var(--amber-glow);
+            padding: 32px;
+            width: 440px;
+            max-width: 90%;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            animation: fadeUp 0.3s ease forwards;
+        }
+
+        /* ═══════════════════════════════════════════════
    GRID BACKGROUND
 ═══════════════════════════════════════════════ */
         .grid-bg {
@@ -211,6 +238,32 @@
             padding: 5px 12px;
             border-radius: 2px;
             margin-bottom: 28px;
+        }
+
+        .pipeline-stage.done .ps-indicator {
+            background: var(--amber);
+            color: var(--void);
+            box-shadow: 0 0 10px var(--amber-glow);
+        }
+
+        .pipeline-stage.error {
+            border-color: rgba(255, 51, 85, 0.4);
+            background: var(--red-dim);
+        }
+
+        .pipeline-stage.error .ps-indicator {
+            background: var(--red);
+            color: var(--void);
+            box-shadow: 0 0 10px rgba(255, 51, 85, 0.4);
+            border-color: transparent;
+        }
+
+        .ps-content {
+            flex: 1;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--amber);
+            animation: pulse 2s infinite;
         }
 
         .hero-kicker::before {
@@ -2096,6 +2149,22 @@
                 </div>
             </div>
 
+        <!-- Confirmation Modal -->
+        <div id="incompleteModal" class="modal-overlay" style="display:none;">
+            <div class="modal-content">
+                <h3 style="color:var(--amber); margin-bottom:12px; font-family:var(--font-display); letter-spacing:1px; text-transform:uppercase;">⚠ Incomplete Dossier</h3>
+                <p style="font-family:var(--font-body); font-size:14px; color:var(--text-2); line-height:1.6; margin-bottom:28px;">
+                    Not all required documents for this visa path have been uploaded. Running an analysis now will perform a <b>one-perspective extraction</b> on the available data, which may result in critical missing-information flags.
+                    <br><br>
+                    Are you sure you want to proceed with a partial analysis?
+                </p>
+                <div style="display:flex; gap:12px; justify-content:flex-end;">
+                    <button class="btn-ghost" onclick="document.getElementById('incompleteModal').style.display='none'">Cancel</button>
+                    <button class="btn-primary" style="background:var(--amber-dim); border:1px solid var(--amber); color:var(--amber);" onclick="forceStartAnalysis()">Proceed anyway</button>
+                </div>
+            </div>
+        </div>
+
         </div><!-- end tool-body -->
     </div><!-- end tool -->
 
@@ -2303,7 +2372,7 @@
             checkUploadComplete();
         }
 
-        function handleFileUpload(slotIdx, expectedType, input) {
+        async function handleFileUpload(slotIdx, expectedType, input) {
             const file = input.files[0];
             if (!file) return;
 
@@ -2322,37 +2391,57 @@
             vcEl.className = 'validation-chip vc-wait';
             vcEl.textContent = '⟳ Checking type...';
 
-            // Simulate Flash validation (in production, this calls the backend)
-            setTimeout(() => {
-                const isMatch = Math.random() > 0.2; // 80% match for demo
-                if (isMatch) {
+            updateUploadSummary();
+            checkUploadComplete();
+
+            const fd = new FormData();
+            fd.append('file', file);
+            fd.append('expected_type', expectedType);
+
+            try {
+                const res = await fetch('/api/validate', { method: 'POST', body: fd });
+                if (!res.ok) throw new Error('Validation failed');
+                const result = await res.json();
+                
+                if (result.match) {
                     validationState[slotIdx] = 'valid';
                     statusEl.textContent = 'VALIDATED ✓';
                     statusEl.className = 'upload-slot-status uploaded';
                     slotEl.style.borderColor = 'rgba(0,230,118,0.3)';
                     vcEl.className = 'validation-chip vc-ok';
-                    vcEl.textContent = '✓ Type confirmed';
+                    vcEl.textContent = `✓ ${result.detected_display}`;
+                    
+                    const msg = slotEl.querySelector('.mismatch-msg');
+                    if (msg) msg.remove();
                 } else {
                     validationState[slotIdx] = 'mismatch';
                     statusEl.textContent = 'TYPE MISMATCH';
                     statusEl.className = 'upload-slot-status error';
                     slotEl.style.borderColor = 'rgba(255,51,85,0.4)';
                     vcEl.className = 'validation-chip vc-err';
-                    vcEl.textContent = '✗ Wrong document';
-                    // Show error message
+                    vcEl.textContent = `✗ Detected: ${result.detected_display}`;
+                    
                     const body = slotEl.querySelector('.upload-slot-body');
                     const existing = body.querySelector('.mismatch-msg');
                     if (!existing) {
                         const msg = document.createElement('div');
                         msg.className = 'mismatch-msg';
                         msg.style.cssText = 'grid-column:1/-1;background:var(--red-dim);border:1px solid rgba(255,51,85,0.25);border-radius:var(--radius);padding:10px 14px;font-family:var(--font-mono);font-size:11px;color:var(--red);margin-top:8px;';
-                        msg.textContent = `⚠ We detected this might not be a "${expectedType.replace(/_/g, ' ')}". Please re-upload the correct document.`;
+                        msg.textContent = `⚠ Expected "${expectedType.replace(/_/g, ' ')}" but detected "${result.detected_display}". ${result.reason}`;
                         body.appendChild(msg);
                     }
                 }
-                updateUploadSummary();
-                checkUploadComplete();
-            }, 1200);
+            } catch (err) {
+                console.error(err);
+                validationState[slotIdx] = 'error';
+                statusEl.textContent = 'ERROR';
+                statusEl.className = 'upload-slot-status error';
+                vcEl.className = 'validation-chip vc-err';
+                vcEl.textContent = '✗ API Error';
+            }
+            
+            updateUploadSummary();
+            checkUploadComplete();
         }
 
         function updateUploadSummary() {
@@ -2378,11 +2467,10 @@
         }
 
         function checkUploadComplete() {
-            const docs = window._docTypes || [];
-            const requiredIdxs = docs.map((t, i) => ({ t, i })).filter(({ t }) => (DOC_META[t]?.req || 'optional') === 'required').map(({ i }) => i);
-            const allRequiredUploaded = requiredIdxs.every(i => uploadedFiles[i]);
+            const uploadedCount = Object.keys(uploadedFiles).length;
             const noMismatches = Object.values(validationState).every(v => v !== 'mismatch');
-            document.getElementById('step2Next').disabled = !(allRequiredUploaded && noMismatches);
+            // For testing purposes, we unlock the button if at least 1 document is uploaded and valid.
+            document.getElementById('step2Next').disabled = !(uploadedCount > 0 && noMismatches);
         }
 
         /* ── STEP 3: Pipeline animation ──────────── */
@@ -2409,82 +2497,184 @@
     </div>`).join('');
         }
 
-        function startAnalysis() {
-            goToStep(3);
-            buildPipelineStages();
+        async function startAnalysis() {
+            // Check if all required documents are actually uploaded
+            const docs = window._docTypes || [];
+            const requiredIdxs = docs.map((t, i) => ({ t, i })).filter(({ t }) => (DOC_META[t]?.req || 'optional') === 'required').map(({ i }) => i);
+            const allRequiredUploaded = requiredIdxs.every(i => uploadedFiles[i]);
 
-            let stageIdx = 0;
-            const delays = [800, 2500, 600, 900, 3500, 2200];
-
-            function runStage(i) {
-                if (i >= STAGES.length) {
-                    setTimeout(() => showResults(), 600);
-                    return;
-                }
-                const s = STAGES[i];
-                const el = document.getElementById(`ps-${s.id}`);
-                el.classList.add('running');
-                document.getElementById(`ps-time-${s.id}`).textContent = '⟳';
-
-                // Show compression after encode
-                if (s.id === 'encode') {
-                    setTimeout(() => {
-                        document.getElementById('compressionDisplay').style.display = 'block';
-                        animateCompression();
-                    }, delays[i] * 0.6);
-                }
-
-                setTimeout(() => {
-                    el.classList.remove('running');
-                    el.classList.add('done');
-                    document.getElementById(`ps-indicator-${s.id}`) && (document.getElementById(`ps-indicator-${s.id}`).textContent = '✓');
-                    el.querySelector('.ps-indicator').textContent = '✓';
-                    document.getElementById(`ps-time-${s.id}`).textContent = (delays[i] / 1000).toFixed(1) + 's';
-                    runStage(i + 1);
-                }, delays[i]);
+            if (!allRequiredUploaded) {
+                // Show confirmation modal
+                document.getElementById('incompleteModal').style.display = 'flex';
+                return;
             }
 
-            runStage(0);
+            // Otherwise proceed normally
+            forceStartAnalysis();
         }
 
-        function animateCompression() {
-            const raw = 60000, graph = 1200;
-            const ratio = Math.round((1 - graph / raw) * 100);
+        async function forceStartAnalysis() {
+            document.getElementById('incompleteModal').style.display = 'none';
+            goToStep(3);
+            buildPipelineStages();
+            document.getElementById('step2Next').disabled = true;
+            document.getElementById('step2Next').textContent = 'Pipeline running...';
+
+            const fd = new FormData();
+            Object.values(uploadedFiles).forEach(f => fd.append('files', f));
+            
+            const contextStr = JSON.stringify(window._currentProfile || {});
+            fd.append('context', contextStr);
+
+            try {
+                const res = await fetch('/api/analyze', {
+                    method: 'POST',
+                    body: fd
+                });
+                
+                if (!res.ok) throw new Error('Failed to start pipeline');
+
+                const reader = res.body.getReader();
+                const decoder = new TextDecoder('utf-8');
+                let buffer = '';
+                
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    
+                    buffer += decoder.decode(value, { stream: true });
+                    const lines = buffer.split('\n\n');
+                    buffer = lines.pop(); // keep incomplete line
+                    
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            const data = JSON.parse(line.substring(6));
+                            handlePipelineEvent(data);
+                            // If pipeline threw a fatal error, we can stop reading the stream
+                            if (data.type === 'error' || data.type === 'agent_error') {
+                                return; 
+                            }
+                        }
+                    }
+                }
+            } catch (err) {
+                showPipelineError(err.message);
+            }
+        }
+
+        function showPipelineError(msg) {
+            console.error("Pipeline Error:", msg);
+            
+            // Stop all spinners and mark as error
+            document.querySelectorAll('.pipeline-stage.running').forEach(el => {
+                el.classList.remove('running');
+                el.classList.add('error');
+                const ind = el.querySelector('.ps-indicator');
+                if (ind) ind.textContent = '⚠';
+                const timeEl = el.querySelector('.ps-time');
+                if (timeEl) timeEl.textContent = 'FAILED';
+            });
+            
+            // Format user-friendly message
+            let userFriendlyMsg = "The server encountered an issue while processing the document.";
+            const msgLower = (msg || "").toLowerCase();
+            if (msgLower.includes("503") || msgLower.includes("unavailable") || msgLower.includes("busy") || msgLower.includes("overloaded") || msgLower.includes("high demand")) {
+                userFriendlyMsg = "Server is busy or experiencing high demand. Please try again later.";
+            } else if (msgLower.includes("429") || msgLower.includes("resource_exhausted") || msgLower.includes("quota") || msgLower.includes("rate limit")) {
+                userFriendlyMsg = "Maximum attempt limit reached (Rate Limited). Please try again later.";
+            } else if (msgLower.includes("500") || msgLower.includes("internal")) {
+                userFriendlyMsg = "The server is facing internal issues, please come back again later.";
+            }
+            
+            // Show inline error box
+            const container = document.getElementById('pipelineStages');
+            // Remove existing error if any
+            const existingErr = document.getElementById('pipelineErrorBox');
+            if (existingErr) existingErr.remove();
+
+            const errorDiv = document.createElement('div');
+            errorDiv.id = 'pipelineErrorBox';
+            errorDiv.style = "margin-top: 24px; padding: 20px; border: 1px solid rgba(255, 51, 85, 0.3); background: var(--red-dim); border-radius: var(--radius-lg); color: var(--text-1); font-family: var(--font-body); animation: fadeUp 0.3s ease;";
+            errorDiv.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                    <div style="width:24px; height:24px; border-radius:50%; background:var(--red); color:var(--void); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:12px;">!</div>
+                    <div style="font-family: var(--font-display); font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 1px;">Pipeline Halted</div>
+                </div>
+                <div style="font-size: 15px; margin-bottom: 16px; color: rgba(255,255,255,0.9);">${userFriendlyMsg}</div>
+                <div style="font-size: 11px; font-family: var(--font-mono); color: var(--text-3); background: rgba(0,0,0,0.2); padding: 12px; border-radius: var(--radius); word-break: break-all;">
+                    Technical Details: ${msg}
+                </div>
+                <div style="margin-top: 20px;">
+                    <button class="btn-ghost" style="border-color: rgba(255, 51, 85, 0.4); color: var(--text-1);" onclick="goToStep(2)">← Return to Uploads</button>
+                </div>
+            `;
+            container.appendChild(errorDiv);
+            
+            document.getElementById('step2Next').disabled = false;
+            document.getElementById('step2Next').textContent = 'Run adversarial analysis →';
+        }
+
+        function handlePipelineEvent(evt) {
+            if (evt.type === 'stage_start') {
+                const stageId = evt.stage === 'narrative' ? 'synthesis' : evt.stage;
+                const el = document.getElementById(`ps-${stageId}`);
+                if (el) {
+                    el.classList.add('running');
+                    document.getElementById(`ps-time-${stageId}`).textContent = '⟳';
+                }
+            } else if (evt.type === 'stage_done') {
+                const stageId = evt.stage === 'narrative' ? 'synthesis' : evt.stage;
+                const el = document.getElementById(`ps-${stageId}`);
+                if (el) {
+                    el.classList.remove('running');
+                    el.classList.add('done');
+                    const ind = el.querySelector('.ps-indicator');
+                    if (ind) ind.textContent = '✓';
+                    document.getElementById(`ps-time-${stageId}`).textContent = evt.elapsed_s.toFixed(1) + 's';
+                }
+                
+                if (evt.stage === 'encode') {
+                    document.getElementById('compressionDisplay').style.display = 'block';
+                    animateCompression(evt.data.raw_tokens, evt.data.token_count, evt.data.compression_pct);
+                }
+            } else if (evt.type === 'agent_start') {
+                const el = document.getElementById('ps-agents');
+                if (el && !el.classList.contains('running')) {
+                    el.classList.add('running');
+                    document.getElementById('ps-time-agents').textContent = '⟳';
+                }
+            } else if (evt.type === 'agent_done') {
+                // If this is the last agent, complete the stage
+                if (evt.agent === 'enrollment_agent') {
+                    const el = document.getElementById('ps-agents');
+                    if (el) {
+                        el.classList.remove('running');
+                        el.classList.add('done');
+                        const ind = el.querySelector('.ps-indicator');
+                        if (ind) ind.textContent = '✓';
+                        document.getElementById('ps-time-agents').textContent = evt.elapsed_s.toFixed(1) + 's';
+                    }
+                }
+            } else if (evt.type === 'complete') {
+                setTimeout(() => showResults(evt.result), 600);
+            } else if (evt.type === 'error') {
+                showPipelineError(evt.message);
+            } else if (evt.type === 'agent_error') {
+                showPipelineError(`Agent ${evt.agent} failed: ` + evt.message);
+            }
+        }
+
+        function animateCompression(raw, graph, pct) {
             document.getElementById('rawTok').textContent = raw.toLocaleString();
             document.getElementById('graphTok').textContent = graph.toLocaleString();
-            document.getElementById('compressionRatio').textContent = ratio + '%';
+            document.getElementById('compressionRatio').textContent = pct + '%';
             setTimeout(() => {
-                document.getElementById('compressionFill').style.width = ratio + '%';
+                document.getElementById('compressionFill').style.width = pct + '%';
             }, 100);
         }
 
-        /* ── STEP 4: Demo report ─────────────────── */
-        const DEMO_RESULT = {
-            verdict: 'FAIL', risk_score: 1.0,
-            identity: { name: 'Korada Sai Kiran', dob: '02-06-2003', nationality: null, passport: null },
-            financial: { closing_balance: 4244664.76, avg_monthly: 100000, transactions: 0, currency: 'INR' },
-            sponsor: { name: 'KORADA SATYANARAYANA', relationship: 'Father', income: 1200000 },
-            findings: [
-                { agent: 'Identity', field: 'passport_number', sev: 'critical', text: 'Passport number not provided. Mandatory for identity verification and visa issuance.' },
-                { agent: 'Financial', field: 'transaction_count', sev: 'critical', text: 'Balance of ₹42,44,664.76 present with zero transactions. Chronologically impossible — indicates funds parking.' },
-                { agent: 'Financial', field: 'avg_monthly_income', sev: 'warning', text: 'Closing balance is 42× stated monthly income. Organic accumulation within 6 months implausible.' },
-                { agent: 'Temporal', field: 'doc_date_ranges', sev: 'critical', text: '6-month consecutive statement period not covered. No date ranges detected.' },
-                { agent: 'Enrollment', field: 'enrollment', sev: 'critical', text: 'No COE or enrollment letter. Purpose of travel cannot be established.' },
-                { agent: 'Sponsor', field: 'identity.date_of_birth', sev: 'warning', text: 'Applicant age (22) consistent with student profile. Sponsor income coverage requires program cost for verification.' },
-            ],
-            narrative: 'This application is refused. The applicant has failed to provide fundamental identity documents. The financial evidence is not credible — the statement shows a closing balance of ₹42,44,664.76 with zero transactions, a chronologically impossible state indicating funds were parked solely for this application. No enrollment documentation establishes purpose of travel.',
-            rebuttals: [
-                'Provide a scanned copy of the biographic passport page showing name, passport number, and nationality.',
-                'Submit 6 months of consecutive, official bank statements showing regular income and expenditure with documented sources for any large deposits.',
-                'Provide the Certificate of Eligibility (COE) or acceptance letter from the institution, detailing program, duration, and cost.',
-                'Submit employer verification letters with start/end dates and salary confirmation.',
-            ],
-            citations: ['identity.passport_number', 'financial.transaction_count', 'financial.closing_balance', 'temporal.doc_date_ranges', 'enrollment', 'sponsor.declared_income'],
-            purged_at: new Date().toISOString(),
-        };
-
-        function showResults() {
-            const r = DEMO_RESULT;
+        /* ── STEP 4: Report ──────────────────────── */
+        function showResults(r) {
             const score = r.risk_score;
 
             // Verdict
@@ -2506,7 +2696,14 @@
             }, 200);
 
             // Findings
-            document.getElementById('findingsList').innerHTML = r.findings.map(f => `
+            const uiFindings = (r.agent_findings || []).map(f => ({
+                field: f.field_referenced || 'General',
+                sev: f.severity || 'info',
+                agent: f.agent_name || 'System',
+                text: f.finding_text || ''
+            }));
+            
+            document.getElementById('findingsList').innerHTML = uiFindings.map(f => `
     <div class="finding-row">
       <div class="finding-header">
         <span class="finding-field">${f.field}</span>
@@ -2517,34 +2714,37 @@
     </div>`).join('');
 
             // Narrative
-            document.getElementById('narrativeText').textContent = r.narrative;
-            document.getElementById('citationTags').innerHTML = r.citations.map(c => `<span class="citation-tag">${c}</span>`).join('');
+            document.getElementById('narrativeText').textContent = r.rejection_narrative || 'No narrative generated.';
+            document.getElementById('citationTags').innerHTML = (r.citations || []).map(c => `<span class="citation-tag">${c}</span>`).join('');
 
             // Rebuttal
-            document.getElementById('rebuttalList').innerHTML = r.rebuttals.map((rb, i) => `
+            document.getElementById('rebuttalList').innerHTML = (r.rebuttal_guidance || []).map((rb, i) => `
     <div class="rebuttal-item">
       <span class="rebuttal-num">${String(i + 1).padStart(2, '0')}</span>
       <span>${rb}</span>
     </div>`).join('');
 
             // Identity panel
+            const ident = r.graph.identity || {};
+            const spons = r.graph.sponsor || {};
             document.getElementById('identityPanel').innerHTML = [
-                ['Applicant name', r.identity.name || '—'],
-                ['Date of birth', r.identity.dob || '—'],
-                ['Nationality', r.identity.nationality || '<span style="color:var(--red)">NOT PROVIDED</span>'],
-                ['Passport no.', r.identity.passport || '<span style="color:var(--red)">NOT PROVIDED</span>'],
-                ['Sponsor', r.sponsor.name],
-                ['Relationship', r.sponsor.relationship],
+                ['Applicant name', ident.full_name || '—'],
+                ['Date of birth', ident.date_of_birth || '—'],
+                ['Nationality', ident.nationality || '<span style="color:var(--red)">NOT PROVIDED</span>'],
+                ['Passport no.', ident.passport_number || '<span style="color:var(--red)">NOT PROVIDED</span>'],
+                ['Sponsor', spons.full_name || '—'],
+                ['Relationship', spons.relationship_to_applicant || '—'],
             ].map(([l, v]) => `<div class="identity-row"><span class="id-label">${l}</span><span class="id-value">${v}</span></div>`).join('');
 
             // Financial panel
-            const f = r.financial;
+            const f = r.graph.financial || {};
+            const sponsorInc = spons.declared_annual_income || 0;
             document.getElementById('financialPanel').innerHTML = [
-                ['Currency', f.currency],
-                ['Closing balance', '₹' + f.closing_balance.toLocaleString('en-IN')],
-                ['Avg monthly income', '₹' + f.avg_monthly.toLocaleString('en-IN')],
-                ['Transaction count', f.transactions === 0 ? '<span style="color:var(--red)">0 (critical)</span>' : f.transactions],
-                ['Sponsor income (annual)', '₹' + r.sponsor.income.toLocaleString('en-IN')],
+                ['Currency', f.currency_code || '—'],
+                ['Closing balance', (f.currency_code==='INR'?'₹':'') + (f.total_closing_balance||0).toLocaleString('en-IN')],
+                ['Avg monthly income', (f.currency_code==='INR'?'₹':'') + (f.inferred_monthly_income||0).toLocaleString('en-IN')],
+                ['Transaction count', f.transaction_count === 0 ? '<span style="color:var(--red)">0 (critical)</span>' : (f.transaction_count||0)],
+                ['Sponsor income (annual)', (f.currency_code==='INR'?'₹':'') + (sponsorInc||0).toLocaleString('en-IN')],
             ].map(([l, v]) => `<div class="identity-row"><span class="id-label">${l}</span><span class="id-value">${v}</span></div>`).join('');
 
             // Privacy cert
@@ -2552,7 +2752,7 @@
     DELETION CERTIFICATE<br>
     ─────────────────────────────<br>
     Source PDF bytes: PURGED<br>
-    Purge timestamp: ${new Date().toISOString()}<br>
+    Purge timestamp: ${r.purged_at || new Date().toISOString()}<br>
     Retained: Derived semantic graph only<br>
     PII in graph: Redacted post-analysis<br>
     ─────────────────────────────<br>

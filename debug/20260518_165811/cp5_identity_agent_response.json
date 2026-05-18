@@ -1,0 +1,41 @@
+{
+  "agent_id": "identity_agent",
+  "elapsed_s": 20.52,
+  "parse_error": null,
+  "verdict": "flag",
+  "confidence": 0.95,
+  "anomaly_count": 4,
+  "summary": "Identity data shows plausible name permutations, but core verification is currently blocked due to unsubmitted passport documents.",
+  "full_finding": {
+    "agent_id": "identity_agent",
+    "anomalies": [
+      {
+        "field_path": "identity.cross_doc_name_match",
+        "severity": "warning",
+        "explanation": "Multiple name variations detected across documents, though they are plausible permutations involving initial usage and order swaps.",
+        "rule_id": "IDN-001"
+      },
+      {
+        "field_path": "identity.date_of_birth",
+        "severity": "info",
+        "explanation": "Document not provided — required for complete audit.",
+        "rule_id": null
+      },
+      {
+        "field_path": "identity.nationality",
+        "severity": "info",
+        "explanation": "Document not provided — required for complete audit.",
+        "rule_id": null
+      },
+      {
+        "field_path": "identity.passport_number",
+        "severity": "info",
+        "explanation": "Document not provided — required for complete audit.",
+        "rule_id": null
+      }
+    ],
+    "confidence": 0.95,
+    "agent_verdict": "flag",
+    "summary": "Identity data shows plausible name permutations, but core verification is currently blocked due to unsubmitted passport documents."
+  }
+}

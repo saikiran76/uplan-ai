@@ -1,0 +1,47 @@
+{
+  "agent_id": "financial_agent",
+  "elapsed_s": 34.34,
+  "parse_error": null,
+  "verdict": "critical",
+  "confidence": 0.98,
+  "anomaly_count": 5,
+  "summary": "The provided bank statement reveals critical signs of fund manipulation, including aggressive smurfing in August 2025 and March 2026, alongside insufficient balances and pending income verification documents.",
+  "full_finding": {
+    "agent_id": "financial_agent",
+    "anomalies": [
+      {
+        "field_path": "financial.spikes[date=03-03-2026]",
+        "severity": "critical",
+        "explanation": "Five separate transfer deposits (four at 30,000 INR and one at 20,000 INR) were made on a single day (03-03-2026). This extreme clustering of identical amounts is a clear indicator of smurfing or structuring to artificially inflate the balance while evading large-transaction scrutiny.",
+        "rule_id": "FIN-001"
+      },
+      {
+        "field_path": "financial.spikes[date=17-08-2025]",
+        "severity": "critical",
+        "explanation": "Multiple rapid deposits of 25,000 to 30,000 INR occurred almost daily between 17-08-2025 and 23-08-2025. This highly unnatural sequence represents organized fund parking or structuring.",
+        "rule_id": "FIN-001"
+      },
+      {
+        "field_path": "financial.spikes[date=28-10-2025]",
+        "severity": "critical",
+        "explanation": "A massive cluster of unexplained deposits totaling 200,000 INR occurred between 28-10-2025 and 30-10-2025, including a 100,000 INR unlabeled deposit. This indicates sudden fund manipulation just before a potential statement boundary.",
+        "rule_id": "FIN-001"
+      },
+      {
+        "field_path": "financial.closing_balance",
+        "severity": "warning",
+        "explanation": "The current documented closing balance is 141,083.88, which is below the ¥2,000,000 threshold. Please upload statements for any additional bank accounts so balances can be aggregated to meet the requirement.",
+        "rule_id": "FIN-004"
+      },
+      {
+        "field_path": "avg_monthly_income",
+        "severity": "info",
+        "explanation": "Document not provided — required for complete audit. Cannot perform cross-document income verification or assess capacity to cover costs until payslips and sponsor letters are uploaded.",
+        "rule_id": null
+      }
+    ],
+    "confidence": 0.98,
+    "agent_verdict": "critical",
+    "summary": "The provided bank statement reveals critical signs of fund manipulation, including aggressive smurfing in August 2025 and March 2026, alongside insufficient balances and pending income verification documents."
+  }
+}

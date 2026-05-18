@@ -1,0 +1,483 @@
+{
+  "page": 6,
+  "elapsed_s": 12.32,
+  "page_type_detected": "bank_statement",
+  "non_null_fields": {
+    "page_number": 6,
+    "page_type": "bank_statement",
+    "currency": "INR",
+    "opening_balance": 34480.41,
+    "closing_balance": 42106.51,
+    "transactions": [
+      {
+        "date": "20-09-2025",
+        "description": "UPIAR/919485861324/DR/SAI GANE/YESB/paytmqr58cc4a@",
+        "amount": 155.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "20-09-2025",
+        "description": "UPIAR/181931202123/DR/MAYURI T/YESB/ Q834771198@yb",
+        "amount": 60.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "20-09-2025",
+        "description": "UPIAR/110753763845/DR/Siyyadul/SBIN/ 8008146952@yb",
+        "amount": 40.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-09-2025",
+        "description": "UPIAR/115907141336/DR/SUVVADA /YESB/ Q952938643@yb",
+        "amount": 130.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-09-2025",
+        "description": "UPIAR/279599479832/DR/PENTAPAL/UTIB/gpay-112442573",
+        "amount": 280.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-09-2025",
+        "description": "UPIAR/957257904038/DR/SANTOSHE/YESB/ Q037262081@yb",
+        "amount": 225.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-09-2025",
+        "description": "UPIAR/551947029757/DR/JAI MATA/YESB/ Q817370107@yb",
+        "amount": 470.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-09-2025",
+        "description": "UPIAR/364408481307/DR/sri jaya/IDIB/7093095375@ind",
+        "amount": 200.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-09-2025",
+        "description": "UPIAR/155503616514/DR/SRI RAJE/SBIP/SBIPMOPAD.0222",
+        "amount": 480.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "22-09-2025",
+        "description": "UPIAR/591684683649/DR/Vizianag/YESB/paytm-8905130@",
+        "amount": 150.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "22-09-2025",
+        "description": "UPIAR/560390121747/DR/SWEET HO/FDRL/BHARATPE.90067",
+        "amount": 600.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "22-09-2025",
+        "description": "UPIAR/630625539686/DR/SWEET HO/FDRL/BHARATPE.90067",
+        "amount": 65.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "22-09-2025",
+        "description": "UPIAR/463485525894/DR/ MedPlus/YESB/MEDPLUSANDHRAP",
+        "amount": 62.9,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "23-09-2025",
+        "description": "UPIAR/893393183779/DR/DUVVARAP/YESB/paytmqr6fx0m1@",
+        "amount": 150.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "23-09-2025",
+        "description": "UPIAR/738081834741/DR/Shiridis/YESB/ Q513676192@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "24-09-2025",
+        "description": "UPIAB/526790428031/CR/PILLA K/SBIN/srinurelli143-",
+        "amount": 500.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "24-09-2025",
+        "description": "UPIAB/826400499082/CR/MANAPURA/SBIN/ 9121980374@yb",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "24-09-2025",
+        "description": "UPIAR/374849929169/DR/SAMANVIT/YESB/paytm-9183714e",
+        "amount": 150.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "24-09-2025",
+        "description": "UPIAB/821831678821/CR/NAGA RAJ/SBIN/ 9059363062@yb",
+        "amount": 10000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "24-09-2025",
+        "description": "UPIAR/907942572094/DR/ADIGARLA/YESB/ Q108995186@yb",
+        "amount": 85.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "25-09-2025",
+        "description": "UPIAR/044218903471/DR/KOTTAPAL/SBIN/9550284734@pts",
+        "amount": 10000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "25-09-2025",
+        "description": "UPIAR/963148157643/DR/RELIANCE/CITI/ jio@citiban",
+        "amount": 666.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "25-09-2025",
+        "description": "UPIAB/162057612754/CR/CHIRANJE/SBIN/ 9640613978@yb",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "25-09-2025",
+        "description": "UPIAB/208269874396/CR/INAKOTI /BARB/inakotibujji1@",
+        "amount": 2000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "26-09-2025",
+        "description": "UPIAB/705236616822/CR/PRASAD R/ICIC/ 7661064444@ib",
+        "amount": 5000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "26-09-2025",
+        "description": "UPIAR/453879940530/DR/SAMANVIT/YESB/paytm-9183714e",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "27-09-2025",
+        "description": "UPIAR/539644121848/DR/ PhonePe/YESB/ BBPSBP@yb",
+        "amount": 860.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "27-09-2025",
+        "description": "UPIAB/010366057054/CR/SHYAM K/SBIN/shyam.rock2@ax",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": null
+      }
+    ],
+    "period_start": "20-09-2025",
+    "period_end": "27-09-2025"
+  },
+  "null_or_empty_fields": [
+    "person_name",
+    "date_of_birth",
+    "applicant_dob",
+    "nationality",
+    "passport_number",
+    "employer_name",
+    "job_title",
+    "monthly_salary",
+    "annual_income",
+    "document_date",
+    "employment_start",
+    "employment_end",
+    "sponsor_name",
+    "sponsor_relationship",
+    "sponsor_declared_income",
+    "sponsor_income_currency",
+    "applicant_name",
+    "declared_liquid_assets",
+    "declared_movable_assets",
+    "declared_property_value",
+    "declared_annual_income",
+    "declared_assets_total",
+    "institution_name",
+    "program_name",
+    "program_cost",
+    "program_duration_months",
+    "enrollment_start",
+    "tax_year",
+    "taxable_income",
+    "tax_paid",
+    "anomaly_flags"
+  ],
+  "raw_extraction": {
+    "page_number": 6,
+    "page_type": "bank_statement",
+    "person_name": null,
+    "date_of_birth": null,
+    "applicant_dob": null,
+    "nationality": null,
+    "passport_number": null,
+    "currency": "INR",
+    "opening_balance": 34480.41,
+    "closing_balance": 42106.51,
+    "transactions": [
+      {
+        "date": "20-09-2025",
+        "description": "UPIAR/919485861324/DR/SAI GANE/YESB/paytmqr58cc4a@",
+        "amount": 155.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "20-09-2025",
+        "description": "UPIAR/181931202123/DR/MAYURI T/YESB/ Q834771198@yb",
+        "amount": 60.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "20-09-2025",
+        "description": "UPIAR/110753763845/DR/Siyyadul/SBIN/ 8008146952@yb",
+        "amount": 40.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-09-2025",
+        "description": "UPIAR/115907141336/DR/SUVVADA /YESB/ Q952938643@yb",
+        "amount": 130.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-09-2025",
+        "description": "UPIAR/279599479832/DR/PENTAPAL/UTIB/gpay-112442573",
+        "amount": 280.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-09-2025",
+        "description": "UPIAR/957257904038/DR/SANTOSHE/YESB/ Q037262081@yb",
+        "amount": 225.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-09-2025",
+        "description": "UPIAR/551947029757/DR/JAI MATA/YESB/ Q817370107@yb",
+        "amount": 470.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-09-2025",
+        "description": "UPIAR/364408481307/DR/sri jaya/IDIB/7093095375@ind",
+        "amount": 200.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "21-09-2025",
+        "description": "UPIAR/155503616514/DR/SRI RAJE/SBIP/SBIPMOPAD.0222",
+        "amount": 480.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "22-09-2025",
+        "description": "UPIAR/591684683649/DR/Vizianag/YESB/paytm-8905130@",
+        "amount": 150.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "22-09-2025",
+        "description": "UPIAR/560390121747/DR/SWEET HO/FDRL/BHARATPE.90067",
+        "amount": 600.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "22-09-2025",
+        "description": "UPIAR/630625539686/DR/SWEET HO/FDRL/BHARATPE.90067",
+        "amount": 65.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "22-09-2025",
+        "description": "UPIAR/463485525894/DR/ MedPlus/YESB/MEDPLUSANDHRAP",
+        "amount": 62.9,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "23-09-2025",
+        "description": "UPIAR/893393183779/DR/DUVVARAP/YESB/paytmqr6fx0m1@",
+        "amount": 150.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "23-09-2025",
+        "description": "UPIAR/738081834741/DR/Shiridis/YESB/ Q513676192@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "24-09-2025",
+        "description": "UPIAB/526790428031/CR/PILLA K/SBIN/srinurelli143-",
+        "amount": 500.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "24-09-2025",
+        "description": "UPIAB/826400499082/CR/MANAPURA/SBIN/ 9121980374@yb",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "24-09-2025",
+        "description": "UPIAR/374849929169/DR/SAMANVIT/YESB/paytm-9183714e",
+        "amount": 150.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "24-09-2025",
+        "description": "UPIAB/821831678821/CR/NAGA RAJ/SBIN/ 9059363062@yb",
+        "amount": 10000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "24-09-2025",
+        "description": "UPIAR/907942572094/DR/ADIGARLA/YESB/ Q108995186@yb",
+        "amount": 85.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "25-09-2025",
+        "description": "UPIAR/044218903471/DR/KOTTAPAL/SBIN/9550284734@pts",
+        "amount": 10000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "25-09-2025",
+        "description": "UPIAR/963148157643/DR/RELIANCE/CITI/ jio@citiban",
+        "amount": 666.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "25-09-2025",
+        "description": "UPIAB/162057612754/CR/CHIRANJE/SBIN/ 9640613978@yb",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "25-09-2025",
+        "description": "UPIAB/208269874396/CR/INAKOTI /BARB/inakotibujji1@",
+        "amount": 2000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "26-09-2025",
+        "description": "UPIAB/705236616822/CR/PRASAD R/ICIC/ 7661064444@ib",
+        "amount": 5000.0,
+        "transaction_type": "credit",
+        "label": null
+      },
+      {
+        "date": "26-09-2025",
+        "description": "UPIAR/453879940530/DR/SAMANVIT/YESB/paytm-9183714e",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "27-09-2025",
+        "description": "UPIAR/539644121848/DR/ PhonePe/YESB/ BBPSBP@yb",
+        "amount": 860.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "27-09-2025",
+        "description": "UPIAB/010366057054/CR/SHYAM K/SBIN/shyam.rock2@ax",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": null
+      }
+    ],
+    "employer_name": null,
+    "job_title": null,
+    "monthly_salary": null,
+    "annual_income": null,
+    "document_date": null,
+    "period_start": "20-09-2025",
+    "period_end": "27-09-2025",
+    "employment_start": null,
+    "employment_end": null,
+    "sponsor_name": null,
+    "sponsor_relationship": null,
+    "sponsor_declared_income": null,
+    "sponsor_income_currency": null,
+    "applicant_name": null,
+    "declared_liquid_assets": null,
+    "declared_movable_assets": null,
+    "declared_property_value": null,
+    "declared_annual_income": null,
+    "declared_assets_total": null,
+    "institution_name": null,
+    "program_name": null,
+    "program_cost": null,
+    "program_duration_months": null,
+    "enrollment_start": null,
+    "tax_year": null,
+    "taxable_income": null,
+    "tax_paid": null,
+    "anomaly_flags": []
+  }
+}

@@ -1,0 +1,433 @@
+{
+  "identity": {
+    "name_variants": [
+      "MR KORADA SATYANARAYANA",
+      "SATYANARAYANA",
+      "SATYANARAYANA KORAD"
+    ],
+    "canonical_name": "MR KORADA SATYANARAYANA",
+    "date_of_birth": null,
+    "nationality": null,
+    "passport_number": null,
+    "transliteration_flags": [
+      "'SATYANARAYANA' vs 'MR KORADA SATYANARAYANA'",
+      "'SATYANARAYANA KORAD' vs 'MR KORADA SATYANARAYANA'"
+    ],
+    "cross_doc_name_match": false
+  },
+  "financial": {
+    "currency": "INR",
+    "opening_balance": 39093.31,
+    "closing_balance": 141083.88,
+    "avg_monthly_income": null,
+    "total_credits": 1805222.0,
+    "total_debits": 1703231.3,
+    "transaction_count": 1036,
+    "spikes": [
+      {
+        "date": "13-07-2025",
+        "amount": 20000.0,
+        "label": "transfer",
+        "ratio_to_average": 3.89
+      },
+      {
+        "date": "17-08-2025",
+        "amount": 30000.0,
+        "label": "transfer",
+        "ratio_to_average": 5.83
+      },
+      {
+        "date": "18-08-2025",
+        "amount": 30000.0,
+        "label": "transfer",
+        "ratio_to_average": 5.83
+      },
+      {
+        "date": "20-08-2025",
+        "amount": 30000.0,
+        "label": "transfer",
+        "ratio_to_average": 5.83
+      },
+      {
+        "date": "21-08-2025",
+        "amount": 25000.0,
+        "label": "transfer",
+        "ratio_to_average": 4.86
+      },
+      {
+        "date": "23-08-2025",
+        "amount": 30000.0,
+        "label": "transfer",
+        "ratio_to_average": 5.83
+      },
+      {
+        "date": "08-10-2025",
+        "amount": 50000.0,
+        "label": "transfer",
+        "ratio_to_average": 9.72
+      },
+      {
+        "date": "08-10-2025",
+        "amount": 39115.0,
+        "label": "transfer",
+        "ratio_to_average": 7.61
+      },
+      {
+        "date": "28-10-2025",
+        "amount": 100000.0,
+        "label": "large_unlabeled_deposit",
+        "ratio_to_average": 19.44
+      },
+      {
+        "date": "29-10-2025",
+        "amount": 50000.0,
+        "label": null,
+        "ratio_to_average": 9.72
+      },
+      {
+        "date": "30-10-2025",
+        "amount": 50000.0,
+        "label": null,
+        "ratio_to_average": 9.72
+      },
+      {
+        "date": "12-11-2025",
+        "amount": 20000.0,
+        "label": "transfer",
+        "ratio_to_average": 3.89
+      },
+      {
+        "date": "19-11-2025",
+        "amount": 20000.0,
+        "label": "transfer",
+        "ratio_to_average": 3.89
+      },
+      {
+        "date": "20-01-2026",
+        "amount": 27000.0,
+        "label": "transfer",
+        "ratio_to_average": 5.25
+      },
+      {
+        "date": "31-01-2026",
+        "amount": 16500.0,
+        "label": null,
+        "ratio_to_average": 3.21
+      },
+      {
+        "date": "01-03-2026",
+        "amount": 30000.0,
+        "label": null,
+        "ratio_to_average": 5.83
+      },
+      {
+        "date": "01-03-2026",
+        "amount": 30000.0,
+        "label": null,
+        "ratio_to_average": 5.83
+      },
+      {
+        "date": "03-03-2026",
+        "amount": 30000.0,
+        "label": null,
+        "ratio_to_average": 5.83
+      },
+      {
+        "date": "03-03-2026",
+        "amount": 30000.0,
+        "label": null,
+        "ratio_to_average": 5.83
+      },
+      {
+        "date": "03-03-2026",
+        "amount": 30000.0,
+        "label": null,
+        "ratio_to_average": 5.83
+      },
+      {
+        "date": "03-03-2026",
+        "amount": 30000.0,
+        "label": null,
+        "ratio_to_average": 5.83
+      },
+      {
+        "date": "03-03-2026",
+        "amount": 20000.0,
+        "label": null,
+        "ratio_to_average": 3.89
+      },
+      {
+        "date": "21-04-2026",
+        "amount": 20000.0,
+        "label": null,
+        "ratio_to_average": 3.89
+      },
+      {
+        "date": "24-04-2026",
+        "amount": 20000.0,
+        "label": null,
+        "ratio_to_average": 3.89
+      }
+    ],
+    "unlabeled_deposit_count": 189,
+    "income_percentile": null,
+    "declared_property_value": null,
+    "declared_movable_assets": null,
+    "source_is_affidavit": false
+  },
+  "temporal": {
+    "doc_date_ranges": [
+      {
+        "source": "bank_statement",
+        "page": 1,
+        "start": "24-04-2025",
+        "end": "24-04-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 2,
+        "start": "29-05-2025",
+        "end": "16-07-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 3,
+        "start": "16-07-2025",
+        "end": "18-08-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 4,
+        "start": "18-08-2025",
+        "end": "10-09-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 5,
+        "start": "11-09-2025",
+        "end": "20-09-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 6,
+        "start": "20-09-2025",
+        "end": "27-09-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 7,
+        "start": "28-09-2025",
+        "end": "02-10-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 8,
+        "start": "03-10-2025",
+        "end": "10-10-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 9,
+        "start": "10-10-2025",
+        "end": "20-10-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 10,
+        "start": "20-10-2025",
+        "end": "28-10-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 11,
+        "start": "28-10-2025",
+        "end": "07-11-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 12,
+        "start": "07-11-2025",
+        "end": "13-11-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 13,
+        "start": "13-11-2025",
+        "end": "20-11-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 14,
+        "start": "20-11-2025",
+        "end": "27-11-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 15,
+        "start": "27-11-2025",
+        "end": "04-12-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 16,
+        "start": "05-12-2025",
+        "end": "13-12-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 17,
+        "start": "14-12-2025",
+        "end": "18-12-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 18,
+        "start": "18-12-2025",
+        "end": "24-12-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 19,
+        "start": "24-12-2025",
+        "end": "02-01-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 20,
+        "start": "02-01-2026",
+        "end": "09-01-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 21,
+        "start": "11-01-2026",
+        "end": "20-01-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 22,
+        "start": "20-01-2026",
+        "end": "25-01-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 23,
+        "start": "25-01-2026",
+        "end": "01-02-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 24,
+        "start": "01-02-2026",
+        "end": "06-02-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 25,
+        "start": "06-02-2026",
+        "end": "13-02-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 26,
+        "start": "13-02-2026",
+        "end": "17-02-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 27,
+        "start": "17-02-2026",
+        "end": "22-02-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 28,
+        "start": "22-02-2026",
+        "end": "01-03-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 29,
+        "start": "01-03-2026",
+        "end": "05-03-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 30,
+        "start": "05-03-2026",
+        "end": "09-03-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 31,
+        "start": "09-03-2026",
+        "end": "15-03-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 32,
+        "start": "15-03-2026",
+        "end": "19-03-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 33,
+        "start": "19-03-2026",
+        "end": "28-03-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 34,
+        "start": "28-03-2026",
+        "end": "02-04-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 35,
+        "start": "02-04-2026",
+        "end": "04-04-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 36,
+        "start": "04-04-2026",
+        "end": "13-04-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 37,
+        "start": "13-04-2026",
+        "end": "21-04-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 38,
+        "start": "21-04-2026",
+        "end": "24-04-2026"
+      }
+    ],
+    "employment_start": null,
+    "employment_end": null,
+    "visa_window_start": null,
+    "visa_window_end": null,
+    "gap_flags": [],
+    "chronology_valid": true
+  },
+  "sponsor": null,
+  "enrollment": null,
+  "edges": [
+    {
+      "edge_type": "income_link",
+      "source_node": "identity",
+      "target_node": "financial",
+      "coherent": true,
+      "detail": null
+    }
+  ],
+  "token_count": 2693,
+  "source_page_count": 38,
+  "estimated_raw_tokens": 76000,
+  "source_doc_types": [
+    "bank_statement"
+  ]
+}

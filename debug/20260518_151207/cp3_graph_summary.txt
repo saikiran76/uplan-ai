@@ -1,0 +1,27 @@
+=== GRAPH SUMMARY (run: 20260518_151207) ===
+Source pages: 38  |  Doc types: ['unknown']
+Token count: 200  |  Compression: 76,000 -> 200
+
+--- IDENTITY ---
+  canonical_name:  None
+  date_of_birth:   None
+  nationality:     None
+  passport_number: None
+  name_variants:   []
+
+--- FINANCIAL ---
+  source_is_affidavit:   False
+  currency:              None
+  closing_balance:       None
+  avg_monthly_income:    None
+  transaction_count:     0
+  declared_property:     None
+  declared_movables:     None
+
+--- SPONSOR ---
+  sponsor_name:     None
+  relationship:     None
+  declared_income:  None
+
+  enrollment:  null
+  edges:       []

@@ -1,0 +1,41 @@
+{
+  "agent_id": "enrollment_agent",
+  "elapsed_s": 27.15,
+  "parse_error": null,
+  "verdict": "critical",
+  "confidence": 1.0,
+  "anomaly_count": 4,
+  "summary": "The application exhibits a severe financial shortfall against the ¥2,000,000 requirement, pervasive undocumented deposits including a 100,000 INR spike, and entirely missing enrollment data.",
+  "full_finding": {
+    "agent_id": "enrollment_agent",
+    "anomalies": [
+      {
+        "field_path": "financial.closing_balance",
+        "severity": "critical",
+        "explanation": "The closing balance of 141083.88 INR falls drastically short of the Japanese COE minimum requirement of ¥2,000,000 (which equates to roughly 1.1 million INR).",
+        "rule_id": null
+      },
+      {
+        "field_path": "enrollment",
+        "severity": "warning",
+        "explanation": "Enrollment data is null, preventing the verification of program costs and duration. If this is a non-student visa, enrollment checks are not applicable, but for a COE student visa this is a critical omission.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.spikes[8].amount",
+        "severity": "critical",
+        "explanation": "A large unlabeled deposit of 100000.0 INR on 28-10-2025 represents a 19.44x spike above average without a documented source, violating COE requirements for large deposits.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.unlabeled_deposit_count",
+        "severity": "critical",
+        "explanation": "There are 189 unlabeled deposits in the account, which obscures the genuine source of funds and prevents validation of the sponsor's legitimate income.",
+        "rule_id": null
+      }
+    ],
+    "confidence": 1.0,
+    "agent_verdict": "critical",
+    "summary": "The application exhibits a severe financial shortfall against the ¥2,000,000 requirement, pervasive undocumented deposits including a 100,000 INR spike, and entirely missing enrollment data."
+  }
+}

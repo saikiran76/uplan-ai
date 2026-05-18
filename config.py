@@ -16,10 +16,10 @@ client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
 # -- Model Selection -------------------------------------------------------
 # Available models confirmed via models.list():
-#   Extraction: gemini-2.5-flash (fast, vision-capable)
-#   Reasoning:  gemini-2.5-pro (smart, structured output)
-FLASH_MODEL = os.environ.get("FLASH_MODEL", "gemini-2.5-flash")
-PRO_MODEL = os.environ.get("PRO_MODEL", "gemini-2.5-pro")
+#   Extraction: gemini-3-flash-preview (fast, vision-capable)
+#   Reasoning:  gemini-3.1-pro-preview (smart, structured output)
+FLASH_MODEL = os.environ.get("FLASH_MODEL", "gemini-3-flash-preview")
+PRO_MODEL = os.environ.get("PRO_MODEL", "gemini-3.1-pro-preview")
 
 # -- Rate Limit / Retry Config --------------------------------------------
 # With paid credits, rate limits are generous. Keeping retry logic as safety net.

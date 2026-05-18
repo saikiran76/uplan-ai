@@ -1,0 +1,41 @@
+{
+  "agent_id": "identity_agent",
+  "elapsed_s": 611.77,
+  "parse_error": null,
+  "verdict": "critical",
+  "confidence": 0.99,
+  "anomaly_count": 4,
+  "summary": "Application lacks critical fundamental identity data including date of birth, passport number, and nationality, alongside severe cross-document name mismatches.",
+  "full_finding": {
+    "agent_id": "identity_agent",
+    "anomalies": [
+      {
+        "field_path": "name_variants",
+        "severity": "critical",
+        "explanation": "Significant name inconsistencies across documents, including dropped name components and spelling variations ('KORADA' vs 'KORAD'), which violates strict Japanese identity matching standards.",
+        "rule_id": "IDN-001"
+      },
+      {
+        "field_path": "date_of_birth",
+        "severity": "critical",
+        "explanation": "Date of birth is completely missing from the identity record, preventing fundamental age and identity verification.",
+        "rule_id": null
+      },
+      {
+        "field_path": "passport_number",
+        "severity": "critical",
+        "explanation": "Passport number is null. A valid passport number is absolutely mandatory for any visa or Certificate of Eligibility processing.",
+        "rule_id": null
+      },
+      {
+        "field_path": "nationality",
+        "severity": "critical",
+        "explanation": "Nationality is null, making it impossible to validate passport formatting or apply country-specific immigration risk assessments.",
+        "rule_id": null
+      }
+    ],
+    "confidence": 0.99,
+    "agent_verdict": "critical",
+    "summary": "Application lacks critical fundamental identity data including date of birth, passport number, and nationality, alongside severe cross-document name mismatches."
+  }
+}

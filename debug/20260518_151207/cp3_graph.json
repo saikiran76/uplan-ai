@@ -1,0 +1,44 @@
+{
+  "identity": {
+    "name_variants": [],
+    "canonical_name": null,
+    "date_of_birth": null,
+    "nationality": null,
+    "passport_number": null,
+    "transliteration_flags": [],
+    "cross_doc_name_match": true
+  },
+  "financial": {
+    "currency": null,
+    "opening_balance": null,
+    "closing_balance": null,
+    "avg_monthly_income": null,
+    "total_credits": 0.0,
+    "total_debits": 0.0,
+    "transaction_count": 0,
+    "spikes": [],
+    "unlabeled_deposit_count": 0,
+    "income_percentile": null,
+    "declared_property_value": null,
+    "declared_movable_assets": null,
+    "source_is_affidavit": false
+  },
+  "temporal": {
+    "doc_date_ranges": [],
+    "employment_start": null,
+    "employment_end": null,
+    "visa_window_start": null,
+    "visa_window_end": null,
+    "gap_flags": [],
+    "chronology_valid": true
+  },
+  "sponsor": null,
+  "enrollment": null,
+  "edges": [],
+  "token_count": 200,
+  "source_page_count": 38,
+  "estimated_raw_tokens": 76000,
+  "source_doc_types": [
+    "unknown"
+  ]
+}

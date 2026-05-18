@@ -18,9 +18,14 @@ class IdentityAgent(BaseSpecialistAgent):
 
     def _build_prompt(self, graph_subset: dict, rule_findings: list[dict], jurisdiction: str) -> str:
         ctx_block = f"\nJURISDICTION CONTEXT:\n{jurisdiction}\n" if jurisdiction else ""
-        return f"""You are an adversarial immigration officer reviewing identity documents.
-Your task: identify every identity inconsistency that could justify visa rejection.
+        dossier_ctx = graph_subset.get("_document_context", {})
+        partial_note = dossier_ctx.get("partial_dossier_instructions", "")
+        return f"""You are an adversarial pre-submission auditor reviewing identity documents.
+Your task: identify identity inconsistencies in the PROVIDED documents and flag missing identity documents
+as informational gaps — NOT as rejection grounds.
 {ctx_block}
+DOSSIER COMPLETENESS: {partial_note}
+
 IDENTITY DATA:
 {json.dumps(graph_subset.get("identity"), indent=2)}
 
@@ -34,5 +39,7 @@ Analyse the following — be specific, cite exact field paths:
    transliteration variation? Rate the severity.
 3. Check for date_of_birth consistency — is it the same across all documents?
 4. Does the passport_number match the identity page expectations for the stated nationality?
+5. If passport data is null, classify as 'info' severity — the passport document has not been uploaded yet.
+   Do NOT treat missing passport as a critical rejection issue.
 
 Respond ONLY with the AgentFinding JSON schema. Every anomaly must include the exact field_path."""

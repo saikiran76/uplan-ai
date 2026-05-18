@@ -1,0 +1,200 @@
+{
+  "identity": {
+    "name_variants": [
+      "MR KORADA SATYANARAYANA",
+      "SATYANARAYANA",
+      "SATYANARAYANA KORAD"
+    ],
+    "canonical_name": "MR KORADA SATYANARAYANA",
+    "date_of_birth": null,
+    "nationality": null,
+    "passport_number": null,
+    "transliteration_flags": [
+      "'SATYANARAYANA' vs 'MR KORADA SATYANARAYANA'",
+      "'SATYANARAYANA KORAD' vs 'MR KORADA SATYANARAYANA'"
+    ],
+    "cross_doc_name_match": false
+  },
+  "financial": {
+    "currency": "INR",
+    "opening_balance": 46479.31,
+    "closing_balance": 129379.99,
+    "avg_monthly_income": null,
+    "total_credits": 628805.0,
+    "total_debits": 570342.4,
+    "transaction_count": 322,
+    "spikes": [
+      {
+        "date": "17-08-2025",
+        "amount": 30000.0,
+        "label": "transfer",
+        "ratio_to_average": 4.29
+      },
+      {
+        "date": "18-08-2025",
+        "amount": 30000.0,
+        "label": "transfer",
+        "ratio_to_average": 4.29
+      },
+      {
+        "date": "20-08-2025",
+        "amount": 30000.0,
+        "label": null,
+        "ratio_to_average": 4.29
+      },
+      {
+        "date": "21-08-2025",
+        "amount": 25000.0,
+        "label": null,
+        "ratio_to_average": 3.58
+      },
+      {
+        "date": "23-08-2025",
+        "amount": 30000.0,
+        "label": null,
+        "ratio_to_average": 4.29
+      },
+      {
+        "date": "01-03-2026",
+        "amount": 30000.0,
+        "label": "transfer",
+        "ratio_to_average": 4.29
+      },
+      {
+        "date": "01-03-2026",
+        "amount": 30000.0,
+        "label": "transfer",
+        "ratio_to_average": 4.29
+      },
+      {
+        "date": "03-03-2026",
+        "amount": 30000.0,
+        "label": "transfer",
+        "ratio_to_average": 4.29
+      },
+      {
+        "date": "03-03-2026",
+        "amount": 30000.0,
+        "label": "transfer",
+        "ratio_to_average": 4.29
+      },
+      {
+        "date": "03-03-2026",
+        "amount": 30000.0,
+        "label": "transfer",
+        "ratio_to_average": 4.29
+      },
+      {
+        "date": "03-03-2026",
+        "amount": 30000.0,
+        "label": "transfer",
+        "ratio_to_average": 4.29
+      }
+    ],
+    "unlabeled_deposit_count": 41,
+    "income_percentile": null,
+    "declared_property_value": null,
+    "declared_movable_assets": null,
+    "source_is_affidavit": false
+  },
+  "temporal": {
+    "doc_date_ranges": [
+      {
+        "source": "bank_statement",
+        "page": 1,
+        "start": "24-04-2025",
+        "end": "24-04-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 2,
+        "start": "29-05-2025",
+        "end": "16-07-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 3,
+        "start": "16-07-2025",
+        "end": "18-08-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 4,
+        "start": "18-08-2025",
+        "end": "10-09-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 5,
+        "start": "11-09-2025",
+        "end": "20-09-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 6,
+        "start": "20-09-2025",
+        "end": "27-09-2025"
+      },
+      {
+        "source": "bank_statement",
+        "page": 25,
+        "start": "06-02-2026",
+        "end": "13-02-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 26,
+        "start": "13-02-2026",
+        "end": "17-02-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 27,
+        "start": "17-02-2026",
+        "end": "22-02-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 28,
+        "start": "22-02-2026",
+        "end": "01-03-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 29,
+        "start": "01-03-2026",
+        "end": "05-03-2026"
+      },
+      {
+        "source": "bank_statement",
+        "page": 30,
+        "start": "05-03-2026",
+        "end": "09-03-2026"
+      }
+    ],
+    "employment_start": null,
+    "employment_end": null,
+    "visa_window_start": null,
+    "visa_window_end": null,
+    "gap_flags": [],
+    "chronology_valid": true
+  },
+  "sponsor": null,
+  "enrollment": null,
+  "edges": [
+    {
+      "edge_type": "income_link",
+      "source_node": "identity",
+      "target_node": "financial",
+      "coherent": true,
+      "detail": null
+    }
+  ],
+  "token_count": 1231,
+  "source_page_count": 38,
+  "estimated_raw_tokens": 76000,
+  "source_doc_types": [
+    "unknown",
+    "bank_statement"
+  ]
+}

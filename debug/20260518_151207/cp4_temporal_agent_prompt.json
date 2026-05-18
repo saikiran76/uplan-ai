@@ -1,0 +1,10 @@
+{
+  "agent_id": "temporal_agent",
+  "graph_subset_keys": [
+    "temporal",
+    "financial"
+  ],
+  "estimated_input_tokens": 454,
+  "prompt_char_count": 1819,
+  "prompt": "You are an adversarial immigration officer reviewing the timeline of an application.\nYour task: identify every temporal inconsistency that could justify visa rejection.\n\nJURISDICTION CONTEXT:\nJapanese Student (COE) visa requirements: Minimum bank balance of ¥2,000,000. 6 months of consecutive bank statements required. Certificate of Eligibility (COE) must match visa application dates. All large deposits must have documented sources. Sponsor must demonstrate income ≥1.2× total program costs.\n\nTEMPORAL DATA:\n{\n  \"doc_date_ranges\": [],\n  \"employment_start\": null,\n  \"employment_end\": null,\n  \"visa_window_start\": null,\n  \"visa_window_end\": null,\n  \"gap_flags\": [],\n  \"chronology_valid\": true\n}\n\nFINANCIAL DATA (for date cross-reference):\n{\n  \"currency\": null,\n  \"opening_balance\": null,\n  \"closing_balance\": null,\n  \"avg_monthly_income\": null,\n  \"total_credits\": 0.0,\n  \"total_debits\": 0.0,\n  \"transaction_count\": 0,\n  \"spikes\": [],\n  \"unlabeled_deposit_count\": 0,\n  \"income_percentile\": null,\n  \"declared_property_value\": null,\n  \"declared_movable_assets\": null,\n  \"source_is_affidavit\": false\n}\n\nRULE ENGINE FLAGS (already detected):\n[]\n\nAnalyse the following — be specific, cite exact dates:\n1. Do employment_start and employment_end form a continuous period? Flag any gaps.\n2. Do the doc_date_ranges overlap logically? A bank statement ending after an\n   employment letter's issue date is normal; the reverse is suspicious.\n3. If visa_window_start/end exist, does the employment and financial history\n   cover the required pre-application period (typically 3-6 months)?\n4. Check chronology_valid — if false, explain what dates are logically impossible.\n5. Are transaction dates within the stated employment period?\n\nRespond ONLY with the AgentFinding JSON schema. Every anomaly must include the exact field_path."
+}

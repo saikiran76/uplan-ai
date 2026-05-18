@@ -1,0 +1,485 @@
+{
+  "page": 30,
+  "elapsed_s": 29.67,
+  "page_type_detected": "bank_statement",
+  "non_null_fields": {
+    "page_number": 30,
+    "page_type": "bank_statement",
+    "raw_text": "Savings Account\nPage  \n  of  \n30\n38\nDate\nTransaction Id\nRemarks\nAmount( )\nBalance( )\n05-03-2026\nT3804683\nUPIAR/706806604447/DR/YELLAPU /YESB/paytm.s1ws421@\n35.0(Dr)\n144842.09(Cr)\n05-03-2026\nT5710665\nUPIAR/622218180850/DR/VENKATA /YESB/paytm.s1ao6ec@\n40.0(Dr)\n144802.09(Cr)\n05-03-2026\nT6338102\nUPIAR/750631115521/DR/LAKSHMI /YESB/ Q424186410@yb\n170.0(Dr)\n144632.09(Cr)\n05-03-2026\nT13781823\nUPIAR/648182112533/DR/IRCTC Ra/UTIB/IRCTCPGONLINE@\n959.0(Dr)\n143673.04(Cr)\n05-03-2026\nT13812414\nUPIAR/511082567769/DR/IRCTC Ra/UTIB/IRCTCPGONLINE@\n959.0(Dr)\n142713.99(Cr)\n06-03-2026\nT26853522\nUPIAB/105685840858/CR/KOMMANAP/SBIN/ 9441305981@yb\n7000.0(Cr)\n149713.99(Cr)\n06-03-2026\nT26949018\nUPIAB/865926240250/CR/KALAKURI/UBIN/9885881282-2@y\n3000.0(Cr)\n152713.99(Cr)\n06-03-2026\nT29346182\nUPIAR/674403478543/DR/SHEK RAH/YESB/ Q324807443@yb\n100.0(Dr)\n152613.99(Cr)\n06-03-2026\nT33474902\nUPIAB/318316343122/CR/ROUTHU /SBIN/7075732704-2@y\n3000.0(Cr)\n155613.99(Cr)\n06-03-2026\nT42632644\nUPIAB/968016891595/CR/MAHAPATR/SBIN/ 9908341342@yb\n500.0(Cr)\n156113.99(Cr)\n06-03-2026\nT80305154\nUPIAR/243324638606/DR/ARJI SI/SBIN/ 6309334350@yb\n180.0(Dr)\n155933.99(Cr)\n07-03-2026\nU7637854\nUPIAB/833791286753/CR/NAKKA V/SBIN/ 9966338898@yb\n10000.0(Cr)\n165933.99(Cr)\n07-03-2026\nU16834306\nUPIAB/712327101399/CR/NAKKA V/SBIN/ 9966338898@yb\n500.0(Cr)\n166433.99(Cr)\n07-03-2026\nU19570685\nUPIAB/305659354206/CR/APPARAO /SBIN/ 7389091844@ax\n3500.0(Cr)\n169933.99(Cr)\n07-03-2026\nU20239819\nUPIAR/847604064228/DR/Bank Acc/BKID/86131011001673\n10000.0(Dr)\n159933.99(Cr)\n07-03-2026\nU20500680\nUPIAR/260878710418/DR/KOTTAPAL/SBIN/9550284734@pts\n2500.0(Dr)\n157433.99(Cr)\n07-03-2026\nU20563844\nUPIAR/782045008687/DR/Bank Acc/SBIN/38487860368@SB\n10000.0(Dr)\n147433.99(Cr)\n07-03-2026\nU28095079\nUPIAR/703313059923/DR/Bhavani /YESB/paytmqr6qbgg4@\n60.0(Dr)\n147373.99(Cr)\n07-03-2026\nU30693702\nUPIAR/623016848434/DR/RAYATHI /YESB/paytm.s1xkfvn@\n130.0(Dr)\n147243.99(Cr)\n07-03-2026\nU57485523\nUPIAR/137202707996/DR/ PhonePe/YESB/SV251211223834\n920.0(Dr)\n146323.99(Cr)\n07-03-2026\nU57489049\nUPIAR/821440028016/DR/ PhonePe/YESB/SV251211225649\n17184.0(Dr)\n129139.99(Cr)\n08-03-2026\nV6850346\nUPIAR/404132921804/DR/SWEET IN/YESB/ Q163232668@yb\n70.0(Dr)\n129069.99(Cr)\n08-03-2026\nV8290137\nUPIAR/781332274872/DR/MUDUNURU/UBIN/ 9490301046@yb\n800.0(Dr)\n128269.99(Cr)\n08-03-2026\nV9260370\nUPIAR/700928177556/DR/LAKSHMI /YESB/ Q424186410@yb\n230.0(Dr)\n128039.99(Cr)\n08-03-2026\nV9498390\nUPIAR/835467805571/DR/PAVAN PU/CNRB/11011085900188\n160.0(Dr)\n127879.99(Cr)\n09-03-2026\nV35362678\nUPIAR/606829688586/DR/ ICCL/YESB/ ICCLMF@yb\n1000.0(Dr)\n126879.99(Cr)\n09-03-2026\nV35372462\nUPIAR/606898409790/DR/ ICCL/YESB/ ICCLMF@yb\n1000.0(Dr)\n125879.99(Cr)\n09-03-2026\nV41336139\nUPIAB/569362208723/CR/KODU SA/SBIN/sankarakodu@ax\n3500.0(Cr)\n129379.99(Cr)\n",
+    "currency": "INR",
+    "opening_balance": 144877.09,
+    "closing_balance": 129379.99,
+    "transactions": [
+      {
+        "date": "05-03-2026",
+        "description": "UPIAR/706806604447/DR/YELLAPU /YESB/paytm.s1ws421@",
+        "amount": 35.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "05-03-2026",
+        "description": "UPIAR/622218180850/DR/VENKATA /YESB/paytm.s1ao6ec@",
+        "amount": 40.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "05-03-2026",
+        "description": "UPIAR/750631115521/DR/LAKSHMI /YESB/ Q424186410@yb",
+        "amount": 170.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "05-03-2026",
+        "description": "UPIAR/648182112533/DR/IRCTC Ra/UTIB/IRCTCPGONLINE@",
+        "amount": 959.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "05-03-2026",
+        "description": "UPIAR/511082567769/DR/IRCTC Ra/UTIB/IRCTCPGONLINE@",
+        "amount": 959.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "06-03-2026",
+        "description": "UPIAB/105685840858/CR/KOMMANAP/SBIN/ 9441305981@yb",
+        "amount": 7000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-03-2026",
+        "description": "UPIAB/865926240250/CR/KALAKURI/UBIN/9885881282-2@y",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-03-2026",
+        "description": "UPIAR/674403478543/DR/SHEK RAH/YESB/ Q324807443@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "06-03-2026",
+        "description": "UPIAB/318316343122/CR/ROUTHU /SBIN/7075732704-2@y",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-03-2026",
+        "description": "UPIAB/968016891595/CR/MAHAPATR/SBIN/ 9908341342@yb",
+        "amount": 500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-03-2026",
+        "description": "UPIAR/243324638606/DR/ARJI SI/SBIN/ 6309334350@yb",
+        "amount": 180.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAB/833791286753/CR/NAKKA V/SBIN/ 9966338898@yb",
+        "amount": 10000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAB/712327101399/CR/NAKKA V/SBIN/ 9966338898@yb",
+        "amount": 500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAB/305659354206/CR/APPARAO /SBIN/ 7389091844@ax",
+        "amount": 3500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAR/847604064228/DR/Bank Acc/BKID/86131011001673",
+        "amount": 10000.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAR/260878710418/DR/KOTTAPAL/SBIN/9550284734@pts",
+        "amount": 2500.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAR/782045008687/DR/Bank Acc/SBIN/38487860368@SB",
+        "amount": 10000.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAR/703313059923/DR/Bhavani /YESB/paytmqr6qbgg4@",
+        "amount": 60.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAR/623016848434/DR/RAYATHI /YESB/paytm.s1xkfvn@",
+        "amount": 130.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAR/137202707996/DR/ PhonePe/YESB/SV251211223834",
+        "amount": 920.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAR/821440028016/DR/ PhonePe/YESB/SV251211225649",
+        "amount": 17184.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "08-03-2026",
+        "description": "UPIAR/404132921804/DR/SWEET IN/YESB/ Q163232668@yb",
+        "amount": 70.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "08-03-2026",
+        "description": "UPIAR/781332274872/DR/MUDUNURU/UBIN/ 9490301046@yb",
+        "amount": 800.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "08-03-2026",
+        "description": "UPIAR/700928177556/DR/LAKSHMI /YESB/ Q424186410@yb",
+        "amount": 230.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "08-03-2026",
+        "description": "UPIAR/835467805571/DR/PAVAN PU/CNRB/11011085900188",
+        "amount": 160.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-03-2026",
+        "description": "UPIAR/606829688586/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-03-2026",
+        "description": "UPIAR/606898409790/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-03-2026",
+        "description": "UPIAB/569362208723/CR/KODU SA/SBIN/sankarakodu@ax",
+        "amount": 3500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      }
+    ],
+    "period_start": "05-03-2026",
+    "period_end": "09-03-2026"
+  },
+  "null_or_empty_fields": [
+    "person_name",
+    "date_of_birth",
+    "applicant_dob",
+    "nationality",
+    "passport_number",
+    "employer_name",
+    "job_title",
+    "monthly_salary",
+    "annual_income",
+    "document_date",
+    "employment_start",
+    "employment_end",
+    "sponsor_name",
+    "sponsor_relationship",
+    "sponsor_declared_income",
+    "sponsor_income_currency",
+    "applicant_name",
+    "declared_liquid_assets",
+    "declared_movable_assets",
+    "declared_property_value",
+    "declared_annual_income",
+    "declared_assets_total",
+    "institution_name",
+    "program_name",
+    "program_cost",
+    "program_duration_months",
+    "enrollment_start",
+    "tax_year",
+    "taxable_income",
+    "tax_paid",
+    "anomaly_flags"
+  ],
+  "raw_extraction": {
+    "page_number": 30,
+    "page_type": "bank_statement",
+    "raw_text": "Savings Account\nPage  \n  of  \n30\n38\nDate\nTransaction Id\nRemarks\nAmount( )\nBalance( )\n05-03-2026\nT3804683\nUPIAR/706806604447/DR/YELLAPU /YESB/paytm.s1ws421@\n35.0(Dr)\n144842.09(Cr)\n05-03-2026\nT5710665\nUPIAR/622218180850/DR/VENKATA /YESB/paytm.s1ao6ec@\n40.0(Dr)\n144802.09(Cr)\n05-03-2026\nT6338102\nUPIAR/750631115521/DR/LAKSHMI /YESB/ Q424186410@yb\n170.0(Dr)\n144632.09(Cr)\n05-03-2026\nT13781823\nUPIAR/648182112533/DR/IRCTC Ra/UTIB/IRCTCPGONLINE@\n959.0(Dr)\n143673.04(Cr)\n05-03-2026\nT13812414\nUPIAR/511082567769/DR/IRCTC Ra/UTIB/IRCTCPGONLINE@\n959.0(Dr)\n142713.99(Cr)\n06-03-2026\nT26853522\nUPIAB/105685840858/CR/KOMMANAP/SBIN/ 9441305981@yb\n7000.0(Cr)\n149713.99(Cr)\n06-03-2026\nT26949018\nUPIAB/865926240250/CR/KALAKURI/UBIN/9885881282-2@y\n3000.0(Cr)\n152713.99(Cr)\n06-03-2026\nT29346182\nUPIAR/674403478543/DR/SHEK RAH/YESB/ Q324807443@yb\n100.0(Dr)\n152613.99(Cr)\n06-03-2026\nT33474902\nUPIAB/318316343122/CR/ROUTHU /SBIN/7075732704-2@y\n3000.0(Cr)\n155613.99(Cr)\n06-03-2026\nT42632644\nUPIAB/968016891595/CR/MAHAPATR/SBIN/ 9908341342@yb\n500.0(Cr)\n156113.99(Cr)\n06-03-2026\nT80305154\nUPIAR/243324638606/DR/ARJI SI/SBIN/ 6309334350@yb\n180.0(Dr)\n155933.99(Cr)\n07-03-2026\nU7637854\nUPIAB/833791286753/CR/NAKKA V/SBIN/ 9966338898@yb\n10000.0(Cr)\n165933.99(Cr)\n07-03-2026\nU16834306\nUPIAB/712327101399/CR/NAKKA V/SBIN/ 9966338898@yb\n500.0(Cr)\n166433.99(Cr)\n07-03-2026\nU19570685\nUPIAB/305659354206/CR/APPARAO /SBIN/ 7389091844@ax\n3500.0(Cr)\n169933.99(Cr)\n07-03-2026\nU20239819\nUPIAR/847604064228/DR/Bank Acc/BKID/86131011001673\n10000.0(Dr)\n159933.99(Cr)\n07-03-2026\nU20500680\nUPIAR/260878710418/DR/KOTTAPAL/SBIN/9550284734@pts\n2500.0(Dr)\n157433.99(Cr)\n07-03-2026\nU20563844\nUPIAR/782045008687/DR/Bank Acc/SBIN/38487860368@SB\n10000.0(Dr)\n147433.99(Cr)\n07-03-2026\nU28095079\nUPIAR/703313059923/DR/Bhavani /YESB/paytmqr6qbgg4@\n60.0(Dr)\n147373.99(Cr)\n07-03-2026\nU30693702\nUPIAR/623016848434/DR/RAYATHI /YESB/paytm.s1xkfvn@\n130.0(Dr)\n147243.99(Cr)\n07-03-2026\nU57485523\nUPIAR/137202707996/DR/ PhonePe/YESB/SV251211223834\n920.0(Dr)\n146323.99(Cr)\n07-03-2026\nU57489049\nUPIAR/821440028016/DR/ PhonePe/YESB/SV251211225649\n17184.0(Dr)\n129139.99(Cr)\n08-03-2026\nV6850346\nUPIAR/404132921804/DR/SWEET IN/YESB/ Q163232668@yb\n70.0(Dr)\n129069.99(Cr)\n08-03-2026\nV8290137\nUPIAR/781332274872/DR/MUDUNURU/UBIN/ 9490301046@yb\n800.0(Dr)\n128269.99(Cr)\n08-03-2026\nV9260370\nUPIAR/700928177556/DR/LAKSHMI /YESB/ Q424186410@yb\n230.0(Dr)\n128039.99(Cr)\n08-03-2026\nV9498390\nUPIAR/835467805571/DR/PAVAN PU/CNRB/11011085900188\n160.0(Dr)\n127879.99(Cr)\n09-03-2026\nV35362678\nUPIAR/606829688586/DR/ ICCL/YESB/ ICCLMF@yb\n1000.0(Dr)\n126879.99(Cr)\n09-03-2026\nV35372462\nUPIAR/606898409790/DR/ ICCL/YESB/ ICCLMF@yb\n1000.0(Dr)\n125879.99(Cr)\n09-03-2026\nV41336139\nUPIAB/569362208723/CR/KODU SA/SBIN/sankarakodu@ax\n3500.0(Cr)\n129379.99(Cr)\n",
+    "person_name": null,
+    "date_of_birth": null,
+    "applicant_dob": null,
+    "nationality": null,
+    "passport_number": null,
+    "currency": "INR",
+    "opening_balance": 144877.09,
+    "closing_balance": 129379.99,
+    "transactions": [
+      {
+        "date": "05-03-2026",
+        "description": "UPIAR/706806604447/DR/YELLAPU /YESB/paytm.s1ws421@",
+        "amount": 35.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "05-03-2026",
+        "description": "UPIAR/622218180850/DR/VENKATA /YESB/paytm.s1ao6ec@",
+        "amount": 40.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "05-03-2026",
+        "description": "UPIAR/750631115521/DR/LAKSHMI /YESB/ Q424186410@yb",
+        "amount": 170.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "05-03-2026",
+        "description": "UPIAR/648182112533/DR/IRCTC Ra/UTIB/IRCTCPGONLINE@",
+        "amount": 959.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "05-03-2026",
+        "description": "UPIAR/511082567769/DR/IRCTC Ra/UTIB/IRCTCPGONLINE@",
+        "amount": 959.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "06-03-2026",
+        "description": "UPIAB/105685840858/CR/KOMMANAP/SBIN/ 9441305981@yb",
+        "amount": 7000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-03-2026",
+        "description": "UPIAB/865926240250/CR/KALAKURI/UBIN/9885881282-2@y",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-03-2026",
+        "description": "UPIAR/674403478543/DR/SHEK RAH/YESB/ Q324807443@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "06-03-2026",
+        "description": "UPIAB/318316343122/CR/ROUTHU /SBIN/7075732704-2@y",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-03-2026",
+        "description": "UPIAB/968016891595/CR/MAHAPATR/SBIN/ 9908341342@yb",
+        "amount": 500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "06-03-2026",
+        "description": "UPIAR/243324638606/DR/ARJI SI/SBIN/ 6309334350@yb",
+        "amount": 180.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAB/833791286753/CR/NAKKA V/SBIN/ 9966338898@yb",
+        "amount": 10000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAB/712327101399/CR/NAKKA V/SBIN/ 9966338898@yb",
+        "amount": 500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAB/305659354206/CR/APPARAO /SBIN/ 7389091844@ax",
+        "amount": 3500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAR/847604064228/DR/Bank Acc/BKID/86131011001673",
+        "amount": 10000.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAR/260878710418/DR/KOTTAPAL/SBIN/9550284734@pts",
+        "amount": 2500.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAR/782045008687/DR/Bank Acc/SBIN/38487860368@SB",
+        "amount": 10000.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAR/703313059923/DR/Bhavani /YESB/paytmqr6qbgg4@",
+        "amount": 60.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAR/623016848434/DR/RAYATHI /YESB/paytm.s1xkfvn@",
+        "amount": 130.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAR/137202707996/DR/ PhonePe/YESB/SV251211223834",
+        "amount": 920.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "07-03-2026",
+        "description": "UPIAR/821440028016/DR/ PhonePe/YESB/SV251211225649",
+        "amount": 17184.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "08-03-2026",
+        "description": "UPIAR/404132921804/DR/SWEET IN/YESB/ Q163232668@yb",
+        "amount": 70.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "08-03-2026",
+        "description": "UPIAR/781332274872/DR/MUDUNURU/UBIN/ 9490301046@yb",
+        "amount": 800.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "08-03-2026",
+        "description": "UPIAR/700928177556/DR/LAKSHMI /YESB/ Q424186410@yb",
+        "amount": 230.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "08-03-2026",
+        "description": "UPIAR/835467805571/DR/PAVAN PU/CNRB/11011085900188",
+        "amount": 160.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-03-2026",
+        "description": "UPIAR/606829688586/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-03-2026",
+        "description": "UPIAR/606898409790/DR/ ICCL/YESB/ ICCLMF@yb",
+        "amount": 1000.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "09-03-2026",
+        "description": "UPIAB/569362208723/CR/KODU SA/SBIN/sankarakodu@ax",
+        "amount": 3500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      }
+    ],
+    "employer_name": null,
+    "job_title": null,
+    "monthly_salary": null,
+    "annual_income": null,
+    "document_date": null,
+    "period_start": "05-03-2026",
+    "period_end": "09-03-2026",
+    "employment_start": null,
+    "employment_end": null,
+    "sponsor_name": null,
+    "sponsor_relationship": null,
+    "sponsor_declared_income": null,
+    "sponsor_income_currency": null,
+    "applicant_name": null,
+    "declared_liquid_assets": null,
+    "declared_movable_assets": null,
+    "declared_property_value": null,
+    "declared_annual_income": null,
+    "declared_assets_total": null,
+    "institution_name": null,
+    "program_name": null,
+    "program_cost": null,
+    "program_duration_months": null,
+    "enrollment_start": null,
+    "tax_year": null,
+    "taxable_income": null,
+    "tax_paid": null,
+    "anomaly_flags": []
+  }
+}

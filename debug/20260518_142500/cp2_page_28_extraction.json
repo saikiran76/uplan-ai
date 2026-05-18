@@ -1,0 +1,483 @@
+{
+  "page": 28,
+  "elapsed_s": 27.8,
+  "page_type_detected": "bank_statement",
+  "non_null_fields": {
+    "page_number": 28,
+    "page_type": "bank_statement",
+    "currency": "INR",
+    "closing_balance": 41132.09,
+    "transactions": [
+      {
+        "date": "22-02-2026",
+        "description": "UPIAR/143548976959/DR/Bank Acc/SBIN/38487860368@SB",
+        "amount": 10000.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "23-02-2026",
+        "description": "UPIAB/332342718515/CR/KRUSHNA /SBIN/ 9666999733@yb",
+        "amount": 3500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "23-02-2026",
+        "description": "UPIAB/336362106791/CR/DARLA VE/BARB/venkatesh.darl",
+        "amount": 6000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "23-02-2026",
+        "description": "UPIAB/359708197991/CR/RAVI KUM/UBIN/ 9490898701@yb",
+        "amount": 3500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "23-02-2026",
+        "description": "UPIAB/262651234172/CR/BANGARAM/SBIN/ 9391380485@ax",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "23-02-2026",
+        "description": "UPIAB/589525306311/CR/NATHANIE/SBIN/ 9849183045@ax",
+        "amount": 7500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "24-02-2026",
+        "description": "UPIAB/214956512760/CR/THONANGI/PUNB/8790158784-2@y",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "24-02-2026",
+        "description": "UPIAR/718292658584/DR/PYDIPATH/YESB/ Q950241840@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "24-02-2026",
+        "description": "UPIAR/261530231444/DR/Bank Acc/ICIC/058305008165@I",
+        "amount": 36875.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-02-2026",
+        "description": "UPIAR/984389745078/DR/Kambala /YESB/paytmqr6vtnb0@",
+        "amount": 300.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-02-2026",
+        "description": "UPIAR/637444772328/DR/AMARA JY/UBIN/ 6304729783@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-02-2026",
+        "description": "UPIAR/836746109938/DR/PAVAN PU/CNRB/11011085900188",
+        "amount": 200.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-02-2026",
+        "description": "UPIAR/342556456771/DR/KOTTAPAL/SBIN/9550284734@pts",
+        "amount": 2500.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-02-2026",
+        "description": "UPIAB/718984766373/CR/RAVI KIR/BKID/8125884156-2@y",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "26-02-2026",
+        "description": "UPIAB/649246470198/CR/THONANGI/PUNB/8790158784-2@a",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "26-02-2026",
+        "description": "UPIAB/056607163188/CR/Mr ROMPA/CBIN/ 7989798305@yb",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "26-02-2026",
+        "description": "UPIAR/554394333225/DR/Jio Rech/YESB/JIOINAPPDIRECT",
+        "amount": 804.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "26-02-2026",
+        "description": "UPIAB/170541904883/CR/DATLA VE/UBIN/ devi.1977@ib",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "26-02-2026",
+        "description": "UPIAB/551381436897/CR/THONANGI/PUNB/8790158784-2@a",
+        "amount": 6000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "27-02-2026",
+        "description": "UPIAR/864798268868/DR/BODDA M/YESB/ Q661337752@yb",
+        "amount": 30.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "27-02-2026",
+        "description": "UPIAB/799005415786/CR/MADHAVI /HDFC/nadipallimadha",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "27-02-2026",
+        "description": "UPIAR/502523377590/DR/SIRIGIRI/SBIN/gajapathikomar",
+        "amount": 300.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "27-02-2026",
+        "description": "UPIAR/772212576716/DR/ARJI RAM/UBIN/arji.mukundhar",
+        "amount": 20.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-02-2026",
+        "description": "UPIAR/271834750655/DR/Mopada /SBIN/sbin0020931@yb",
+        "amount": 10000.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-02-2026",
+        "description": "UPIAB/378064875303/CR/VEMPADAP/BARB/thopuvdamuthop",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-02-2026",
+        "description": "W54577353 UPIAR/881618303926/DR/Bank Acc/ICIC/058305008165@I",
+        "amount": 36875.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "01-03-2026",
+        "description": "UPIAR/945934393608/DR/BODDU AP/YESB/ Q834764152@yb",
+        "amount": 220.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "01-03-2026",
+        "description": "IMPSAB/606016704797/SATYANARAYANA KORAD/6303357650",
+        "amount": 30000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      }
+    ],
+    "period_start": "22-02-2026",
+    "period_end": "01-03-2026",
+    "institution_name": "Union Bank of India"
+  },
+  "null_or_empty_fields": [
+    "person_name",
+    "date_of_birth",
+    "applicant_dob",
+    "nationality",
+    "passport_number",
+    "opening_balance",
+    "employer_name",
+    "job_title",
+    "monthly_salary",
+    "annual_income",
+    "document_date",
+    "employment_start",
+    "employment_end",
+    "sponsor_name",
+    "sponsor_relationship",
+    "sponsor_declared_income",
+    "sponsor_income_currency",
+    "applicant_name",
+    "declared_liquid_assets",
+    "declared_movable_assets",
+    "declared_property_value",
+    "declared_annual_income",
+    "declared_assets_total",
+    "program_name",
+    "program_cost",
+    "program_duration_months",
+    "enrollment_start",
+    "tax_year",
+    "taxable_income",
+    "tax_paid",
+    "anomaly_flags"
+  ],
+  "raw_extraction": {
+    "page_number": 28,
+    "page_type": "bank_statement",
+    "person_name": null,
+    "date_of_birth": null,
+    "applicant_dob": null,
+    "nationality": null,
+    "passport_number": null,
+    "currency": "INR",
+    "opening_balance": null,
+    "closing_balance": 41132.09,
+    "transactions": [
+      {
+        "date": "22-02-2026",
+        "description": "UPIAR/143548976959/DR/Bank Acc/SBIN/38487860368@SB",
+        "amount": 10000.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "23-02-2026",
+        "description": "UPIAB/332342718515/CR/KRUSHNA /SBIN/ 9666999733@yb",
+        "amount": 3500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "23-02-2026",
+        "description": "UPIAB/336362106791/CR/DARLA VE/BARB/venkatesh.darl",
+        "amount": 6000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "23-02-2026",
+        "description": "UPIAB/359708197991/CR/RAVI KUM/UBIN/ 9490898701@yb",
+        "amount": 3500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "23-02-2026",
+        "description": "UPIAB/262651234172/CR/BANGARAM/SBIN/ 9391380485@ax",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "23-02-2026",
+        "description": "UPIAB/589525306311/CR/NATHANIE/SBIN/ 9849183045@ax",
+        "amount": 7500.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "24-02-2026",
+        "description": "UPIAB/214956512760/CR/THONANGI/PUNB/8790158784-2@y",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "24-02-2026",
+        "description": "UPIAR/718292658584/DR/PYDIPATH/YESB/ Q950241840@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "24-02-2026",
+        "description": "UPIAR/261530231444/DR/Bank Acc/ICIC/058305008165@I",
+        "amount": 36875.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-02-2026",
+        "description": "UPIAR/984389745078/DR/Kambala /YESB/paytmqr6vtnb0@",
+        "amount": 300.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-02-2026",
+        "description": "UPIAR/637444772328/DR/AMARA JY/UBIN/ 6304729783@yb",
+        "amount": 100.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-02-2026",
+        "description": "UPIAR/836746109938/DR/PAVAN PU/CNRB/11011085900188",
+        "amount": 200.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-02-2026",
+        "description": "UPIAR/342556456771/DR/KOTTAPAL/SBIN/9550284734@pts",
+        "amount": 2500.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "25-02-2026",
+        "description": "UPIAB/718984766373/CR/RAVI KIR/BKID/8125884156-2@y",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "26-02-2026",
+        "description": "UPIAB/649246470198/CR/THONANGI/PUNB/8790158784-2@a",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "26-02-2026",
+        "description": "UPIAB/056607163188/CR/Mr ROMPA/CBIN/ 7989798305@yb",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "26-02-2026",
+        "description": "UPIAR/554394333225/DR/Jio Rech/YESB/JIOINAPPDIRECT",
+        "amount": 804.0,
+        "transaction_type": "debit",
+        "label": null
+      },
+      {
+        "date": "26-02-2026",
+        "description": "UPIAB/170541904883/CR/DATLA VE/UBIN/ devi.1977@ib",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "26-02-2026",
+        "description": "UPIAB/551381436897/CR/THONANGI/PUNB/8790158784-2@a",
+        "amount": 6000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "27-02-2026",
+        "description": "UPIAR/864798268868/DR/BODDA M/YESB/ Q661337752@yb",
+        "amount": 30.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "27-02-2026",
+        "description": "UPIAB/799005415786/CR/MADHAVI /HDFC/nadipallimadha",
+        "amount": 1000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "27-02-2026",
+        "description": "UPIAR/502523377590/DR/SIRIGIRI/SBIN/gajapathikomar",
+        "amount": 300.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "27-02-2026",
+        "description": "UPIAR/772212576716/DR/ARJI RAM/UBIN/arji.mukundhar",
+        "amount": 20.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-02-2026",
+        "description": "UPIAR/271834750655/DR/Mopada /SBIN/sbin0020931@yb",
+        "amount": 10000.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-02-2026",
+        "description": "UPIAB/378064875303/CR/VEMPADAP/BARB/thopuvdamuthop",
+        "amount": 3000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      },
+      {
+        "date": "28-02-2026",
+        "description": "W54577353 UPIAR/881618303926/DR/Bank Acc/ICIC/058305008165@I",
+        "amount": 36875.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "01-03-2026",
+        "description": "UPIAR/945934393608/DR/BODDU AP/YESB/ Q834764152@yb",
+        "amount": 220.0,
+        "transaction_type": "debit",
+        "label": "transfer"
+      },
+      {
+        "date": "01-03-2026",
+        "description": "IMPSAB/606016704797/SATYANARAYANA KORAD/6303357650",
+        "amount": 30000.0,
+        "transaction_type": "credit",
+        "label": "transfer"
+      }
+    ],
+    "employer_name": null,
+    "job_title": null,
+    "monthly_salary": null,
+    "annual_income": null,
+    "document_date": null,
+    "period_start": "22-02-2026",
+    "period_end": "01-03-2026",
+    "employment_start": null,
+    "employment_end": null,
+    "sponsor_name": null,
+    "sponsor_relationship": null,
+    "sponsor_declared_income": null,
+    "sponsor_income_currency": null,
+    "applicant_name": null,
+    "declared_liquid_assets": null,
+    "declared_movable_assets": null,
+    "declared_property_value": null,
+    "declared_annual_income": null,
+    "declared_assets_total": null,
+    "institution_name": "Union Bank of India",
+    "program_name": null,
+    "program_cost": null,
+    "program_duration_months": null,
+    "enrollment_start": null,
+    "tax_year": null,
+    "taxable_income": null,
+    "tax_paid": null,
+    "anomaly_flags": []
+  }
+}

@@ -61,6 +61,7 @@ class PageExtraction(BaseModel):
 
     page_number: int = Field(description="1-indexed page number within the document")
     page_type: PageType = Field(description="Document type detected on this page")
+    raw_text: Optional[str] = Field(default=None, description="Raw text extracted via PyMuPDF fast-path")
 
     # -- Identity fields (passport, ID pages) ---------------------------------
     person_name: Optional[str] = Field(

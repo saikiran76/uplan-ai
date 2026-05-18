@@ -12,7 +12,9 @@ within Google AI Studio free tier limits. Exponential backoff retries on 429.
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import random
+import re
 import time
 from typing import Callable, Optional
 
@@ -108,16 +110,24 @@ def _get_semaphore() -> asyncio.Semaphore:
 async def _extract_single_page_async(
     page_idx: int,
     pdf_bytes: bytes,
-    png_bytes: bytes,
+    png_bytes: bytes | None,
+    fast_text: str | None,
     total: int,
     logger=None,
 ) -> PageExtraction:
-    """Extract typed entities from a single page PNG via Gemini Flash (async).
+    """Extract typed entities from a single page via Gemini Flash (async).
+    Uses Text-to-Flash hybrid if fast_text is provided, otherwise Vision.
     Uses semaphore for concurrency control and exponential backoff for retries."""
+    
+    # Deduplication check
+    if not png_bytes and not fast_text:
+        print(f"  [DEDUPED] Page {page_idx + 1}/{total} -- skipped identical image")
+        return PageExtraction(page_number=page_idx + 1, page_type="unknown")
+
     sem = _get_semaphore()
 
     # CP1 -- log raw page content before sending to Flash
-    if logger:
+    if logger and png_bytes:
         logger.cp1_page_content(page_idx, pdf_bytes, png_bytes)
 
     async with sem:
@@ -126,12 +136,20 @@ async def _extract_single_page_async(
 
         for attempt in range(API_RETRY_ATTEMPTS):
             try:
-                response = await client.aio.models.generate_content(
-                    model=FLASH_MODEL,
-                    contents=[
+                if fast_text:
+                    contents = [
+                        EXTRACTION_PROMPT,
+                        "Parse the following document text into the standard JSON schema:\n\n[TEXT]\n" + fast_text
+                    ]
+                else:
+                    contents = [
                         EXTRACTION_PROMPT,
                         types.Part.from_bytes(data=png_bytes, mime_type="image/png"),
-                    ],
+                    ]
+
+                response = await client.aio.models.generate_content(
+                    model=FLASH_MODEL,
+                    contents=contents,
                     config={
                         "response_mime_type": "application/json",
                         "response_schema": PageExtraction,
@@ -139,8 +157,14 @@ async def _extract_single_page_async(
                 )
                 extraction: PageExtraction = response.parsed
                 extraction.page_number = page_idx + 1
+                
+                # If we bypassed Vision, attach the raw text to the schema as requested
+                if fast_text:
+                    extraction.raw_text = fast_text
+
                 elapsed = time.time() - start
-                print(f"  [OK] Page {page_idx + 1}/{total} -- {extraction.page_type.value} ({elapsed:.1f}s)")
+                mode = "TEXT" if fast_text else "VISION"
+                print(f"  [OK] Page {page_idx + 1}/{total} -- {extraction.page_type.value} [{mode}] ({elapsed:.1f}s)")
 
                 # CP2 -- log Flash extraction output
                 if logger:
@@ -154,11 +178,25 @@ async def _extract_single_page_async(
                 is_rate_limit = "429" in err_str or "RESOURCE_EXHAUSTED" in err_str
 
                 if is_rate_limit and attempt < API_RETRY_ATTEMPTS - 1:
-                    delay = min(
-                        API_RETRY_BASE_DELAY * (2 ** attempt) + random.uniform(0, 1),
-                        API_RETRY_MAX_DELAY,
-                    )
-                    print(f"  [WAIT] Page {page_idx + 1}: rate limited, retry in {delay:.0f}s (attempt {attempt + 1}/{API_RETRY_ATTEMPTS})")
+                    delay = None
+                    # Try to extract exact wait time from header or error string
+                    try:
+                        if hasattr(e, "response") and e.response and hasattr(e.response, "headers"):
+                            retry_after = e.response.headers.get("Retry-After")
+                            if retry_after:
+                                delay = float(retry_after)
+                    except Exception:
+                        pass
+                    
+                    if delay is None:
+                        m = re.search(r"Wait (\d+) seconds", err_str)
+                        if m:
+                            delay = float(m.group(1))
+                        else:
+                            delay = min(API_RETRY_BASE_DELAY * (2 ** attempt) + random.uniform(0, 1), API_RETRY_MAX_DELAY)
+                    
+                    delay += 1.5 # Buffer
+                    print(f"  [WAIT] Page {page_idx + 1}: rate limited, retry in {delay:.1f}s (attempt {attempt + 1}/{API_RETRY_ATTEMPTS})")
                     await asyncio.sleep(delay)
                 elif not is_rate_limit:
                     # Non-rate-limit error -- don't retry
@@ -189,11 +227,30 @@ async def _extract_pages_async(
     doc = fitz.open(stream=pdf_bytes, filetype="pdf")
     total_pages = len(doc)
 
-    # Render all pages to PNG (CPU-bound, sequential -- very fast)
-    page_images: list[tuple[int, bytes]] = []
+    # Process pages: Text Fast-Path vs Image Deduplication
+    page_tasks: list[tuple[int, bytes | None, str | None]] = []
+    seen_hashes = set()
+
     for page_idx in range(total_pages):
-        pix = doc[page_idx].get_pixmap(dpi=PAGE_DPI)
-        page_images.append((page_idx, pix.tobytes("png")))
+        page = doc[page_idx]
+        text = page.get_text()
+
+        if len(text.strip()) > 100:
+            # Text-heavy page -> Fast path (skip PNG)
+            page_tasks.append((page_idx, None, text))
+        else:
+            # Scanned / Image-heavy page -> Rasterize to PNG
+            pix = page.get_pixmap(dpi=PAGE_DPI)
+            png_bytes = pix.tobytes("png")
+            img_hash = hashlib.sha256(png_bytes).hexdigest()
+
+            if img_hash in seen_hashes:
+                # Exact duplicate page (e.g. blank back page)
+                page_tasks.append((page_idx, None, None))
+            else:
+                seen_hashes.add(img_hash)
+                page_tasks.append((page_idx, png_bytes, None))
+
     doc.close()
 
     if on_page:
@@ -203,8 +260,8 @@ async def _extract_pages_async(
 
     # Fire extraction calls -- semaphore controls concurrency
     tasks = [
-        _extract_single_page_async(idx, pdf_bytes, png, total_pages, logger)
-        for idx, png in page_images
+        _extract_single_page_async(idx, pdf_bytes, png, txt, total_pages, logger)
+        for idx, png, txt in page_tasks
     ]
     results = await asyncio.gather(*tasks)
 

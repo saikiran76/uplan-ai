@@ -18,9 +18,14 @@ class EnrollmentAgent(BaseSpecialistAgent):
 
     def _build_prompt(self, graph_subset: dict, rule_findings: list[dict], jurisdiction: str) -> str:
         ctx_block = f"\nJURISDICTION CONTEXT:\n{jurisdiction}\n" if jurisdiction else ""
-        return f"""You are an adversarial immigration officer reviewing enrollment documentation.
-Your task: identify every enrollment/financial inconsistency that could justify visa rejection.
+        dossier_ctx = graph_subset.get("_document_context", {})
+        partial_note = dossier_ctx.get("partial_dossier_instructions", "")
+        return f"""You are an adversarial pre-submission auditor reviewing enrollment documentation.
+Your task: identify enrollment/financial inconsistencies in the PROVIDED documents and flag missing
+enrollment documents as informational gaps.
 {ctx_block}
+DOSSIER COMPLETENESS: {partial_note}
+
 ENROLLMENT DATA:
 {json.dumps(graph_subset.get("enrollment"), indent=2)}
 
@@ -39,7 +44,8 @@ Analyse the following — be specific, cite exact values:
 2. Does enrollment_start align with the visa application timeline?
 3. Is the program_duration_months realistic for the stated program?
 4. If funds_cover_full_stay is false, quantify the shortfall exactly.
-5. If no enrollment data exists (null), note that this may be a non-student visa
-   and enrollment checks are not applicable.
+5. If no enrollment data exists (null), classify as 'info' severity — enrollment documents
+   may not have been uploaded yet, or this may be a non-student visa.
+   Do NOT treat missing enrollment as a critical rejection issue.
 
 Respond ONLY with the AgentFinding JSON schema. Every anomaly must include the exact field_path."""

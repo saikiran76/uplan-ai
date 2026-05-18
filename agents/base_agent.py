@@ -109,9 +109,18 @@ class BaseSpecialistAgent(ABC):
         if state.get("visa_context"):
             jurisdiction = state["visa_context"].get("jurisdiction_context", "")
 
-        # Augment graph_subset with document context
+        # Augment graph_subset with document context + dossier completeness
+        all_possible_types = [
+            "passport", "bank_statement", "payslip", "tax_return",
+            "sponsor_letter", "employment_letter", "enrollment_letter", "affidavit",
+        ]
+        present_types = set(doc_types)
+        missing_types = [t for t in all_possible_types if t not in present_types]
+
         graph_subset["_document_context"] = {
             "source_doc_types": doc_types,
+            "missing_doc_types": missing_types,
+            "is_partial_dossier": len(missing_types) > 0,
             "source_is_affidavit": source_is_affidavit,
             "note": (
                 "IMPORTANT: If source_is_affidavit=True and 'bank_statement' is NOT in source_doc_types, "
@@ -119,6 +128,16 @@ class BaseSpecialistAgent(ABC):
                 "it does NOT have transaction history. Do NOT flag zero transactions as 'funds parking' "
                 "when the only financial document is an affidavit. Instead flag the ABSENCE of bank statements."
             ) if source_is_affidavit and "bank_statement" not in doc_types else "Standard multi-document analysis.",
+            "partial_dossier_instructions": (
+                "THIS IS A PARTIAL DOSSIER. The user has NOT uploaded all required documents yet. "
+                f"Missing: {missing_types}. "
+                "RULES: 1) If a data node is null because the corresponding document was not uploaded, "
+                "classify this as 'info' severity with explanation 'Document not provided — required for complete audit.' "
+                "Do NOT escalate missing-document gaps to 'critical'. "
+                "2) ONLY flag as 'critical' genuine anomalies found WITHIN the provided documents "
+                "(e.g., smurfing, unexplained spikes, forged data, balance discontinuities). "
+                "3) Set agent_verdict to 'flag' for missing-doc issues, reserve 'critical' for real anomalies."
+            ) if len(missing_types) > 0 else "Complete dossier — standard adversarial analysis.",
         }
 
         prompt = self._build_prompt(graph_subset, relevant_rules, jurisdiction)

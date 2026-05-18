@@ -1,0 +1,10 @@
+{
+  "agent_id": "financial_agent",
+  "graph_subset_keys": [
+    "financial",
+    "identity"
+  ],
+  "estimated_input_tokens": 407,
+  "prompt_char_count": 1630,
+  "prompt": "You are an adversarial immigration officer reviewing financial documents.\nYour task: identify every financial inconsistency that could justify visa rejection.\n\nJURISDICTION CONTEXT:\nJapanese Student (COE) visa requirements: Minimum bank balance of ¥2,000,000. 6 months of consecutive bank statements required. Certificate of Eligibility (COE) must match visa application dates. All large deposits must have documented sources. Sponsor must demonstrate income ≥1.2× total program costs.\n\nFINANCIAL DATA:\n{\n  \"currency\": null,\n  \"opening_balance\": null,\n  \"closing_balance\": null,\n  \"avg_monthly_income\": null,\n  \"total_credits\": 0.0,\n  \"total_debits\": 0.0,\n  \"transaction_count\": 0,\n  \"spikes\": [],\n  \"unlabeled_deposit_count\": 0,\n  \"income_percentile\": null,\n  \"declared_property_value\": null,\n  \"declared_movable_assets\": null,\n  \"source_is_affidavit\": false\n}\n\nAPPLICANT IDENTITY:\n{\n  \"name_variants\": [],\n  \"canonical_name\": null,\n  \"date_of_birth\": null,\n  \"nationality\": null,\n  \"passport_number\": null,\n  \"transliteration_flags\": [],\n  \"cross_doc_name_match\": true\n}\n\nRULE ENGINE FLAGS (already detected):\n[]\n\nAnalyse the following — be specific, cite exact values:\n1. For each spike in spikes[]: is there a plausible source? If unlabeled, flag as critical.\n2. Does avg_monthly_income × visa_duration cover declared costs? Show the arithmetic.\n3. Does the balance trajectory make sense given declared income? Flag any impossible accumulation.\n4. Are there cross-document income discrepancies (payslip vs bank deposit amounts)?\n\nRespond ONLY with the AgentFinding JSON schema. Every anomaly must include the exact field_path."
+}
