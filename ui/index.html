@@ -2058,6 +2058,10 @@
                     <h2 class="step-title">Running pipeline</h2>
                     <p class="step-sub">Raw documents are being processed. Pages will be purged from memory immediately
                         after structural encoding completes.</p>
+                    <div id="pipelineTimer" style="display:none; margin-top:12px; font-family:var(--font-mono); font-size:28px; color:var(--amber); letter-spacing:2px;">
+                        <span id="timerValue">00:00</span>
+                        <span style="font-size:11px; color:var(--text-3); margin-left:8px;">elapsed</span>
+                    </div>
                 </div>
 
                 <div class="pipeline-progress" id="pipelineStages"></div>
@@ -2513,6 +2517,12 @@
             forceStartAnalysis();
         }
 
+        /* ── Polling state ─────────────────────── */
+        let _pollInterval = null;
+        let _timerInterval = null;
+        let _pollSinceIndex = 0;
+        let _pipelineStartTime = null;
+
         async function forceStartAnalysis() {
             document.getElementById('incompleteModal').style.display = 'none';
             goToStep(3);
@@ -2527,40 +2537,152 @@
             fd.append('context', contextStr);
 
             try {
-                const res = await fetch('/api/analyze', {
+                // POST to /api/start — get task_id immediately
+                const res = await fetch('/api/start', {
                     method: 'POST',
                     body: fd
                 });
                 
                 if (!res.ok) throw new Error('Failed to start pipeline');
 
-                const reader = res.body.getReader();
-                const decoder = new TextDecoder('utf-8');
-                let buffer = '';
-                
-                while (true) {
-                    const { done, value } = await reader.read();
-                    if (done) break;
-                    
-                    buffer += decoder.decode(value, { stream: true });
-                    const lines = buffer.split('\n\n');
-                    buffer = lines.pop(); // keep incomplete line
-                    
-                    for (const line of lines) {
-                        if (line.startsWith('data: ')) {
-                            const data = JSON.parse(line.substring(6));
-                            handlePipelineEvent(data);
-                            // If pipeline threw a fatal error, we can stop reading the stream
-                            if (data.type === 'error' || data.type === 'agent_error') {
-                                return; 
-                            }
-                        }
-                    }
+                const { task_id } = await res.json();
+                console.log('Pipeline started, task_id:', task_id);
+
+                // Save to localStorage for session resume
+                localStorage.setItem('uplan_active_task', task_id);
+
+                // Start the elapsed timer
+                _pipelineStartTime = Date.now();
+                startElapsedTimer();
+
+                // Request notification permission proactively
+                if ('Notification' in window && Notification.permission === 'default') {
+                    Notification.requestPermission();
                 }
+
+                // Start polling loop
+                _pollSinceIndex = 0;
+                startPolling(task_id);
+
             } catch (err) {
                 showPipelineError(err.message);
             }
         }
+
+        function startElapsedTimer() {
+            const timerEl = document.getElementById('pipelineTimer');
+            const timerVal = document.getElementById('timerValue');
+            if (timerEl) timerEl.style.display = 'block';
+            
+            if (_timerInterval) clearInterval(_timerInterval);
+            _timerInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - _pipelineStartTime) / 1000);
+                const mins = String(Math.floor(elapsed / 60)).padStart(2, '0');
+                const secs = String(elapsed % 60).padStart(2, '0');
+                timerVal.textContent = `${mins}:${secs}`;
+            }, 1000);
+        }
+
+        function stopElapsedTimer() {
+            if (_timerInterval) {
+                clearInterval(_timerInterval);
+                _timerInterval = null;
+            }
+        }
+
+        function startPolling(taskId) {
+            if (_pollInterval) clearInterval(_pollInterval);
+            
+            _pollInterval = setInterval(async () => {
+                try {
+                    const res = await fetch(`/api/status/${taskId}?since=${_pollSinceIndex}`);
+                    if (!res.ok) {
+                        if (res.status === 404) {
+                            // Task expired or not found — clean up
+                            stopPolling();
+                            localStorage.removeItem('uplan_active_task');
+                            showPipelineError('Task session expired. Please start a new analysis.');
+                            return;
+                        }
+                        return; // transient error, retry on next poll
+                    }
+
+                    const data = await res.json();
+
+                    // Process new events
+                    for (const evt of data.progress) {
+                        handlePipelineEvent(evt);
+                    }
+                    _pollSinceIndex = data.progress_total;
+
+                    // Check terminal states
+                    if (data.status === 'complete') {
+                        stopPolling();
+                        localStorage.removeItem('uplan_active_task');
+                        onPipelineComplete();
+                    } else if (data.status === 'error') {
+                        stopPolling();
+                        localStorage.removeItem('uplan_active_task');
+                        showPipelineError(data.error || 'Unknown pipeline error');
+                    }
+                } catch (err) {
+                    console.warn('Poll failed (will retry):', err.message);
+                }
+            }, 5000); // Poll every 5 seconds
+        }
+
+        function stopPolling() {
+            if (_pollInterval) {
+                clearInterval(_pollInterval);
+                _pollInterval = null;
+            }
+            stopElapsedTimer();
+            document.getElementById('step2Next').disabled = false;
+            document.getElementById('step2Next').textContent = 'Run adversarial analysis →';
+        }
+
+        function onPipelineComplete() {
+            // Audio chime
+            try {
+                const chime = new Audio('data:audio/wav;base64,UklGRl9vT19teleXQBAABEAXQBYQEAAQgAfABkAGEAdABh');
+                // Use a simple oscillator beep instead since embedded audio is tiny
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.frequency.value = 880;
+                osc.type = 'sine';
+                gain.gain.value = 0.3;
+                osc.start();
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+                osc.stop(audioCtx.currentTime + 0.5);
+            } catch (e) { /* audio not critical */ }
+
+            // Browser notification
+            if ('Notification' in window && Notification.permission === 'granted') {
+                new Notification('Uplan Analysis Complete', {
+                    body: 'Your dossier analysis has finished. View results now.',
+                    icon: '🔬'
+                });
+            }
+        }
+
+        // Session resume on page load
+        (function resumeActiveTask() {
+            const activeTask = localStorage.getItem('uplan_active_task');
+            if (activeTask) {
+                console.log('Resuming active task:', activeTask);
+                goToStep(3);
+                buildPipelineStages();
+                document.getElementById('step2Next').disabled = true;
+                document.getElementById('step2Next').textContent = 'Pipeline running...';
+                _pipelineStartTime = Date.now(); // approximate — real start time unknown after refresh
+                startElapsedTimer();
+                _pollSinceIndex = 0; // replay all events to rebuild UI state
+                startPolling(activeTask);
+            }
+        })();
 
         function showPipelineError(msg) {
             console.error("Pipeline Error:", msg);
