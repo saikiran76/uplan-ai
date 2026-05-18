@@ -1,0 +1,41 @@
+{
+  "agent_id": "enrollment_agent",
+  "elapsed_s": 24.48,
+  "parse_error": null,
+  "verdict": "critical",
+  "confidence": 1.0,
+  "anomaly_count": 4,
+  "summary": "The student visa application is critically flawed due to a complete lack of enrollment documentation and the failure to provide the mandatory six-month financial history, warranting immediate rejection.",
+  "full_finding": {
+    "agent_id": "enrollment_agent",
+    "anomalies": [
+      {
+        "field_path": "enrollment",
+        "severity": "critical",
+        "explanation": "The application for a student visa contains no enrollment data. This is a fundamental failure, making it impossible to verify the applicant's purpose of entry, program details, or associated costs.",
+        "rule_id": null
+      },
+      {
+        "field_path": "temporal.doc_date_ranges",
+        "severity": "critical",
+        "explanation": "The application fails to provide the required 6 months of consecutive bank statements. The provided financial data shows zero transactions and the document date range is empty, which is an automatic disqualifier.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.source_is_affidavit",
+        "severity": "critical",
+        "explanation": "The source of the entire 1,744,664.76 INR closing balance is substantiated only by an affidavit, which is not considered sufficient proof of funds. With no transaction history, the origin of this large sum is undocumented and suspicious.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.closing_balance",
+        "severity": "warning",
+        "explanation": "The sufficiency of the closing balance cannot be verified. Without program cost and duration from the missing enrollment data, it is impossible to assess if funds cover tuition and living expenses as required.",
+        "rule_id": null
+      }
+    ],
+    "confidence": 1.0,
+    "agent_verdict": "critical",
+    "summary": "The student visa application is critically flawed due to a complete lack of enrollment documentation and the failure to provide the mandatory six-month financial history, warranting immediate rejection."
+  }
+}

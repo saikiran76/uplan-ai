@@ -1,0 +1,144 @@
+{
+  "run_id": "20260518_092733",
+  "total_elapsed_s": 145.1,
+  "checkpoints": [
+    {
+      "checkpoint": "CP0",
+      "timestamp": "2026-05-18T09:27:33.914679+00:00",
+      "file": "document_1.pdf",
+      "pages": 2,
+      "electronic": true
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T09:27:43.831219+00:00",
+      "page": 1,
+      "type": "affidavit",
+      "non_null_count": 15,
+      "elapsed_s": 9.8
+    },
+    {
+      "checkpoint": "CP2",
+      "timestamp": "2026-05-18T09:27:48.242405+00:00",
+      "page": 2,
+      "type": "unknown",
+      "non_null_count": 2,
+      "elapsed_s": 14.18
+    },
+    {
+      "checkpoint": "CP3",
+      "timestamp": "2026-05-18T09:27:48.483168+00:00",
+      "canonical_name": "Korada Sai Kiran",
+      "doc_types": [
+        "affidavit",
+        "unknown"
+      ],
+      "closing_balance": 1744664.76,
+      "token_count": 367
+    },
+    {
+      "checkpoint": "CP4",
+      "timestamp": "2026-05-18T09:27:48.485627+00:00",
+      "agent": "identity_agent",
+      "estimated_tokens": 349,
+      "graph_keys": [
+        "identity"
+      ]
+    },
+    {
+      "checkpoint": "CP5",
+      "timestamp": "2026-05-18T09:27:58.740777+00:00",
+      "agent": "identity_agent",
+      "verdict": "critical",
+      "confidence": 1.0,
+      "elapsed_s": 10.25,
+      "parse_error": null
+    },
+    {
+      "checkpoint": "CP4",
+      "timestamp": "2026-05-18T09:27:59.742961+00:00",
+      "agent": "financial_agent",
+      "estimated_tokens": 500,
+      "graph_keys": [
+        "financial",
+        "identity"
+      ]
+    },
+    {
+      "checkpoint": "CP5",
+      "timestamp": "2026-05-18T09:28:24.496202+00:00",
+      "agent": "financial_agent",
+      "verdict": "critical",
+      "confidence": 1.0,
+      "elapsed_s": 24.75,
+      "parse_error": null
+    },
+    {
+      "checkpoint": "CP4",
+      "timestamp": "2026-05-18T09:28:25.497703+00:00",
+      "agent": "temporal_agent",
+      "estimated_tokens": 460,
+      "graph_keys": [
+        "temporal",
+        "financial"
+      ]
+    },
+    {
+      "checkpoint": "CP5",
+      "timestamp": "2026-05-18T09:28:45.147839+00:00",
+      "agent": "temporal_agent",
+      "verdict": "critical",
+      "confidence": 1.0,
+      "elapsed_s": 19.65,
+      "parse_error": null
+    },
+    {
+      "checkpoint": "CP4",
+      "timestamp": "2026-05-18T09:28:46.149433+00:00",
+      "agent": "sponsor_agent",
+      "estimated_tokens": 526,
+      "graph_keys": [
+        "sponsor",
+        "identity",
+        "financial"
+      ]
+    },
+    {
+      "checkpoint": "CP5",
+      "timestamp": "2026-05-18T09:29:13.198454+00:00",
+      "agent": "sponsor_agent",
+      "verdict": "critical",
+      "confidence": 1.0,
+      "elapsed_s": 27.05,
+      "parse_error": null
+    },
+    {
+      "checkpoint": "CP4",
+      "timestamp": "2026-05-18T09:29:14.200277+00:00",
+      "agent": "enrollment_agent",
+      "estimated_tokens": 453,
+      "graph_keys": [
+        "enrollment",
+        "financial",
+        "temporal"
+      ]
+    },
+    {
+      "checkpoint": "CP5",
+      "timestamp": "2026-05-18T09:29:38.680531+00:00",
+      "agent": "enrollment_agent",
+      "verdict": "critical",
+      "confidence": 1.0,
+      "elapsed_s": 24.48,
+      "parse_error": null
+    },
+    {
+      "checkpoint": "CP6",
+      "timestamp": "2026-05-18T09:29:58.985743+00:00",
+      "verdict": "FAIL",
+      "risk_score": 1.0,
+      "elapsed_s": 19.3
+    }
+  ],
+  "output_dir": "C:\\Users\\ksk76\\Downloads\\uplan-hackathon-space-amd\\refined\\new-plan\\debug\\20260518_092733"
+}

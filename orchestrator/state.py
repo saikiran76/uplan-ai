@@ -24,11 +24,11 @@ class UplanState(TypedDict):
     # Rule engine output
     rule_findings: Annotated[list[dict], operator.add]
 
-    # Agent outputs — operator.add merges lists from parallel nodes
+    # Agent outputs -- operator.add merges lists from parallel nodes
     agent_findings: Annotated[list[dict], operator.add]
     completed_agents: Annotated[list[str], operator.add]
 
-    # Visa context — jurisdiction-aware thresholds
+    # Visa context -- jurisdiction-aware thresholds
     visa_context: Optional[dict]           # VisaContext.to_dict()
     document_checklist: list[dict]         # [{label, status, validation_result}]
 
@@ -38,3 +38,7 @@ class UplanState(TypedDict):
 
     # Privacy gate flag
     raw_purged: bool
+
+    # Debug logger -- created in encode(), threaded through for CP4/CP5/CP6
+    # Set to None to disable debug logging
+    _debug_logger: Optional[object]

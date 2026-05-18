@@ -1,0 +1,27 @@
+=== GRAPH SUMMARY (run: 20260518_092733) ===
+Source pages: 2  |  Doc types: ['affidavit', 'unknown']
+Token count: 367  |  Compression: 4,000 -> 367
+
+--- IDENTITY ---
+  canonical_name:  Korada Sai Kiran
+  date_of_birth:   02-06-2003
+  nationality:     None
+  passport_number: None
+  name_variants:   ['Korada Sai Kiran']
+
+--- FINANCIAL ---
+  source_is_affidavit:   True
+  currency:              INR
+  closing_balance:       1744664.76
+  avg_monthly_income:    100000.0
+  transaction_count:     0
+  declared_property:     16360000.0
+  declared_movables:     2500000.0
+
+--- SPONSOR ---
+  sponsor_name:     KORADA SATYANARAYANA
+  relationship:     Father
+  declared_income:  1200000.0
+
+  enrollment:  null
+  edges:       [<EdgeType.SPONSOR_LINK: 'sponsor_link'>]

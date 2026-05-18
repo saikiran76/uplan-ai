@@ -1,0 +1,29 @@
+{
+  "agent_id": "temporal_agent",
+  "elapsed_s": 19.65,
+  "parse_error": null,
+  "verdict": "critical",
+  "confidence": 1.0,
+  "anomaly_count": 2,
+  "summary": "The application is critically deficient, lacking any bank statements or employment history, making financial and temporal verification impossible.",
+  "full_finding": {
+    "agent_id": "temporal_agent",
+    "anomalies": [
+      {
+        "field_path": "doc_date_ranges",
+        "severity": "critical",
+        "explanation": "The application is missing the mandatory six months of consecutive bank statements. This complete absence of documentation makes it impossible to verify the history, source, and stability of the declared funds.",
+        "rule_id": null
+      },
+      {
+        "field_path": "employment_start",
+        "severity": "critical",
+        "explanation": "No employment start date or employment history has been provided for the applicant or sponsor. This prevents the verification of the source of income and the sponsor's ability to meet financial support requirements.",
+        "rule_id": null
+      }
+    ],
+    "confidence": 1.0,
+    "agent_verdict": "critical",
+    "summary": "The application is critically deficient, lacking any bank statements or employment history, making financial and temporal verification impossible."
+  }
+}

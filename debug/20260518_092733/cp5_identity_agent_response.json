@@ -1,0 +1,29 @@
+{
+  "agent_id": "identity_agent",
+  "elapsed_s": 10.25,
+  "parse_error": null,
+  "verdict": "critical",
+  "confidence": 1.0,
+  "anomaly_count": 2,
+  "summary": "The application is critically deficient due to missing nationality and passport number, preventing basic identity verification.",
+  "full_finding": {
+    "agent_id": "identity_agent",
+    "anomalies": [
+      {
+        "field_path": "nationality",
+        "severity": "critical",
+        "explanation": "Applicant nationality is not specified. This is a mandatory field for identity verification and visa processing.",
+        "rule_id": null
+      },
+      {
+        "field_path": "passport_number",
+        "severity": "critical",
+        "explanation": "Applicant passport number is missing. A valid passport is a required document for any visa application.",
+        "rule_id": null
+      }
+    ],
+    "confidence": 1.0,
+    "agent_verdict": "critical",
+    "summary": "The application is critically deficient due to missing nationality and passport number, preventing basic identity verification."
+  }
+}

@@ -1,0 +1,2744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uplan — Immigration Document Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════ */
+        :root {
+            --void: #060608;
+            --obsidian: #0c0c10;
+            --surface: #111117;
+            --surface-2: #18181f;
+            --surface-3: #1f1f28;
+            --border: rgba(255, 255, 255, 0.07);
+            --border-lit: rgba(255, 255, 255, 0.14);
+            --text-1: #f0f0f5;
+            --text-2: #8e8ea8;
+            --text-3: #55556a;
+            --amber: #f5a623;
+            --amber-dim: rgba(245, 166, 35, 0.12);
+            --amber-glow: rgba(245, 166, 35, 0.3);
+            --red: #ff3355;
+            --red-dim: rgba(255, 51, 85, 0.1);
+            --cyan: #00e5ff;
+            --cyan-dim: rgba(0, 229, 255, 0.08);
+            --green: #00e676;
+            --green-dim: rgba(0, 230, 118, 0.1);
+            --font-display: 'Syne', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+            --font-body: 'IBM Plex Sans', sans-serif;
+            --radius: 3px;
+            --radius-lg: 6px;
+        }
+
+        /* ═══════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--void);
+            color: var(--text-1);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        input,
+        select {
+            outline: none;
+        }
+
+        /* ═══════════════════════════════════════════════
+   GRID BACKGROUND
+═══════════════════════════════════════════════ */
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        .vignette {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, var(--void) 100%);
+        }
+
+        /* ═══════════════════════════════════════════════
+   PAGES
+═══════════════════════════════════════════════ */
+        .page {
+            display: none;
+            min-height: 100vh;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* ═══════════════════════════════════════════════
+   ━━━━━━━━━━ LANDING PAGE ━━━━━━━━━━
+═══════════════════════════════════════════════ */
+        #landing {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0 24px;
+        }
+
+        #landing.active {
+            display: flex;
+        }
+
+        /* NAV */
+        .land-nav {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 28px 0 0;
+            animation: fadeDown 0.6s ease forwards;
+        }
+
+        .land-logo {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-1);
+        }
+
+        .land-logo span {
+            color: var(--amber);
+        }
+
+        .land-nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .land-nav-links a {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-2);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .land-nav-links a:hover {
+            color: var(--text-1);
+        }
+
+        .nav-cta {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--amber) !important;
+            border: 1px solid var(--amber-glow);
+            padding: 6px 16px;
+            border-radius: var(--radius);
+            transition: background 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--amber-dim) !important;
+        }
+
+        /* HERO */
+        .hero {
+            width: 100%;
+            max-width: 1100px;
+            padding: 80px 0 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeUp 0.8s 0.2s ease both;
+        }
+
+        .hero-kicker {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--amber);
+            border: 1px solid var(--amber-glow);
+            background: var(--amber-dim);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 12px;
+            border-radius: 2px;
+            margin-bottom: 28px;
+        }
+
+        .hero-kicker::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--amber);
+            animation: pulse 2s infinite;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 58px);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            color: var(--text-1);
+            margin-bottom: 20px;
+        }
+
+        .hero-title em {
+            font-style: normal;
+            color: var(--amber);
+        }
+
+        .hero-sub {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-2);
+            max-width: 460px;
+            margin-bottom: 40px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: var(--amber);
+            color: var(--void);
+            border: none;
+            padding: 14px 28px;
+            border-radius: var(--radius);
+            transition: filter 0.2s, transform 0.1s;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-ghost {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-2);
+            background: none;
+            border: 1px solid var(--border-lit);
+            padding: 13px 22px;
+            border-radius: var(--radius);
+            transition: all 0.2s;
+        }
+
+        .btn-ghost:hover {
+            color: var(--text-1);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        /* PIPELINE CANVAS */
+        .hero-visual {
+            animation: fadeIn 1s 0.4s ease both;
+            position: relative;
+        }
+
+        .pipeline-canvas {
+            width: 100%;
+            height: 420px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .pipe-node {
+            position: absolute;
+            border: 1px solid var(--border-lit);
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            padding: 12px 16px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-2);
+            transition: border-color 0.3s, box-shadow 0.3s;
+            animation: nodeAppear 0.6s ease both;
+            min-width: 130px;
+            text-align: center;
+        }
+
+        .pipe-node.active-node {
+            border-color: var(--amber-glow);
+            box-shadow: 0 0 24px rgba(245, 166, 35, 0.15);
+            color: var(--amber);
+        }
+
+        .pipe-node b {
+            font-weight: 600;
+            display: block;
+            font-size: 11px;
+            margin-bottom: 2px;
+        }
+
+        .pipe-node small {
+            font-size: 9px;
+            color: var(--text-3);
+            letter-spacing: 0.5px;
+        }
+
+        /* SVG pipeline edges are drawn in JS */
+        .pipeline-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* STATS ROW */
+        .stats-row {
+            width: 100%;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            margin-bottom: 80px;
+            animation: fadeUp 0.8s 0.5s ease both;
+            overflow: hidden;
+        }
+
+        .stat-cell {
+            padding: 28px 24px;
+            border-right: 1px solid var(--border);
+            transition: background 0.2s;
+        }
+
+        .stat-cell:last-child {
+            border-right: none;
+        }
+
+        .stat-cell:hover {
+            background: var(--surface-2);
+        }
+
+        .stat-num {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--amber);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: var(--text-3);
+            text-transform: uppercase;
+        }
+
+        /* SECTIONS */
+        .section {
+            width: 100%;
+            max-width: 1100px;
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-kicker {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-sub {
+            font-size: 15px;
+            color: var(--text-2);
+            line-height: 1.7;
+            max-width: 560px;
+        }
+
+        /* METHOD CARDS */
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 48px;
+        }
+
+        .method-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            transition: border-color 0.2s, transform 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .method-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--amber);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .method-card:hover {
+            border-color: var(--border-lit);
+            transform: translateY(-2px);
+        }
+
+        .method-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .method-num {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--amber);
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .method-title {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .method-desc {
+            font-size: 13px;
+            color: var(--text-2);
+            line-height: 1.65;
+        }
+
+        /* ENCODING SECTION */
+        .encoding-viz {
+            margin-top: 48px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .enc-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .enc-block-title {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-3);
+            margin-bottom: 12px;
+        }
+
+        .enc-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .enc-line {
+            height: 7px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.06);
+            animation: shimmer 3s infinite;
+        }
+
+        .enc-token-count {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-3);
+        }
+
+        .enc-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 9px;
+            color: var(--amber);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .enc-arrow-line {
+            width: 2px;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, var(--amber), transparent);
+            animation: pulse 2s infinite;
+        }
+
+        .node-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--surface-2);
+            border: 1px solid var(--border-lit);
+            border-radius: var(--radius);
+            padding: 10px 14px;
+            margin-bottom: 8px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-1);
+            animation: slideIn 0.5s ease both;
+        }
+
+        .node-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* AGENTS SECTION */
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-top: 48px;
+        }
+
+        .agent-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px 16px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .agent-card:hover {
+            border-color: var(--amber-glow);
+            background: var(--surface-2);
+        }
+
+        .agent-icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .agent-name {
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-1);
+        }
+
+        .agent-desc {
+            font-size: 11px;
+            color: var(--text-2);
+            line-height: 1.5;
+        }
+
+        /* FOOTER */
+        .land-footer {
+            width: 100%;
+            max-width: 1100px;
+            padding: 32px 0 48px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-3);
+            letter-spacing: 1px;
+        }
+
+        /* ═══════════════════════════════════════════════
+   ━━━━━━━━━━ TOOL SHELL ━━━━━━━━━━
+═══════════════════════════════════════════════ */
+        #tool {
+            display: none;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #tool.active {
+            display: flex;
+        }
+
+        .tool-topbar {
+            height: 52px;
+            flex-shrink: 0;
+            background: var(--obsidian);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+        }
+
+        .tool-logo {
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .tool-logo span {
+            color: var(--amber);
+        }
+
+        .tool-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-3);
+        }
+
+        .tool-breadcrumb .crumb {
+            color: var(--text-2);
+        }
+
+        .tool-breadcrumb .crumb.active {
+            color: var(--amber);
+        }
+
+        .tool-breadcrumb .sep {
+            color: var(--text-3);
+        }
+
+        .tool-back {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-2);
+            background: none;
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: var(--radius);
+            transition: all 0.2s;
+        }
+
+        .tool-back:hover {
+            color: var(--text-1);
+            border-color: var(--border-lit);
+        }
+
+        /* STEP SYSTEM */
+        .tool-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 32px 24px;
+        }
+
+        .tool-step {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tool-step.active {
+            display: block;
+            animation: fadeUp 0.4s ease both;
+        }
+
+        .step-header {
+            margin-bottom: 40px;
+        }
+
+        .step-kicker {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-3);
+            margin-bottom: 10px;
+        }
+
+        .step-title {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-bottom: 8px;
+        }
+
+        .step-sub {
+            font-size: 14px;
+            color: var(--text-2);
+            line-height: 1.6;
+        }
+
+        /* FORM ELEMENTS */
+        .field-group {
+            margin-bottom: 28px;
+        }
+
+        .field-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-2);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .field-required {
+            color: var(--red);
+            margin-left: 4px;
+        }
+
+        .field-select,
+        .field-input {
+            width: 100%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-1);
+            padding: 12px 16px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            border-radius: var(--radius);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            appearance: none;
+        }
+
+        .field-select:focus,
+        .field-input:focus {
+            border-color: var(--amber-glow);
+            box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.08);
+        }
+
+        .select-wrap {
+            position: relative;
+        }
+
+        .select-wrap::after {
+            content: '▾';
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-3);
+            pointer-events: none;
+            font-size: 12px;
+        }
+
+        .field-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .field-grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* PATH SELECTOR */
+        .path-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .path-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: var(--surface);
+            text-align: left;
+        }
+
+        .path-card:hover {
+            border-color: var(--border-lit);
+            background: var(--surface-2);
+        }
+
+        .path-card.selected {
+            border-color: var(--amber-glow);
+            background: var(--amber-dim);
+        }
+
+        .path-card-icon {
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .path-card-title {
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .path-card-desc {
+            font-size: 12px;
+            color: var(--text-2);
+            line-height: 1.5;
+        }
+
+        /* CHECKLIST */
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 24px 0;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 14px 16px;
+            font-size: 13px;
+            transition: border-color 0.2s;
+        }
+
+        .checklist-item.required {
+            border-left: 2px solid var(--red);
+        }
+
+        .checklist-item.recommended {
+            border-left: 2px solid var(--amber);
+        }
+
+        .checklist-item.optional {
+            border-left: 2px solid var(--text-3);
+        }
+
+        .checklist-badge {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 2px 7px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .badge-req {
+            background: var(--red-dim);
+            color: var(--red);
+            border: 1px solid rgba(255, 51, 85, 0.25);
+        }
+
+        .badge-rec {
+            background: var(--amber-dim);
+            color: var(--amber);
+            border: 1px solid var(--amber-glow);
+        }
+
+        .badge-opt {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-3);
+            border: 1px solid var(--border);
+        }
+
+        .checklist-name {
+            flex: 1;
+            font-weight: 500;
+            color: var(--text-1);
+        }
+
+        .checklist-desc {
+            font-size: 11px;
+            color: var(--text-2);
+        }
+
+        /* UPLOAD SLOTS */
+        .upload-slots {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 24px 0;
+        }
+
+        .upload-slot {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .upload-slot-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .upload-slot-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-1);
+        }
+
+        .upload-slot-status {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-3);
+        }
+
+        .upload-slot-status.uploaded {
+            color: var(--green);
+        }
+
+        .upload-slot-status.validating {
+            color: var(--amber);
+        }
+
+        .upload-slot-status.error {
+            color: var(--red);
+        }
+
+        .upload-slot-body {
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .upload-drop-area {
+            flex: 1;
+            border: 1px dashed var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .upload-drop-area:hover {
+            border-color: var(--amber-glow);
+            background: var(--amber-dim);
+        }
+
+        .upload-drop-area input[type=file] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+
+        .upload-drop-text {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-2);
+        }
+
+        .upload-file-info {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--green);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .validation-chip {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            padding: 6px 12px;
+            border-radius: var(--radius);
+            white-space: nowrap;
+        }
+
+        .vc-ok {
+            background: var(--green-dim);
+            color: var(--green);
+            border: 1px solid rgba(0, 230, 118, 0.25);
+        }
+
+        .vc-err {
+            background: var(--red-dim);
+            color: var(--red);
+            border: 1px solid rgba(255, 51, 85, 0.25);
+        }
+
+        .vc-wait {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-3);
+            border: 1px solid var(--border);
+        }
+
+        /* PIPELINE PROGRESS */
+        .pipeline-progress {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: 32px 0;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .pipeline-stage {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            transition: background 0.2s;
+        }
+
+        .pipeline-stage:last-child {
+            border-bottom: none;
+        }
+
+        .pipeline-stage.running {
+            background: rgba(245, 166, 35, 0.04);
+        }
+
+        .pipeline-stage.done {
+            background: rgba(0, 230, 118, 0.03);
+        }
+
+        .ps-indicator {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            border: 1px solid var(--border);
+            background: var(--surface-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-3);
+            transition: all 0.3s;
+        }
+
+        .pipeline-stage.running .ps-indicator {
+            border-color: var(--amber);
+            color: var(--amber);
+            animation: spin 1s linear infinite;
+        }
+
+        .pipeline-stage.done .ps-indicator {
+            border-color: var(--green);
+            background: var(--green-dim);
+            color: var(--green);
+        }
+
+        .ps-content {
+            flex: 1;
+        }
+
+        .ps-title {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-1);
+        }
+
+        .ps-desc {
+            font-size: 12px;
+            color: var(--text-2);
+            line-height: 1.5;
+        }
+
+        .ps-meta {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-3);
+            margin-top: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .ps-time {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-3);
+            flex-shrink: 0;
+        }
+
+        /* TOKEN COMPRESSION BAR */
+        .compression-display {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px 24px;
+            margin-top: 20px;
+        }
+
+        .comp-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-2);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .comp-label b {
+            color: var(--amber);
+            font-size: 16px;
+        }
+
+        .comp-track {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .comp-fill {
+            height: 100%;
+            border-radius: 3px;
+            background: var(--amber);
+            transition: width 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        /* REPORT / DOSSIER */
+        .verdict-hero {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verdict-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .verdict-fail::before {
+            background: var(--red);
+        }
+
+        .verdict-pass::before {
+            background: var(--green);
+        }
+
+        .verdict-warn::before {
+            background: var(--amber);
+        }
+
+        .verdict-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-3);
+            margin-bottom: 8px;
+        }
+
+        .verdict-value {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .v-fail {
+            color: var(--red);
+        }
+
+        .v-pass {
+            color: var(--green);
+        }
+
+        .v-cond {
+            color: var(--amber);
+        }
+
+        .risk-gauge {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .risk-bar-bg {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .risk-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .risk-num {
+            font-family: var(--font-mono);
+            font-size: 22px;
+            font-weight: 600;
+            min-width: 48px;
+        }
+
+        .report-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 20px;
+        }
+
+        .report-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .report-card-title {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-3);
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .finding-row {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .finding-row:last-child {
+            border-bottom: none;
+        }
+
+        .finding-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .finding-field {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-1);
+            font-weight: 500;
+        }
+
+        .sev-pip {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 2px;
+        }
+
+        .sev-pip.critical {
+            background: var(--red-dim);
+            color: var(--red);
+            border: 1px solid rgba(255, 51, 85, 0.25);
+        }
+
+        .sev-pip.warning {
+            background: var(--amber-dim);
+            color: var(--amber);
+            border: 1px solid var(--amber-glow);
+        }
+
+        .sev-pip.info {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-3);
+            border: 1px solid var(--border);
+        }
+
+        .finding-text {
+            font-size: 12px;
+            color: var(--text-2);
+            line-height: 1.6;
+        }
+
+        .narrative-text {
+            font-size: 13px;
+            color: var(--text-2);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            background: var(--surface-2);
+            padding: 16px;
+            border-radius: var(--radius);
+            border-left: 2px solid var(--red);
+        }
+
+        .rebuttal-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .rebuttal-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px 14px;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 12px;
+            color: var(--text-2);
+            line-height: 1.6;
+            border-left: 2px solid var(--cyan);
+        }
+
+        .rebuttal-num {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--cyan);
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .identity-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+        }
+
+        .identity-row:last-child {
+            border-bottom: none;
+        }
+
+        .id-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .id-value {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-1);
+        }
+
+        .citation-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .citation-tag {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--cyan);
+            background: var(--cyan-dim);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            padding: 3px 9px;
+            border-radius: 2px;
+        }
+
+        /* ACTIONS */
+        .action-bar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            margin-top: 32px;
+        }
+
+        /* ═══════════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════════ */
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+
+            100% {
+                opacity: 0.4;
+            }
+        }
+
+        @keyframes nodeAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes edgeDraw {
+            from {
+                stroke-dashoffset: 200;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes flowPulse {
+
+            0%,
+            100% {
+                stroke-opacity: 0.3;
+            }
+
+            50% {
+                stroke-opacity: 1;
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--obsidian);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--surface-3);
+            border-radius: 3px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .method-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .agents-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-row .stat-cell:nth-child(2) {
+                border-right: none;
+            }
+
+            .report-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .field-grid,
+            .field-grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .path-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .encoding-viz {
+                grid-template-columns: 1fr;
+            }
+
+            .enc-arrow {
+                flex-direction: row;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grid-bg"></div>
+    <div class="vignette"></div>
+
+    <!-- ═══════════════════════════════════════════
+     LANDING PAGE
+════════════════════════════════════════════ -->
+    <div id="landing" class="page active">
+
+        <nav class="land-nav">
+            <div class="land-logo">U<span>plan</span></div>
+            <div class="land-nav-links">
+                <a href="#method">Method</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#agents">Agents</a>
+                <a href="#" onclick="goToTool()" class="nav-cta">Open Tool →</a>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <div class="hero">
+            <div class="hero-text">
+                <div class="hero-kicker">Adversarial Document Intelligence</div>
+                <h1 class="hero-title">
+                    Immigration documents.<br>
+                    <em>Interrogated,</em><br>not checked.
+                </h1>
+                <p class="hero-sub">
+                    Uplan applies five cooperating specialist agents and a structural encoding pipeline to find the
+                    logical inconsistencies that cause visa rejections — before an officer does.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="goToTool()">Analyse your packet →</button>
+                    <button class="btn-ghost" onclick="scrollTo('#method')">How it works</button>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="pipeline-canvas" id="pipelineCanvas">
+                    <svg class="pipeline-svg" id="pipelineSvg"></svg>
+                    <!-- Nodes placed by JS for precise positioning -->
+                </div>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-row">
+            <div class="stat-cell">
+                <span class="stat-num" data-target="98">0</span><span class="stat-num">%</span>
+                <span class="stat-label">Token reduction</span>
+            </div>
+            <div class="stat-cell">
+                <span class="stat-num" data-target="5">0</span>
+                <span class="stat-label">Specialist agents</span>
+            </div>
+            <div class="stat-cell">
+                <span class="stat-num" data-target="9">0</span>
+                <span class="stat-label">Deterministic rules</span>
+            </div>
+            <div class="stat-cell">
+                <span class="stat-num" data-target="0">0</span><span class="stat-num">px</span>
+                <span class="stat-label">PII retained post-analysis</span>
+            </div>
+        </div>
+
+        <!-- METHOD SECTION -->
+        <div class="section" id="method">
+            <div class="section-kicker">01 / Method</div>
+            <h2 class="section-title">Why most document checks fail</h2>
+            <p class="section-sub">Visa rejections rarely stem from missing documents. They stem from logical
+                inconsistencies across documents that automated systems miss and consultants overlook.</p>
+            <div class="method-grid">
+                <div class="method-card">
+                    <span class="method-num">Rule 01</span>
+                    <div class="method-title">Adversarial interrogation</div>
+                    <p class="method-desc">Every application is treated as if it needs to withstand an officer who is
+                        actively looking for inconsistency — not one who is rubber-stamping completeness.</p>
+                </div>
+                <div class="method-card">
+                    <span class="method-num">Rule 02</span>
+                    <div class="method-title">Cross-document reasoning</div>
+                    <p class="method-desc">The income on a payslip must match the deposit on a bank statement. The
+                        sponsor's declared income must cover program cost × 1.2. No agent sees documents in isolation.
+                    </p>
+                </div>
+                <div class="method-card">
+                    <span class="method-num">Rule 03</span>
+                    <div class="method-title">Context-aware thresholds</div>
+                    <p class="method-desc">A ¥2M minimum balance means nothing in GBP. Rules are resolved against the
+                        exact visa type, destination country, and applicant context — not hardcoded constants.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ENCODING SECTION -->
+        <div class="section" id="architecture">
+            <div class="section-kicker">02 / Architecture</div>
+            <h2 class="section-title">The structural encoding pipeline</h2>
+            <p class="section-sub">A 30-page bank statement is 30,000 tokens. A 72B reasoning model has a 32k context
+                window. The structural encoder converts raw documents to a typed semantic graph — 98% smaller, zero
+                information loss.</p>
+
+            <div class="encoding-viz">
+                <div class="enc-block">
+                    <div class="enc-block-title">Raw documents — ~60,000 tokens</div>
+                    <div class="enc-lines" id="rawLines"></div>
+                    <div class="enc-token-count" id="rawTokenCount">≈ 60,000 tokens</div>
+                </div>
+                <div class="enc-arrow">
+                    <span style="font-size:9px">7B encoder</span>
+                    <div class="enc-arrow-line"></div>
+                    <span>→</span>
+                    <div class="enc-arrow-line"></div>
+                    <span style="font-size:9px">semantic graph</span>
+                </div>
+                <div class="enc-block" id="graphBlock">
+                    <div class="enc-block-title">Semantic graph — ~1,200 tokens</div>
+                    <div id="graphNodes"></div>
+                    <div class="enc-token-count" id="graphTokenCount">≈ 1,200 tokens</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AGENTS SECTION -->
+        <div class="section" id="agents">
+            <div class="section-kicker">03 / Agents</div>
+            <h2 class="section-title">Five specialist agents, one verdict</h2>
+            <p class="section-sub">Each agent receives only its relevant graph nodes — never raw documents. All five run
+                in parallel, then a narrative synthesis agent reasons across all findings simultaneously.</p>
+            <div class="agents-grid">
+                <div class="agent-card">
+                    <span class="agent-icon">🪪</span>
+                    <div class="agent-name">Identity</div>
+                    <p class="agent-desc">Name variants, transliteration mismatches, cross-document identity coherence
+                    </p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-icon">💰</span>
+                    <div class="agent-name">Financial</div>
+                    <p class="agent-desc">Spike detection, unlabeled deposits, income-balance trajectory</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-icon">📅</span>
+                    <div class="agent-name">Temporal</div>
+                    <p class="agent-desc">Employment gaps, date coherence, visa window alignment</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-icon">🤝</span>
+                    <div class="agent-name">Sponsor</div>
+                    <p class="agent-desc">Income viability, relationship plausibility, coverage multiplier</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-icon">🎓</span>
+                    <div class="agent-name">Enrollment</div>
+                    <p class="agent-desc">Program cost vs. funds, CoE date matching, duration feasibility</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="land-footer">
+            <span>UPLAN — ADVERSARIAL IMMIGRATION DOCUMENT INTELLIGENCE</span>
+            <span>PROTOTYPE / HACKATHON BUILD</span>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+     TOOL PAGE
+════════════════════════════════════════════ -->
+    <div id="tool" class="page">
+        <div class="tool-topbar">
+            <div class="tool-logo">U<span>plan</span> <span
+                    style="color:var(--text-3);font-weight:400;font-size:11px;letter-spacing:1px">/ COMMAND</span></div>
+            <div class="tool-breadcrumb" id="breadcrumb">
+                <span class="crumb active" data-step="0">Context</span>
+                <span class="sep">/</span>
+                <span class="crumb" data-step="1">Checklist</span>
+                <span class="sep">/</span>
+                <span class="crumb" data-step="2">Upload</span>
+                <span class="sep">/</span>
+                <span class="crumb" data-step="3">Analysis</span>
+                <span class="sep">/</span>
+                <span class="crumb" data-step="4">Dossier</span>
+            </div>
+            <button class="tool-back" onclick="goToLanding()">← Back to overview</button>
+        </div>
+
+        <div class="tool-body">
+
+            <!-- STEP 0: Context intake -->
+            <div class="tool-step active" id="step-0">
+                <div class="step-header">
+                    <div class="step-kicker">Step 01 / 05 — Application context</div>
+                    <h2 class="step-title">Tell us about your application</h2>
+                    <p class="step-sub">Three fields. This determines which rules apply, what documents are required,
+                        and how thresholds are calculated for your specific visa and jurisdiction.</p>
+                </div>
+
+                <div class="field-grid-3">
+                    <div class="field-group">
+                        <label class="field-label">Applicant country <span class="field-required">*</span></label>
+                        <div class="select-wrap">
+                            <select class="field-select" id="applicantCountry">
+                                <option value="">Select country</option>
+                                <option value="india">🇮🇳 India</option>
+                                <option value="pakistan">🇵🇰 Pakistan</option>
+                                <option value="bangladesh">🇧🇩 Bangladesh</option>
+                                <option value="nepal">🇳🇵 Nepal</option>
+                                <option value="nigeria">🇳🇬 Nigeria</option>
+                                <option value="china">🇨🇳 China</option>
+                                <option value="philippines">🇵🇭 Philippines</option>
+                                <option value="other">🌍 Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label">Destination country <span class="field-required">*</span></label>
+                        <div class="select-wrap">
+                            <select class="field-select" id="destCountry">
+                                <option value="">Select destination</option>
+                                <option value="japan">🇯🇵 Japan</option>
+                                <option value="uk">🇬🇧 United Kingdom</option>
+                                <option value="usa">🇺🇸 United States</option>
+                                <option value="canada">🇨🇦 Canada</option>
+                                <option value="australia">🇦🇺 Australia</option>
+                                <option value="germany">🇩🇪 Germany</option>
+                                <option value="other">🌍 Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label">Visa type <span class="field-required">*</span></label>
+                        <div class="select-wrap">
+                            <select class="field-select" id="visaType">
+                                <option value="">Select type</option>
+                                <option value="student">Student / COE</option>
+                                <option value="work">Work / Skilled</option>
+                                <option value="family">Family reunification</option>
+                                <option value="visitor">Visitor / Tourist</option>
+                                <option value="dependent">Dependent</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Context resolved display -->
+                <div id="contextResolved" style="display:none; margin-bottom:24px;">
+                    <div class="report-card" style="border-color:var(--amber-glow); background:var(--amber-dim);">
+                        <div class="report-card-title" style="color:var(--amber)">Context resolved</div>
+                        <div class="field-grid" id="contextDetails"></div>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="goToStep(1)" id="step0Next" disabled>Continue → Choose
+                        checklist path</button>
+                </div>
+            </div>
+
+            <!-- STEP 1: Checklist path selection -->
+            <div class="tool-step" id="step-1">
+                <div class="step-header">
+                    <div class="step-kicker">Step 02 / 05 — Document checklist</div>
+                    <h2 class="step-title">How do you want to proceed?</h2>
+                    <p class="step-sub">We'll generate the exact documents needed for your application, or you can
+                        provide your own checklist.</p>
+                </div>
+
+                <div class="path-cards">
+                    <div class="path-card" onclick="selectPath('auto')" id="path-auto">
+                        <span class="path-card-icon">⚡</span>
+                        <div class="path-card-title">Generate for me</div>
+                        <p class="path-card-desc">We look up the exact required documents for your visa type and
+                            destination. Takes 10 seconds.</p>
+                    </div>
+                    <div class="path-card" onclick="selectPath('custom')" id="path-custom">
+                        <span class="path-card-icon">📋</span>
+                        <div class="path-card-title">I have a checklist</div>
+                        <p class="path-card-desc">Paste or upload your embassy checklist. We parse it and create upload
+                            slots for each item.</p>
+                    </div>
+                    <div class="path-card" onclick="selectPath('expert')" id="path-expert">
+                        <span class="path-card-icon">🎯</span>
+                        <div class="path-card-title">Expert mode</div>
+                        <p class="path-card-desc">Skip the checklist. Upload freely and label each document yourself.
+                            For experienced applicants.</p>
+                    </div>
+                </div>
+
+                <!-- Custom checklist input (shown for path B) -->
+                <div id="customChecklistInput" style="display:none; margin-bottom:24px;">
+                    <div class="field-group">
+                        <label class="field-label">Paste your checklist</label>
+                        <textarea class="field-input" id="customChecklistText"
+                            style="min-height:120px; resize:vertical; font-size:12px; line-height:1.6"
+                            placeholder="e.g.&#10;- Valid passport&#10;- 6 months bank statements&#10;- Enrollment letter (COE)&#10;- Sponsor declaration..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Generated checklist display -->
+                <div id="generatedChecklist" style="display:none;">
+                    <div class="checklist" id="checklistItems"></div>
+                </div>
+
+                <div class="action-bar">
+                    <button class="btn-ghost" onclick="goToStep(0)">← Back</button>
+                    <button class="btn-primary" onclick="goToStep(2)" id="step1Next" disabled>Continue → Upload
+                        documents</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: Upload -->
+            <div class="tool-step" id="step-2">
+                <div class="step-header">
+                    <div class="step-kicker">Step 03 / 05 — Document upload</div>
+                    <h2 class="step-title">Upload your documents</h2>
+                    <p class="step-sub">Each slot is pre-labelled. We validate every upload to confirm it matches the
+                        expected document type before analysis begins.</p>
+                </div>
+
+                <div class="upload-slots" id="uploadSlots"></div>
+
+                <!-- Validation summary -->
+                <div id="uploadSummary" style="display:none; margin-top:16px;">
+                    <div class="report-card" id="uploadSummaryCard"></div>
+                </div>
+
+                <div class="action-bar">
+                    <button class="btn-ghost" onclick="goToStep(1)">← Back</button>
+                    <button class="btn-primary" onclick="startAnalysis()" id="step2Next" disabled>Run adversarial
+                        analysis →</button>
+                </div>
+            </div>
+
+            <!-- STEP 3: Analysis pipeline progress -->
+            <div class="tool-step" id="step-3">
+                <div class="step-header">
+                    <div class="step-kicker">Step 04 / 05 — Analysis in progress</div>
+                    <h2 class="step-title">Running pipeline</h2>
+                    <p class="step-sub">Raw documents are being processed. Pages will be purged from memory immediately
+                        after structural encoding completes.</p>
+                </div>
+
+                <div class="pipeline-progress" id="pipelineStages"></div>
+
+                <div class="compression-display" id="compressionDisplay" style="display:none;">
+                    <div class="comp-label">
+                        <span>Token compression</span>
+                        <b id="compressionRatio">0%</b>
+                    </div>
+                    <div class="comp-track">
+                        <div class="comp-fill" id="compressionFill" style="width:0%"></div>
+                    </div>
+                    <div
+                        style="display:flex; justify-content:space-between; margin-top:8px; font-family:var(--font-mono); font-size:10px; color:var(--text-3);">
+                        <span>Raw: <span id="rawTok">—</span> tokens</span>
+                        <span>Graph: <span id="graphTok">—</span> tokens</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 4: Dossier report -->
+            <div class="tool-step" id="step-4">
+                <div class="step-header">
+                    <div class="step-kicker">Step 05 / 05 — Adversarial dossier</div>
+                    <h2 class="step-title">Analysis complete</h2>
+                    <p class="step-sub">All source documents have been purged. What follows is derived intelligence
+                        only.</p>
+                </div>
+
+                <!-- Verdict hero -->
+                <div class="verdict-hero verdict-fail" id="verdictHero">
+                    <div class="verdict-label">OVERALL VERDICT</div>
+                    <div class="verdict-value v-fail" id="verdictValue">FAIL</div>
+                    <div class="risk-gauge">
+                        <div class="risk-bar-bg">
+                            <div class="risk-bar-fill" id="riskBarFill" style="width:0%; background:var(--red)"></div>
+                        </div>
+                        <span class="risk-num" id="riskNum" style="color:var(--red)">100%</span>
+                    </div>
+                    <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);margin-top:10px">
+                        RISK SCORE — higher = greater rejection probability
+                    </div>
+                </div>
+
+                <div class="report-grid">
+                    <!-- LEFT: Findings + narrative -->
+                    <div>
+                        <div class="report-card">
+                            <div class="report-card-title">Agent findings</div>
+                            <div id="findingsList"></div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-card-title">Rejection narrative</div>
+                            <div class="narrative-text" id="narrativeText"></div>
+                            <div class="citation-tags" id="citationTags"></div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-card-title">Rebuttal guidance — how to address each issue</div>
+                            <div class="rebuttal-list" id="rebuttalList"></div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: Identity, financial, privacy -->
+                    <div>
+                        <div class="report-card">
+                            <div class="report-card-title">Identity</div>
+                            <div id="identityPanel"></div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-card-title">Financial summary</div>
+                            <div id="financialPanel"></div>
+                        </div>
+
+                        <div class="report-card"
+                            style="border-color:rgba(0,229,255,0.2); background:rgba(0,229,255,0.03);">
+                            <div class="report-card-title" style="color:var(--cyan)">Privacy certificate</div>
+                            <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-2);line-height:1.7"
+                                id="privacyCert"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <button class="btn-ghost" onclick="resetTool()">← New analysis</button>
+                    <button class="btn-primary" onclick="window.print()">Export dossier</button>
+                </div>
+            </div>
+
+        </div><!-- end tool-body -->
+    </div><!-- end tool -->
+
+    <!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════ -->
+    <script>
+        /* ── Navigation ─────────────────────────── */
+        function goToTool() {
+            document.getElementById('landing').classList.remove('active');
+            document.getElementById('tool').classList.add('active');
+            document.getElementById('landing').style.display = 'none';
+            document.getElementById('tool').style.display = 'flex';
+            goToStep(0);
+        }
+        function goToLanding() {
+            document.getElementById('tool').classList.remove('active');
+            document.getElementById('tool').style.display = 'none';
+            document.getElementById('landing').classList.add('active');
+            document.getElementById('landing').style.display = 'flex';
+        }
+        function scrollTo(selector) {
+            document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /* ── Step management ─────────────────────── */
+        let currentStep = 0;
+        function goToStep(n) {
+            document.querySelectorAll('.tool-step').forEach(s => s.classList.remove('active'));
+            document.getElementById(`step-${n}`).classList.add('active');
+            document.querySelectorAll('.crumb').forEach(c => {
+                c.classList.toggle('active', parseInt(c.dataset.step) === n);
+            });
+            currentStep = n;
+            document.querySelector('.tool-body').scrollTop = 0;
+        }
+
+        /* ── STEP 0: Context ─────────────────────── */
+        const PROFILES = {
+            student_japan: {
+                min_balance: '¥2,000,000', currency: 'JPY', months: 6,
+                docs: ['passport', 'bank_statement', 'payslip', 'enrollment_letter', 'sponsor_letter'],
+                rules: 'COE dates must match visa window. All large deposits need documented sources.'
+            },
+            student_uk: {
+                min_balance: '£12,006', currency: 'GBP', months: 3,
+                docs: ['passport', 'bank_statement', 'cas_letter'],
+                rules: 'CAS number required. 28-day closing balance rule applies.'
+            },
+            student_usa: {
+                min_balance: 'Full tuition + living costs', currency: 'USD', months: 6,
+                docs: ['passport', 'bank_statement', 'i20_letter', 'financial_affidavit'],
+                rules: 'I-20 must be current. Sufficient funds for entire program duration.'
+            },
+            student_canada: {
+                min_balance: 'CAD $10,000', currency: 'CAD', months: 4,
+                docs: ['passport', 'bank_statement', 'acceptance_letter', 'proof_of_funds'],
+                rules: 'GIC may substitute part of funds proof. Acceptance letter required.'
+            },
+            work_uk: {
+                min_balance: '£1,270', currency: 'GBP', months: 3,
+                docs: ['passport', 'bank_statement', 'cos_letter', 'payslip'],
+                rules: 'Certificate of Sponsorship required. Must be from licensed sponsor.'
+            },
+            visitor_japan: {
+                min_balance: '¥300,000', currency: 'JPY', months: 3,
+                docs: ['passport', 'bank_statement', 'itinerary', 'employment_letter'],
+                rules: 'Proof of return ties required. Accommodation booking needed.'
+            }
+        };
+
+        function resolveContext() {
+            const from = document.getElementById('applicantCountry').value;
+            const dest = document.getElementById('destCountry').value;
+            const type = document.getElementById('visaType').value;
+            const btn = document.getElementById('step0Next');
+            if (!from || !dest || !type) { btn.disabled = true; document.getElementById('contextResolved').style.display = 'none'; return; }
+
+            const key = `${type}_${dest}`;
+            const profile = PROFILES[key] || {
+                min_balance: 'Varies by institution', currency: dest.toUpperCase(),
+                months: 6, docs: ['passport', 'bank_statement', 'supporting_docs'],
+                rules: 'Requirements vary. Consult the destination embassy.'
+            };
+
+            window._currentProfile = { ...profile, from, dest, type };
+
+            document.getElementById('contextDetails').innerHTML = `
+    <div><span class="data-label" style="color:var(--text-2);font-size:10px;text-transform:uppercase;letter-spacing:1px;font-family:var(--font-mono)">Min balance</span>
+    <span style="font-family:var(--font-mono);font-size:13px">${profile.min_balance}</span></div>
+    <div><span class="data-label" style="color:var(--text-2);font-size:10px;text-transform:uppercase;letter-spacing:1px;font-family:var(--font-mono)">Statement period</span>
+    <span style="font-family:var(--font-mono);font-size:13px">${profile.months} months</span></div>
+    <div style="grid-column:1/-1"><span class="data-label" style="color:var(--text-2);font-size:10px;text-transform:uppercase;letter-spacing:1px;font-family:var(--font-mono)">Key rules</span>
+    <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-2)">${profile.rules}</span></div>
+  `;
+            document.getElementById('contextResolved').style.display = 'block';
+            btn.disabled = false;
+        }
+
+        ['applicantCountry', 'destCountry', 'visaType'].forEach(id => {
+            document.getElementById(id).addEventListener('change', resolveContext);
+        });
+
+        /* ── STEP 1: Checklist ────────────────────── */
+        let selectedPath = null;
+        const DOC_META = {
+            passport: { label: 'Passport (biographic page)', req: 'required', desc: 'Clear scan of photo page. Name, DOB, nationality, passport number visible.' },
+            bank_statement: { label: 'Bank statement (6 months consecutive)', req: 'required', desc: 'Official statements showing all transactions. Not a balance screenshot.' },
+            payslip: { label: 'Payslips (3 months)', req: 'required', desc: 'Employer-issued, showing gross/net pay and employer name.' },
+            enrollment_letter: { label: 'Enrollment / Acceptance letter (COE)', req: 'required', desc: 'Must show program name, institution, duration, and start date.' },
+            sponsor_letter: { label: 'Sponsor declaration / Affidavit', req: 'required', desc: 'Signed declaration of financial support. Declarant and applicant roles must be clear.' },
+            cas_letter: { label: 'CAS letter', req: 'required', desc: 'Confirmation of Acceptance for Studies from licensed UK institution.' },
+            i20_letter: { label: 'I-20 form', req: 'required', desc: 'Issued by the US SEVIS system via the sponsoring institution.' },
+            acceptance_letter: { label: 'Acceptance letter', req: 'required', desc: 'Official acceptance from Canadian institution.' },
+            proof_of_funds: { label: 'Proof of funds / GIC', req: 'required', desc: 'Guaranteed Investment Certificate or equivalent liquid funds proof.' },
+            cos_letter: { label: 'Certificate of Sponsorship', req: 'required', desc: 'Issued by licensed UK employer sponsor.' },
+            itinerary: { label: 'Travel itinerary', req: 'recommended', desc: 'Flight bookings and accommodation confirmation.' },
+            employment_letter: { label: 'Employment letter', req: 'recommended', desc: 'Current employer confirming position, salary, and leave approval.' },
+            financial_affidavit: { label: 'Financial affidavit', req: 'recommended', desc: 'Notarised declaration of financial capability.' },
+            supporting_docs: { label: 'Supporting documents', req: 'optional', desc: 'Any additional documents relevant to your application.' },
+        };
+
+        function selectPath(path) {
+            selectedPath = path;
+            document.querySelectorAll('.path-card').forEach(c => c.classList.remove('selected'));
+            document.getElementById(`path-${path}`).classList.add('selected');
+            document.getElementById('customChecklistInput').style.display = path === 'custom' ? 'block' : 'none';
+
+            if (path === 'auto') {
+                generateChecklist(window._currentProfile?.docs || ['passport', 'bank_statement']);
+            } else if (path === 'expert') {
+                generateChecklist(['passport', 'bank_statement', 'supporting_docs']);
+            }
+            document.getElementById('step1Next').disabled = false;
+        }
+
+        function generateChecklist(docTypes) {
+            const container = document.getElementById('checklistItems');
+            container.innerHTML = '';
+            docTypes.forEach((type, i) => {
+                const meta = DOC_META[type] || { label: type.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), req: 'optional', desc: '' };
+                const badgeClass = meta.req === 'required' ? 'badge-req' : meta.req === 'recommended' ? 'badge-rec' : 'badge-opt';
+                const badgeText = meta.req.toUpperCase();
+                container.innerHTML += `
+      <div class="checklist-item ${meta.req}" style="animation-delay:${i * 0.06}s">
+        <span class="checklist-badge ${badgeClass}">${badgeText}</span>
+        <span class="checklist-name">${meta.label}</span>
+        <span class="checklist-desc">${meta.desc}</span>
+      </div>`;
+            });
+            document.getElementById('generatedChecklist').style.display = 'block';
+            window._docTypes = docTypes;
+        }
+
+        /* Parse custom checklist */
+        document.getElementById('customChecklistText')?.addEventListener('input', function () {
+            const lines = this.value.split('\n').map(l => l.replace(/^[-•*\d.]+\s*/, '').trim()).filter(Boolean);
+            if (lines.length > 0) {
+                const types = lines.map(l => l.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_'));
+                window._docTypes = types;
+                const container = document.getElementById('checklistItems');
+                container.innerHTML = lines.map((l, i) => `
+      <div class="checklist-item required" style="animation-delay:${i * 0.06}s">
+        <span class="checklist-badge badge-req">REQUIRED</span>
+        <span class="checklist-name">${l}</span>
+        <span class="checklist-desc">Parsed from your checklist</span>
+      </div>`).join('');
+                document.getElementById('generatedChecklist').style.display = 'block';
+                document.getElementById('step1Next').disabled = false;
+            }
+        });
+
+        /* ── STEP 2: Upload slots ──────────────────── */
+        const uploadedFiles = {};
+        const validationState = {};
+
+        function buildUploadSlots() {
+            const docs = window._docTypes || ['passport', 'bank_statement'];
+            const container = document.getElementById('uploadSlots');
+            container.innerHTML = '';
+
+            docs.forEach((type, i) => {
+                const meta = DOC_META[type] || { label: type.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), req: 'optional', desc: '' };
+                const badgeClass = meta.req === 'required' ? 'badge-req' : meta.req === 'recommended' ? 'badge-rec' : 'badge-opt';
+
+                container.innerHTML += `
+      <div class="upload-slot" id="slot-${i}" style="animation:fadeUp 0.4s ${i * 0.07}s ease both; opacity:0">
+        <div class="upload-slot-header">
+          <div class="upload-slot-label">
+            <span class="checklist-badge ${badgeClass}">${meta.req.toUpperCase()}</span>
+            <span>${meta.label}</span>
+          </div>
+          <span class="upload-slot-status" id="slot-status-${i}">AWAITING UPLOAD</span>
+        </div>
+        <div class="upload-slot-body">
+          <div class="upload-drop-area" id="drop-${i}">
+            <input type="file" accept=".pdf,.png,.jpg,.jpeg" onchange="handleFileUpload(${i}, '${type}', this)">
+            <div class="upload-drop-text" id="drop-text-${i}">Drop PDF here or click to select</div>
+          </div>
+          <div class="validation-chip vc-wait" id="vc-${i}" style="display:none"></div>
+        </div>
+      </div>`;
+            });
+
+            checkUploadComplete();
+        }
+
+        function handleFileUpload(slotIdx, expectedType, input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            uploadedFiles[slotIdx] = file;
+            validationState[slotIdx] = 'validating';
+
+            const statusEl = document.getElementById(`slot-status-${slotIdx}`);
+            const dropText = document.getElementById(`drop-text-${slotIdx}`);
+            const vcEl = document.getElementById(`vc-${slotIdx}`);
+            const slotEl = document.getElementById(`slot-${slotIdx}`);
+
+            statusEl.textContent = 'VALIDATING...';
+            statusEl.className = 'upload-slot-status validating';
+            dropText.innerHTML = `<span class="upload-file-info">✓ ${file.name} (${(file.size / 1024).toFixed(0)}kb)</span>`;
+            vcEl.style.display = 'block';
+            vcEl.className = 'validation-chip vc-wait';
+            vcEl.textContent = '⟳ Checking type...';
+
+            // Simulate Flash validation (in production, this calls the backend)
+            setTimeout(() => {
+                const isMatch = Math.random() > 0.2; // 80% match for demo
+                if (isMatch) {
+                    validationState[slotIdx] = 'valid';
+                    statusEl.textContent = 'VALIDATED ✓';
+                    statusEl.className = 'upload-slot-status uploaded';
+                    slotEl.style.borderColor = 'rgba(0,230,118,0.3)';
+                    vcEl.className = 'validation-chip vc-ok';
+                    vcEl.textContent = '✓ Type confirmed';
+                } else {
+                    validationState[slotIdx] = 'mismatch';
+                    statusEl.textContent = 'TYPE MISMATCH';
+                    statusEl.className = 'upload-slot-status error';
+                    slotEl.style.borderColor = 'rgba(255,51,85,0.4)';
+                    vcEl.className = 'validation-chip vc-err';
+                    vcEl.textContent = '✗ Wrong document';
+                    // Show error message
+                    const body = slotEl.querySelector('.upload-slot-body');
+                    const existing = body.querySelector('.mismatch-msg');
+                    if (!existing) {
+                        const msg = document.createElement('div');
+                        msg.className = 'mismatch-msg';
+                        msg.style.cssText = 'grid-column:1/-1;background:var(--red-dim);border:1px solid rgba(255,51,85,0.25);border-radius:var(--radius);padding:10px 14px;font-family:var(--font-mono);font-size:11px;color:var(--red);margin-top:8px;';
+                        msg.textContent = `⚠ We detected this might not be a "${expectedType.replace(/_/g, ' ')}". Please re-upload the correct document.`;
+                        body.appendChild(msg);
+                    }
+                }
+                updateUploadSummary();
+                checkUploadComplete();
+            }, 1200);
+        }
+
+        function updateUploadSummary() {
+            const docs = window._docTypes || [];
+            const required = docs.filter((_, i) => {
+                const meta = DOC_META[docs[i]] || { req: 'optional' };
+                return meta.req === 'required';
+            });
+            const uploaded = Object.keys(uploadedFiles).length;
+            const valid = Object.values(validationState).filter(v => v === 'valid').length;
+            const mismatches = Object.values(validationState).filter(v => v === 'mismatch').length;
+
+            const summaryCard = document.getElementById('uploadSummaryCard');
+            const summary = document.getElementById('uploadSummary');
+            summary.style.display = 'block';
+            summaryCard.innerHTML = `
+    <div class="report-card-title">Upload status</div>
+    <div style="display:flex;gap:24px;font-family:var(--font-mono);font-size:12px;">
+      <span style="color:var(--green)">✓ ${valid} validated</span>
+      <span style="color:var(--amber)">${uploaded - valid - mismatches} processing</span>
+      ${mismatches > 0 ? `<span style="color:var(--red)">✗ ${mismatches} mismatch${mismatches > 1 ? 'es' : ''} — re-upload required</span>` : ''}
+    </div>`;
+        }
+
+        function checkUploadComplete() {
+            const docs = window._docTypes || [];
+            const requiredIdxs = docs.map((t, i) => ({ t, i })).filter(({ t }) => (DOC_META[t]?.req || 'optional') === 'required').map(({ i }) => i);
+            const allRequiredUploaded = requiredIdxs.every(i => uploadedFiles[i]);
+            const noMismatches = Object.values(validationState).every(v => v !== 'mismatch');
+            document.getElementById('step2Next').disabled = !(allRequiredUploaded && noMismatches);
+        }
+
+        /* ── STEP 3: Pipeline animation ──────────── */
+        const STAGES = [
+            { id: 'ingest', title: 'Document ingestion', desc: 'Pages segmented. Electronic text extracted; scanned pages rendered to PNG at 200 DPI.', meta: 'pymupdf · page segmentation' },
+            { id: 'encode', title: 'Structural encoding', desc: 'Gemini Flash processes each page independently. Typed JSON nodes extracted per page. No prose — only structured entities.', meta: 'gemini-2.0-flash · per-page extraction' },
+            { id: 'purge', title: 'Raw data purge', desc: 'Source PDF bytes deleted from memory. Only the semantic graph continues through the pipeline.', meta: 'privacy gate · ephemeral purge' },
+            { id: 'rules', title: 'Deterministic rule engine', desc: 'Nine mathematical rules applied directly to graph nodes. Spike ratios, income coherence, chronology validation.', meta: '9 rules · pure math · no LLM' },
+            { id: 'agents', title: '5 specialist agents (parallel)', desc: 'Identity, Financial, Temporal, Sponsor, and Enrollment agents run concurrently. Each receives only its relevant graph subset.', meta: 'gemini-2.5-pro · parallel fan-out' },
+            { id: 'synthesis', title: 'Narrative synthesis', desc: 'All five agent findings combined. Cross-document verdict with rejection narrative and rebuttal guidance generated.', meta: 'gemini-2.5-pro · adversarial reasoning' },
+        ];
+
+        function buildPipelineStages() {
+            const container = document.getElementById('pipelineStages');
+            container.innerHTML = STAGES.map((s, i) => `
+    <div class="pipeline-stage" id="ps-${s.id}">
+      <div class="ps-indicator">${i + 1}</div>
+      <div class="ps-content">
+        <div class="ps-title">${s.title}</div>
+        <div class="ps-desc">${s.desc}</div>
+        <div class="ps-meta">${s.meta}</div>
+      </div>
+      <div class="ps-time" id="ps-time-${s.id}"></div>
+    </div>`).join('');
+        }
+
+        function startAnalysis() {
+            goToStep(3);
+            buildPipelineStages();
+
+            let stageIdx = 0;
+            const delays = [800, 2500, 600, 900, 3500, 2200];
+
+            function runStage(i) {
+                if (i >= STAGES.length) {
+                    setTimeout(() => showResults(), 600);
+                    return;
+                }
+                const s = STAGES[i];
+                const el = document.getElementById(`ps-${s.id}`);
+                el.classList.add('running');
+                document.getElementById(`ps-time-${s.id}`).textContent = '⟳';
+
+                // Show compression after encode
+                if (s.id === 'encode') {
+                    setTimeout(() => {
+                        document.getElementById('compressionDisplay').style.display = 'block';
+                        animateCompression();
+                    }, delays[i] * 0.6);
+                }
+
+                setTimeout(() => {
+                    el.classList.remove('running');
+                    el.classList.add('done');
+                    document.getElementById(`ps-indicator-${s.id}`) && (document.getElementById(`ps-indicator-${s.id}`).textContent = '✓');
+                    el.querySelector('.ps-indicator').textContent = '✓';
+                    document.getElementById(`ps-time-${s.id}`).textContent = (delays[i] / 1000).toFixed(1) + 's';
+                    runStage(i + 1);
+                }, delays[i]);
+            }
+
+            runStage(0);
+        }
+
+        function animateCompression() {
+            const raw = 60000, graph = 1200;
+            const ratio = Math.round((1 - graph / raw) * 100);
+            document.getElementById('rawTok').textContent = raw.toLocaleString();
+            document.getElementById('graphTok').textContent = graph.toLocaleString();
+            document.getElementById('compressionRatio').textContent = ratio + '%';
+            setTimeout(() => {
+                document.getElementById('compressionFill').style.width = ratio + '%';
+            }, 100);
+        }
+
+        /* ── STEP 4: Demo report ─────────────────── */
+        const DEMO_RESULT = {
+            verdict: 'FAIL', risk_score: 1.0,
+            identity: { name: 'Korada Sai Kiran', dob: '02-06-2003', nationality: null, passport: null },
+            financial: { closing_balance: 4244664.76, avg_monthly: 100000, transactions: 0, currency: 'INR' },
+            sponsor: { name: 'KORADA SATYANARAYANA', relationship: 'Father', income: 1200000 },
+            findings: [
+                { agent: 'Identity', field: 'passport_number', sev: 'critical', text: 'Passport number not provided. Mandatory for identity verification and visa issuance.' },
+                { agent: 'Financial', field: 'transaction_count', sev: 'critical', text: 'Balance of ₹42,44,664.76 present with zero transactions. Chronologically impossible — indicates funds parking.' },
+                { agent: 'Financial', field: 'avg_monthly_income', sev: 'warning', text: 'Closing balance is 42× stated monthly income. Organic accumulation within 6 months implausible.' },
+                { agent: 'Temporal', field: 'doc_date_ranges', sev: 'critical', text: '6-month consecutive statement period not covered. No date ranges detected.' },
+                { agent: 'Enrollment', field: 'enrollment', sev: 'critical', text: 'No COE or enrollment letter. Purpose of travel cannot be established.' },
+                { agent: 'Sponsor', field: 'identity.date_of_birth', sev: 'warning', text: 'Applicant age (22) consistent with student profile. Sponsor income coverage requires program cost for verification.' },
+            ],
+            narrative: 'This application is refused. The applicant has failed to provide fundamental identity documents. The financial evidence is not credible — the statement shows a closing balance of ₹42,44,664.76 with zero transactions, a chronologically impossible state indicating funds were parked solely for this application. No enrollment documentation establishes purpose of travel.',
+            rebuttals: [
+                'Provide a scanned copy of the biographic passport page showing name, passport number, and nationality.',
+                'Submit 6 months of consecutive, official bank statements showing regular income and expenditure with documented sources for any large deposits.',
+                'Provide the Certificate of Eligibility (COE) or acceptance letter from the institution, detailing program, duration, and cost.',
+                'Submit employer verification letters with start/end dates and salary confirmation.',
+            ],
+            citations: ['identity.passport_number', 'financial.transaction_count', 'financial.closing_balance', 'temporal.doc_date_ranges', 'enrollment', 'sponsor.declared_income'],
+            purged_at: new Date().toISOString(),
+        };
+
+        function showResults() {
+            const r = DEMO_RESULT;
+            const score = r.risk_score;
+
+            // Verdict
+            const vColor = score > 0.7 ? 'red' : score > 0.4 ? 'amber' : 'green';
+            const vClass = score > 0.7 ? 'fail' : score > 0.4 ? 'cond' : 'pass';
+            document.getElementById('verdictHero').className = `verdict-hero verdict-${vClass}`;
+            document.getElementById('verdictValue').textContent = r.verdict;
+            document.getElementById('verdictValue').className = `verdict-value v-${vClass}`;
+
+            const riskColor = `var(--${vColor})`;
+            document.getElementById('riskBarFill').style.background = riskColor;
+            document.getElementById('riskNum').style.color = riskColor;
+
+            goToStep(4);
+
+            setTimeout(() => {
+                document.getElementById('riskBarFill').style.width = (score * 100) + '%';
+                document.getElementById('riskNum').textContent = Math.round(score * 100) + '%';
+            }, 200);
+
+            // Findings
+            document.getElementById('findingsList').innerHTML = r.findings.map(f => `
+    <div class="finding-row">
+      <div class="finding-header">
+        <span class="finding-field">${f.field}</span>
+        <span class="sev-pip ${f.sev}">${f.sev.toUpperCase()}</span>
+        <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-3);margin-left:4px">${f.agent}</span>
+      </div>
+      <div class="finding-text">${f.text}</div>
+    </div>`).join('');
+
+            // Narrative
+            document.getElementById('narrativeText').textContent = r.narrative;
+            document.getElementById('citationTags').innerHTML = r.citations.map(c => `<span class="citation-tag">${c}</span>`).join('');
+
+            // Rebuttal
+            document.getElementById('rebuttalList').innerHTML = r.rebuttals.map((rb, i) => `
+    <div class="rebuttal-item">
+      <span class="rebuttal-num">${String(i + 1).padStart(2, '0')}</span>
+      <span>${rb}</span>
+    </div>`).join('');
+
+            // Identity panel
+            document.getElementById('identityPanel').innerHTML = [
+                ['Applicant name', r.identity.name || '—'],
+                ['Date of birth', r.identity.dob || '—'],
+                ['Nationality', r.identity.nationality || '<span style="color:var(--red)">NOT PROVIDED</span>'],
+                ['Passport no.', r.identity.passport || '<span style="color:var(--red)">NOT PROVIDED</span>'],
+                ['Sponsor', r.sponsor.name],
+                ['Relationship', r.sponsor.relationship],
+            ].map(([l, v]) => `<div class="identity-row"><span class="id-label">${l}</span><span class="id-value">${v}</span></div>`).join('');
+
+            // Financial panel
+            const f = r.financial;
+            document.getElementById('financialPanel').innerHTML = [
+                ['Currency', f.currency],
+                ['Closing balance', '₹' + f.closing_balance.toLocaleString('en-IN')],
+                ['Avg monthly income', '₹' + f.avg_monthly.toLocaleString('en-IN')],
+                ['Transaction count', f.transactions === 0 ? '<span style="color:var(--red)">0 (critical)</span>' : f.transactions],
+                ['Sponsor income (annual)', '₹' + r.sponsor.income.toLocaleString('en-IN')],
+            ].map(([l, v]) => `<div class="identity-row"><span class="id-label">${l}</span><span class="id-value">${v}</span></div>`).join('');
+
+            // Privacy cert
+            document.getElementById('privacyCert').innerHTML = `
+    DELETION CERTIFICATE<br>
+    ─────────────────────────────<br>
+    Source PDF bytes: PURGED<br>
+    Purge timestamp: ${new Date().toISOString()}<br>
+    Retained: Derived semantic graph only<br>
+    PII in graph: Redacted post-analysis<br>
+    ─────────────────────────────<br>
+    This report contains zero original document bytes.`;
+        }
+
+        function resetTool() {
+            selectedPath = null;
+            Object.keys(uploadedFiles).forEach(k => delete uploadedFiles[k]);
+            Object.keys(validationState).forEach(k => delete validationState[k]);
+            window._currentProfile = null;
+            window._docTypes = null;
+            document.getElementById('step0Next').disabled = true;
+            document.getElementById('step1Next').disabled = true;
+            document.getElementById('step2Next').disabled = true;
+            document.querySelectorAll('.path-card').forEach(c => c.classList.remove('selected'));
+            goToStep(0);
+        }
+
+        /* ── Step 1 → Step 2 bridge ──────────────── */
+        const origGoToStep = goToStep;
+        window.goToStepHook = function (n) {
+            if (n === 2) buildUploadSlots();
+            origGoToStep(n);
+        };
+        document.querySelectorAll('[onclick^="goToStep"]').forEach(el => {
+            const orig = el.getAttribute('onclick');
+            const match = orig.match(/goToStep\((\d+)\)/);
+            if (match) {
+                const stepNum = parseInt(match[1]);
+                el.setAttribute('onclick', `goToStepHook(${stepNum})`);
+            }
+        });
+        function goToStep(n) {
+            if (n === 2) buildUploadSlots();
+            document.querySelectorAll('.tool-step').forEach(s => s.classList.remove('active'));
+            document.getElementById(`step-${n}`).classList.add('active');
+            document.querySelectorAll('.crumb').forEach(c => {
+                c.classList.toggle('active', parseInt(c.dataset.step) === n);
+            });
+            currentStep = n;
+            document.querySelector('.tool-body').scrollTop = 0;
+        }
+
+        /* ═══════════════════════════════════════════
+           LANDING ANIMATIONS
+        ════════════════════════════════════════════ */
+
+        /* Pipeline canvas */
+        function buildPipelineViz() {
+            const canvas = document.getElementById('pipelineCanvas');
+            if (!canvas) return;
+            const w = canvas.offsetWidth || 480;
+            const h = 420;
+
+            const nodes = [
+                { id: 'docs', label: 'Raw docs', sub: '60k tokens', x: 0.05, y: 0.08, color: 'var(--text-3)', delay: 0 },
+                { id: 'flash', label: 'Flash encoder', sub: 'per-page', x: 0.05, y: 0.35, color: 'var(--amber)', delay: 0.15, active: true },
+                { id: 'graph', label: 'Semantic graph', sub: '~1,200 tok', x: 0.05, y: 0.62, color: 'var(--cyan)', delay: 0.3, active: true },
+                { id: 'rules', label: 'Rule engine', sub: '9 rules', x: 0.05, y: 0.85, color: 'var(--text-2)', delay: 0.45 },
+                { id: 'id', label: 'Identity', sub: 'agent', x: 0.58, y: 0.08, color: 'var(--text-2)', delay: 0.6 },
+                { id: 'fin', label: 'Financial', sub: 'agent', x: 0.58, y: 0.28, color: 'var(--text-2)', delay: 0.7 },
+                { id: 'tmp', label: 'Temporal', sub: 'agent', x: 0.58, y: 0.48, color: 'var(--text-2)', delay: 0.8 },
+                { id: 'spn', label: 'Sponsor', sub: 'agent', x: 0.58, y: 0.68, color: 'var(--text-2)', delay: 0.9 },
+                { id: 'enr', label: 'Enrollment', sub: 'agent', x: 0.58, y: 0.88, color: 'var(--text-2)', delay: 1.0 },
+                { id: 'narr', label: 'Narrative', sub: 'synthesis', x: 0.82, y: 0.48, color: 'var(--amber)', delay: 1.1, active: true },
+            ];
+
+            const edges = [
+                ['docs', 'flash'], ['flash', 'graph'], ['graph', 'rules'],
+                ['rules', 'id'], ['rules', 'fin'], ['rules', 'tmp'], ['rules', 'spn'], ['rules', 'enr'],
+                ['id', 'narr'], ['fin', 'narr'], ['tmp', 'narr'], ['spn', 'narr'], ['enr', 'narr'],
+            ];
+
+            // Place nodes
+            nodes.forEach(n => {
+                const div = document.createElement('div');
+                div.className = `pipe-node${n.active ? ' active-node' : ''}`;
+                div.id = `pn-${n.id}`;
+                div.style.cssText = `left:${n.x * 100}%; top:${n.y * 100}%; animation-delay:${n.delay}s; color:${n.color}`;
+                div.innerHTML = `<b>${n.label}</b><small>${n.sub}</small>`;
+                canvas.appendChild(div);
+            });
+
+            // Draw edges with SVG after nodes are placed
+            setTimeout(() => {
+                const svg = document.getElementById('pipelineSvg');
+                svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+
+                edges.forEach(([from, to], i) => {
+                    const fromEl = document.getElementById(`pn-${from}`);
+                    const toEl = document.getElementById(`pn-${to}`);
+                    if (!fromEl || !toEl) return;
+
+                    const fr = fromEl.getBoundingClientRect();
+                    const tr = toEl.getBoundingClientRect();
+                    const cr = canvas.getBoundingClientRect();
+
+                    const x1 = fr.right - cr.left;
+                    const y1 = (fr.top + fr.height / 2) - cr.top;
+                    const x2 = tr.left - cr.left;
+                    const y2 = (tr.top + tr.height / 2) - cr.top;
+
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    const mx = (x1 + x2) / 2;
+                    path.setAttribute('d', `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`);
+                    path.setAttribute('fill', 'none');
+                    path.setAttribute('stroke', 'rgba(245,166,35,0.25)');
+                    path.setAttribute('stroke-width', '1.5');
+                    path.setAttribute('stroke-dasharray', '200');
+                    path.setAttribute('stroke-dashoffset', '200');
+                    path.style.animation = `edgeDraw 0.6s ${0.3 + i * 0.08}s ease forwards, flowPulse 3s ${1 + i * 0.1}s infinite`;
+                    svg.appendChild(path);
+                });
+            }, 200);
+        }
+
+        /* Counter animation */
+        function animateCounters() {
+            document.querySelectorAll('[data-target]').forEach(el => {
+                const target = parseInt(el.dataset.target);
+                const duration = 1200;
+                const start = performance.now();
+                function step(now) {
+                    const p = Math.min((now - start) / duration, 1);
+                    const ease = 1 - Math.pow(1 - p, 3);
+                    el.textContent = Math.round(ease * target);
+                    if (p < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            });
+        }
+
+        /* Encoding viz animation */
+        function buildEncodingViz() {
+            // Raw lines — simulate document text
+            const rawContainer = document.getElementById('rawLines');
+            if (!rawContainer) return;
+            for (let i = 0; i < 24; i++) {
+                const line = document.createElement('div');
+                line.className = 'enc-line';
+                line.style.width = (40 + Math.random() * 55) + '%';
+                line.style.animationDelay = (i * 0.05) + 's';
+                rawContainer.appendChild(line);
+            }
+
+            // Graph nodes
+            const nodeData = [
+                { color: '#7c6eff', label: 'identity', fields: 'name · dob · passport' },
+                { color: 'var(--amber)', label: 'financial', fields: 'balance · spikes · income' },
+                { color: 'var(--cyan)', label: 'temporal', fields: 'dates · gaps · employment' },
+                { color: '#ff6b6b', label: 'sponsor', fields: 'income · relationship' },
+                { color: 'var(--green)', label: 'enrollment', fields: 'cost · duration · coe' },
+            ];
+
+            const graphContainer = document.getElementById('graphNodes');
+            nodeData.forEach((n, i) => {
+                const pill = document.createElement('div');
+                pill.className = 'node-pill';
+                pill.style.animationDelay = (0.8 + i * 0.15) + 's';
+                pill.innerHTML = `
+      <span class="node-dot" style="background:${n.color}"></span>
+      <span style="font-size:11px;font-weight:600;color:var(--text-1)">${n.label}</span>
+      <span style="font-size:10px;color:var(--text-3)">${n.fields}</span>`;
+                graphContainer.appendChild(pill);
+            });
+        }
+
+        /* Intersection observer for scroll-triggered counters */
+        const counterObs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { animateCounters(); counterObs.disconnect(); } });
+        }, { threshold: 0.3 });
+        document.querySelector('.stats-row') && counterObs.observe(document.querySelector('.stats-row'));
+
+        /* Init */
+        window.addEventListener('load', () => {
+            buildPipelineViz();
+            buildEncodingViz();
+        });
+        window.addEventListener('resize', () => {
+            const svg = document.getElementById('pipelineSvg');
+            if (svg) svg.innerHTML = '';
+            document.querySelectorAll('.pipe-node').forEach(n => n.remove());
+            buildPipelineViz();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+{
+  "identity": {
+    "name_variants": [
+      "Korada Sai Kiran"
+    ],
+    "canonical_name": "Korada Sai Kiran",
+    "date_of_birth": "02-06-2003",
+    "nationality": null,
+    "passport_number": null,
+    "transliteration_flags": [],
+    "cross_doc_name_match": true
+  },
+  "financial": {
+    "currency": "INR",
+    "opening_balance": null,
+    "closing_balance": 1744664.76,
+    "avg_monthly_income": 100000.0,
+    "total_credits": 0.0,
+    "total_debits": 0.0,
+    "transaction_count": 0,
+    "spikes": [],
+    "unlabeled_deposit_count": 0,
+    "income_percentile": null,
+    "declared_property_value": 16360000.0,
+    "declared_movable_assets": 2500000.0,
+    "source_is_affidavit": true
+  },
+  "temporal": {
+    "doc_date_ranges": [],
+    "employment_start": null,
+    "employment_end": null,
+    "visa_window_start": null,
+    "visa_window_end": null,
+    "gap_flags": [],
+    "chronology_valid": true
+  },
+  "sponsor": {
+    "sponsor_name": "KORADA SATYANARAYANA",
+    "relationship": "Father",
+    "declared_income": 1200000.0,
+    "income_currency": "INR",
+    "income_supports_coverage": true,
+    "jurisdiction": null
+  },
+  "enrollment": null,
+  "edges": [
+    {
+      "edge_type": "sponsor_link",
+      "source_node": "identity",
+      "target_node": "sponsor",
+      "coherent": true,
+      "detail": null
+    }
+  ],
+  "token_count": 367,
+  "source_page_count": 2,
+  "estimated_raw_tokens": 4000,
+  "source_doc_types": [
+    "affidavit",
+    "unknown"
+  ]
+}

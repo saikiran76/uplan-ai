@@ -1,0 +1,41 @@
+{
+  "agent_id": "sponsor_agent",
+  "elapsed_s": 27.05,
+  "parse_error": null,
+  "verdict": "critical",
+  "confidence": 1.0,
+  "anomaly_count": 4,
+  "summary": "The application should be rejected due to the use of an affidavit instead of required bank statements and the sponsor's insufficient declared income.",
+  "full_finding": {
+    "agent_id": "sponsor_agent",
+    "anomalies": [
+      {
+        "field_path": "applicant_financials.source_is_affidavit",
+        "severity": "critical",
+        "explanation": "Financial data is provided via an affidavit, but visa regulations require six months of consecutive bank statements, making it impossible to verify the history and stability of the funds.",
+        "rule_id": null
+      },
+      {
+        "field_path": "sponsor.declared_income",
+        "severity": "critical",
+        "explanation": "The sponsor's declared income of 1,200,000 INR is insufficient to meet the requirement to cover at least 1.2 times the total program costs for studying in Japan, which typically exceed this amount annually.",
+        "rule_id": null
+      },
+      {
+        "field_path": "sponsor.jurisdiction",
+        "severity": "warning",
+        "explanation": "The sponsor's jurisdiction is not specified, preventing verification of their employment, residence, and the authenticity of their claimed income.",
+        "rule_id": null
+      },
+      {
+        "field_path": "applicant_financials.closing_balance",
+        "severity": "warning",
+        "explanation": "While the closing balance of 1,744,664.76 INR may be numerically sufficient when converted, its legitimacy cannot be confirmed due to the absence of the required 6-month statement history.",
+        "rule_id": null
+      }
+    ],
+    "confidence": 1.0,
+    "agent_verdict": "critical",
+    "summary": "The application should be rejected due to the use of an affidavit instead of required bank statements and the sponsor's insufficient declared income."
+  }
+}

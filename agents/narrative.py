@@ -48,10 +48,27 @@ class NarrativeAgent:
     """Cross-document synthesis agent -- the final reasoning step."""
 
     def run(self, state: UplanState) -> dict:
+        graph = state["semantic_graph"]
+        doc_types = graph.get("source_doc_types", [])
+        source_is_affidavit = graph.get("financial", {}).get("source_is_affidavit", False)
+
+        doc_context_note = ""
+        if source_is_affidavit and "bank_statement" not in doc_types:
+            doc_context_note = (
+                "\n\nDOCUMENT CONTEXT: The financial data comes ONLY from an affidavit (sworn declaration). "
+                "An affidavit legitimately has zero bank transactions -- it declares point-in-time asset values. "
+                "Do NOT cite 'zero transactions' as evidence of fraud. Instead, note that actual bank statements "
+                "are MISSING and must be submitted. The declared liquid assets and income should be treated as "
+                "sponsor's declared financial standing, not as bank account history."
+            )
+
         prompt = f"""You are a senior immigration officer writing the official assessment.
 
+DOCUMENT TYPES PROCESSED: {doc_types}
+{doc_context_note}
+
 SEMANTIC GRAPH (full document picture):
-{json.dumps(state["semantic_graph"], indent=2)}
+{json.dumps(graph, indent=2)}
 
 RULE ENGINE FINDINGS:
 {json.dumps(state.get("rule_findings", []), indent=2)}
@@ -69,6 +86,7 @@ Your task:
 
 Respond ONLY with NarrativeVerdict JSON."""
 
+        t0 = time.time()
         last_err = None
         for attempt in range(API_RETRY_ATTEMPTS):
             try:
@@ -81,6 +99,14 @@ Respond ONLY with NarrativeVerdict JSON."""
                     },
                 )
                 v = response.parsed
+                elapsed = time.time() - t0
+
+                # CP6 -- log narrative synthesis
+                logger = state.get("_debug_logger")
+                if logger:
+                    logger.cp6_narrative(prompt, v.model_dump(), elapsed)
+                    logger.close()
+
                 return {"verdict": v.model_dump(), "risk_score": v.risk_score}
             except Exception as e:
                 last_err = e

@@ -41,12 +41,30 @@ def encode(state: UplanState) -> dict:
     """
     Structural encoding: render each page as PNG -> Gemini Flash extraction -> graph merge.
     Handles multiple PDFs in document_bytes list.
+    Wires CP0 + CP1 + CP2 + CP3 debug checkpoints.
     """
+    import os
+    from debug.logger import DebugLogger
+
+    debug_enabled = os.environ.get("UPLAN_DEBUG", "1") != "0"
+    logger = DebugLogger() if debug_enabled else None
+
     t0 = time.time()
     all_pages = []
-    for pdf_bytes in state["document_bytes"]:
-        all_pages.extend(extract_pages(pdf_bytes))
+
+    for i, pdf_bytes in enumerate(state["document_bytes"]):
+        # CP0 -- document ingestion
+        if logger:
+            logger.cp0_ingestion(f"document_{i + 1}.pdf", pdf_bytes)
+
+        all_pages.extend(extract_pages(pdf_bytes, logger=logger))
+
     graph = build_graph(all_pages)
+
+    # CP3 -- graph builder output
+    if logger:
+        logger.cp3_graph(graph.model_dump(), len(all_pages))
+
     return {
         "semantic_graph": graph.model_dump(),
         "encoding_metadata": {
@@ -54,7 +72,10 @@ def encode(state: UplanState) -> dict:
             "page_count": graph.source_page_count,
             "estimated_raw_tokens": graph.estimated_raw_tokens,
             "duration_ms": int((time.time() - t0) * 1000),
+            "source_doc_types": graph.source_doc_types,
+            "source_is_affidavit": graph.financial.source_is_affidavit,
         },
+        "_debug_logger": logger,  # passed through state for agent CP4/CP5 logging
     }
 
 

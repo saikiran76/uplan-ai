@@ -1,0 +1,19 @@
+{
+  "file_path": "document_1.pdf",
+  "file_size_bytes": 82676,
+  "page_count": 2,
+  "is_electronic": true,
+  "is_scanned": false,
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 1805,
+      "has_text_layer": true
+    },
+    {
+      "page": 2,
+      "char_count": 101,
+      "has_text_layer": true
+    }
+  ]
+}

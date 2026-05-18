@@ -97,18 +97,52 @@ class BaseSpecialistAgent(ABC):
 
     def run(self, state: UplanState) -> dict:
         """Execute this agent: extract focus -> build prompt -> Gemini Pro -> return finding."""
-        graph_subset = self._extract_focus(state["semantic_graph"])
+        graph = state["semantic_graph"]
+        graph_subset = self._extract_focus(graph)
         relevant_rules = self._relevant_rules(state.get("rule_findings", []))
 
-        # Extract jurisdiction context for prompt injection
+        # Inject document type context so agents understand what they're looking at
+        doc_types = graph.get("source_doc_types", [])
+        source_is_affidavit = graph.get("financial", {}).get("source_is_affidavit", False)
+
         jurisdiction = ""
         if state.get("visa_context"):
             jurisdiction = state["visa_context"].get("jurisdiction_context", "")
 
-        prompt = self._build_prompt(graph_subset, relevant_rules, jurisdiction)
+        # Augment graph_subset with document context
+        graph_subset["_document_context"] = {
+            "source_doc_types": doc_types,
+            "source_is_affidavit": source_is_affidavit,
+            "note": (
+                "IMPORTANT: If source_is_affidavit=True and 'bank_statement' is NOT in source_doc_types, "
+                "then transaction_count=0 is EXPECTED and NORMAL. An affidavit declares static balances, "
+                "it does NOT have transaction history. Do NOT flag zero transactions as 'funds parking' "
+                "when the only financial document is an affidavit. Instead flag the ABSENCE of bank statements."
+            ) if source_is_affidavit and "bank_statement" not in doc_types else "Standard multi-document analysis.",
+        }
 
-        finding = self._call_with_retry(prompt)
-        finding.agent_id = self.agent_id  # Ensure correct ID
+        prompt = self._build_prompt(graph_subset, relevant_rules, jurisdiction)
+        logger = state.get("_debug_logger")
+
+        # CP4 -- log exact prompt sent to Pro
+        if logger:
+            logger.cp4_agent_prompt(self.agent_id, prompt, self.focus_nodes)
+
+        t0 = time.time()
+        parse_error = None
+        try:
+            finding = self._call_with_retry(prompt)
+        except Exception as e:
+            parse_error = str(e)
+            raise
+
+        finding.agent_id = self.agent_id
+        elapsed = time.time() - t0
+
+        # CP5 -- log agent response
+        if logger:
+            logger.cp5_agent_response(self.agent_id, finding.model_dump(), elapsed, parse_error)
+
         return {
             "agent_findings": [finding.model_dump()],
             "completed_agents": [self.agent_id],

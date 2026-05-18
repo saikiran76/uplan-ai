@@ -41,25 +41,56 @@ def _normalize_name(name: str) -> str:
 
 
 def _build_identity(pages: list[PageExtraction]) -> IdentityNode:
-    """Merge identity information across all pages."""
+    """Merge identity information across all pages.
+
+    Priority: passport > applicant_name on affidavit > person_name on non-affidavit.
+    DOB priority: passport DOB > applicant_dob from affidavit > declarant DOB (last resort).
+    """
     raw_names: list[str] = []
+    applicant_names: list[str] = []   # From affidavit applicant_name field
+    sponsor_names: list[str] = []     # Declarant names (person_name on affidavit)
     dob: Optional[str] = None
+    applicant_dob: Optional[str] = None   # From affidavit's family member table
+    declarant_dob: Optional[str] = None   # The sponsor's own DOB (fallback only)
     nationality: Optional[str] = None
     passport_no: Optional[str] = None
 
     for p in pages:
-        if p.person_name:
-            raw_names.append(p.person_name)
-        if p.date_of_birth and not dob:
-            dob = p.date_of_birth
+        if p.page_type == PageType.AFFIDAVIT:
+            # On affidavit: person_name = declarant/sponsor, applicant_name = beneficiary
+            if p.applicant_name:
+                applicant_names.append(p.applicant_name)
+            if p.person_name:
+                sponsor_names.append(p.person_name)
+            # applicant_dob is the son/daughter's DOB from the family table
+            if p.applicant_dob and not applicant_dob:
+                applicant_dob = p.applicant_dob
+            # date_of_birth on affidavit is the DECLARANT's (sponsor's) DOB
+            if p.date_of_birth and not declarant_dob:
+                declarant_dob = p.date_of_birth
+        else:
+            if p.person_name:
+                raw_names.append(p.person_name)
+            if p.date_of_birth and not dob:
+                dob = p.date_of_birth
         if p.nationality and not nationality:
             nationality = p.nationality
         if p.passport_number and not passport_no:
             passport_no = p.passport_number
 
+    # DOB priority: non-affidavit (passport) > applicant_dob from affidavit > declarant DOB
+    resolved_dob = dob or applicant_dob
+    # Only fall back to declarant DOB if nothing else available (and log it)
+    if resolved_dob is None and declarant_dob:
+        print(f"  [WARN] identity: no applicant DOB found, falling back to declarant DOB {declarant_dob}")
+        resolved_dob = declarant_dob
+
+    # Name priority: non-affidavit > applicant_name from affidavit > declarant name
+    candidate_names = raw_names or applicant_names or sponsor_names
+
     # Deduplicate names via normalization
-    seen_normalized: dict[str, str] = {}  # normalized → first raw occurrence
-    for name in raw_names:
+    seen_normalized: dict[str, str] = {}
+    for name in candidate_names:
         norm = _normalize_name(name)
         if norm not in seen_normalized:
             seen_normalized[norm] = name
@@ -67,7 +98,6 @@ def _build_identity(pages: list[PageExtraction]) -> IdentityNode:
     unique_variants = list(seen_normalized.values())
     canonical = unique_variants[0] if unique_variants else None
 
-    # Detect transliteration issues: multiple distinct normalized forms
     transliteration_flags = []
     if len(seen_normalized) > 1:
         transliteration_flags = [
@@ -77,7 +107,7 @@ def _build_identity(pages: list[PageExtraction]) -> IdentityNode:
     return IdentityNode(
         name_variants=unique_variants,
         canonical_name=canonical,
-        date_of_birth=dob,
+        date_of_birth=resolved_dob,
         nationality=nationality,
         passport_number=passport_no,
         transliteration_flags=transliteration_flags,
@@ -86,25 +116,60 @@ def _build_identity(pages: list[PageExtraction]) -> IdentityNode:
 
 
 def _build_financial(pages: list[PageExtraction]) -> FinancialNode:
-    """Aggregate financial data across bank statements and payslips."""
+    """Aggregate financial data across bank statements, payslips, and affidavits.
+
+    For affidavits:
+      - declared_liquid_assets (savings + FD only) -> closing_balance
+      - declared_annual_income / 12               -> avg_monthly_income
+      - declared_property_value                   -> financial.declared_property_value (non-liquid)
+      - declared_movable_assets                   -> financial.declared_movable_assets (non-liquid)
+      - source_is_affidavit = True                -> agents know 0 transactions is expected
+    """
     currency: Optional[str] = None
     all_opening: list[float] = []
     all_closing: list[float] = []
+    all_salaries: list[float] = []
     all_credits: list[float] = []
     all_debits: list[float] = []
-    all_salaries: list[float] = []
     unlabeled_count = 0
     total_transactions = 0
+    has_affidavit = False
+    property_value: Optional[float] = None
+    movable_assets: Optional[float] = None
 
     for p in pages:
         if p.currency and not currency:
             currency = p.currency
-        if p.opening_balance is not None:
-            all_opening.append(p.opening_balance)
-        if p.closing_balance is not None:
-            all_closing.append(p.closing_balance)
-        if p.monthly_salary is not None:
-            all_salaries.append(p.monthly_salary)
+
+        if p.page_type == PageType.AFFIDAVIT:
+            has_affidavit = True
+            # Use declared_liquid_assets (bank+FD only) as closing balance
+            liquid = p.declared_liquid_assets
+            # Fall back to deprecated declared_assets_total if new field missing
+            if liquid is None:
+                liquid = p.declared_assets_total
+            if liquid is not None:
+                all_closing.append(liquid)
+
+            # Annual income -> monthly equivalent
+            annual = p.declared_annual_income
+            if annual is None:
+                annual = p.sponsor_declared_income
+            if annual is not None:
+                all_salaries.append(annual / 12.0)
+
+            # Non-liquid wealth
+            if p.declared_property_value is not None and property_value is None:
+                property_value = p.declared_property_value
+            if p.declared_movable_assets is not None and movable_assets is None:
+                movable_assets = p.declared_movable_assets
+        else:
+            if p.opening_balance is not None:
+                all_opening.append(p.opening_balance)
+            if p.closing_balance is not None:
+                all_closing.append(p.closing_balance)
+            if p.monthly_salary is not None:
+                all_salaries.append(p.monthly_salary)
 
         for txn in p.transactions:
             total_transactions += 1
@@ -119,7 +184,7 @@ def _build_financial(pages: list[PageExtraction]) -> FinancialNode:
     total_debits = sum(all_debits)
     avg_monthly = mean(all_salaries) if all_salaries else None
 
-    # Spike detection: credits > ALPHA × average credit
+    # Spike detection: credits > ALPHA x average credit
     spikes: list[SpikeEntry] = []
     if all_credits:
         avg_credit = mean(all_credits)
@@ -146,6 +211,9 @@ def _build_financial(pages: list[PageExtraction]) -> FinancialNode:
         transaction_count=total_transactions,
         spikes=spikes,
         unlabeled_deposit_count=unlabeled_count,
+        declared_property_value=property_value,
+        declared_movable_assets=movable_assets,
+        source_is_affidavit=has_affidavit,
     )
 
 
@@ -322,6 +390,7 @@ def build_graph(pages: list[PageExtraction]) -> SemanticGraph:
         edges=edges,
         source_page_count=len(pages),
         estimated_raw_tokens=estimated_raw,
+        source_doc_types=list({p.page_type.value for p in pages}),
     )
 
     # 4. Final compression metrics

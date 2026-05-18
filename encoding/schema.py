@@ -62,9 +62,29 @@ class PageExtraction(BaseModel):
     page_number: int = Field(description="1-indexed page number within the document")
     page_type: PageType = Field(description="Document type detected on this page")
 
-    # ── Identity fields (passport, ID pages) ────────────────────────
-    person_name: Optional[str] = Field(default=None, description="Full name as printed")
-    date_of_birth: Optional[str] = Field(default=None, description="Date of birth as printed")
+    # -- Identity fields (passport, ID pages) ---------------------------------
+    person_name: Optional[str] = Field(
+        default=None,
+        description=(
+            "Full name of the PERSON who created/signed this document. "
+            "On a passport/payslip = the applicant. On an affidavit = the declarant/sponsor."
+        ),
+    )
+    date_of_birth: Optional[str] = Field(
+        default=None,
+        description=(
+            "Date of birth of person_name (the signer/declarant). "
+            "On a passport = the applicant's DOB. On an affidavit = the SPONSOR's DOB, NOT the applicant's."
+        ),
+    )
+    applicant_dob: Optional[str] = Field(
+        default=None,
+        description=(
+            "[AFFIDAVIT ONLY] Date of birth of the VISA APPLICANT (the beneficiary being sponsored). "
+            "Extract from the family member table — the son/daughter entry, NOT the declarant's own row. "
+            "e.g. if affidavit lists 'Korada Sai Kiran (Son), DOB: 02-06-2003', this = '02-06-2003'."
+        ),
+    )
     nationality: Optional[str] = Field(default=None, description="Nationality or citizenship")
     passport_number: Optional[str] = Field(default=None, description="Passport or ID number")
 
@@ -87,11 +107,65 @@ class PageExtraction(BaseModel):
     employment_start: Optional[str] = Field(default=None, description="Employment start date if stated")
     employment_end: Optional[str] = Field(default=None, description="Employment end date if stated")
 
-    # ── Sponsor fields ──────────────────────────────────────────────
-    sponsor_name: Optional[str] = Field(default=None, description="Financial sponsor's name")
-    sponsor_relationship: Optional[str] = Field(default=None, description="Relationship to applicant")
-    sponsor_declared_income: Optional[float] = Field(default=None, description="Sponsor's declared income")
+    # -- Sponsor fields -------------------------------------------------------
+    sponsor_name: Optional[str] = Field(
+        default=None,
+        description="Financial sponsor's name — the person DECLARING/SIGNING the document",
+    )
+    sponsor_relationship: Optional[str] = Field(default=None, description="Relationship to applicant (e.g. 'Father', 'Mother')")
+    sponsor_declared_income: Optional[float] = Field(default=None, description="Sponsor's total declared annual income from ALL sources combined")
     sponsor_income_currency: Optional[str] = Field(default=None, description="Currency of sponsor income")
+
+    # -- Affidavit-specific fields (affidavit documents) ---------------------
+    # An affidavit is signed BY the sponsor FOR the applicant.
+    # person_name  = the declarant/sponsor (signs it, their DOB goes in date_of_birth)
+    # applicant_name = the beneficiary (the actual visa applicant)
+    # applicant_dob  = the beneficiary's DOB (from the family member table)
+    applicant_name: Optional[str] = Field(
+        default=None,
+        description=(
+            "[AFFIDAVIT ONLY] Name of the visa APPLICANT (beneficiary), distinct from the sponsor/declarant. "
+            "Extract from phrases like 'father of X', 'for my son X', 'studies of X'. "
+            "This is the person whose visa is being applied for."
+        ),
+    )
+    declared_liquid_assets: Optional[float] = Field(
+        default=None,
+        description=(
+            "[AFFIDAVIT ONLY] Sum of BANK/FINANCIAL account balances ONLY: "
+            "savings accounts + fixed deposits + LIC + investment accounts. "
+            "Do NOT include property value, land, gold, or physical assets here. "
+            "e.g. SBI savings 90978 + SBI savings 154603 + Union Bank 154603 + SBI FD 1023668 + LIC 162290 + Bajaj 158519 = 1744664."
+        ),
+    )
+    declared_movable_assets: Optional[float] = Field(
+        default=None,
+        description=(
+            "[AFFIDAVIT ONLY] Value of movable physical assets: cash, gold, silver ornaments, jewelry. "
+            "Do NOT include bank accounts or property/land here. "
+            "e.g. 'Cash, Gold & Silver ornaments: Rs. 25,00,000' → 2500000."
+        ),
+    )
+    declared_property_value: Optional[float] = Field(
+        default=None,
+        description=(
+            "[AFFIDAVIT ONLY] Total declared value of immovable property: residential flats, land, agricultural land. "
+            "e.g. 'Properties owned: Rs. 1,63,60,000' → 16360000."
+        ),
+    )
+    declared_annual_income: Optional[float] = Field(
+        default=None,
+        description=(
+            "[AFFIDAVIT ONLY] SUM of ALL annual income lines from ALL sources. "
+            "Add salary + business + rent + other income. "
+            "e.g. 300000 + 552000 + 348000 = 1200000."
+        ),
+    )
+    # Keep for backward compat — deprecated in favor of declared_liquid_assets
+    declared_assets_total: Optional[float] = Field(
+        default=None,
+        description="Deprecated. Use declared_liquid_assets instead.",
+    )
 
     # ── Enrollment fields ───────────────────────────────────────────
     institution_name: Optional[str] = Field(default=None, description="Educational institution name")
@@ -155,10 +229,10 @@ class IdentityNode(BaseModel):
 
 
 class FinancialNode(BaseModel):
-    """Financial summary across all bank statements and payslips."""
+    """Financial summary across all bank statements, payslips, and affidavits."""
     currency: Optional[str] = None
     opening_balance: Optional[float] = None
-    closing_balance: Optional[float] = None
+    closing_balance: Optional[float] = None       # Bank stmt closing OR liquid assets from affidavit
     avg_monthly_income: Optional[float] = None
     total_credits: float = 0.0
     total_debits: float = 0.0
@@ -168,6 +242,19 @@ class FinancialNode(BaseModel):
     income_percentile: Optional[float] = Field(
         default=None,
         description="Contextual income percentile (hardcoded thresholds for PoC)",
+    )
+    # Affidavit-sourced wealth (non-liquid, for context only)
+    declared_property_value: Optional[float] = Field(
+        default=None,
+        description="Declared immovable property value from affidavit (not liquid)",
+    )
+    declared_movable_assets: Optional[float] = Field(
+        default=None,
+        description="Declared gold/silver/cash value from affidavit",
+    )
+    source_is_affidavit: bool = Field(
+        default=False,
+        description="True if financial data comes from a declared affidavit (no transactions expected)",
     )
 
 
@@ -241,7 +328,7 @@ class GraphEdge(BaseModel):
 
 class SemanticGraph(BaseModel):
     """
-    The complete semantic graph — the core data structure of Uplan.
+    The complete semantic graph -- the core data structure of Uplan.
     Built by graph_builder.py from a list[PageExtraction].
     Consumed by the rule engine and specialist agents.
     ~1,200 tokens vs. ~60,000 tokens of raw document text.
@@ -255,3 +342,11 @@ class SemanticGraph(BaseModel):
     token_count: int = Field(default=0, description="Token count of this graph's JSON representation")
     source_page_count: int = Field(default=0, description="Total pages processed from source documents")
     estimated_raw_tokens: int = Field(default=0, description="Estimated token count of raw documents")
+    source_doc_types: list[str] = Field(
+        default_factory=list,
+        description=(
+            "All PageType values seen across processed pages. "
+            "Agents use this to contextualize findings — e.g. if 'affidavit' is present and "
+            "'bank_statement' is absent, zero transactions is EXPECTED not suspicious."
+        ),
+    )

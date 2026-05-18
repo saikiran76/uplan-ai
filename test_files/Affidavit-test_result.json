@@ -1,25 +1,30 @@
 {
   "semantic_graph": {
     "identity": {
-      "name_variants": [],
-      "canonical_name": null,
-      "date_of_birth": null,
+      "name_variants": [
+        "Korada Sai Kiran"
+      ],
+      "canonical_name": "Korada Sai Kiran",
+      "date_of_birth": "02-06-2003",
       "nationality": null,
       "passport_number": null,
       "transliteration_flags": [],
       "cross_doc_name_match": true
     },
     "financial": {
-      "currency": null,
+      "currency": "INR",
       "opening_balance": null,
-      "closing_balance": null,
-      "avg_monthly_income": null,
+      "closing_balance": 1744664.76,
+      "avg_monthly_income": 100000.0,
       "total_credits": 0.0,
       "total_debits": 0.0,
       "transaction_count": 0,
       "spikes": [],
       "unlabeled_deposit_count": 0,
-      "income_percentile": null
+      "income_percentile": null,
+      "declared_property_value": 16360000.0,
+      "declared_movable_assets": 2500000.0,
+      "source_is_affidavit": true
     },
     "temporal": {
       "doc_date_ranges": [],
@@ -30,148 +35,157 @@
       "gap_flags": [],
       "chronology_valid": true
     },
-    "sponsor": null,
+    "sponsor": {
+      "sponsor_name": "KORADA SATYANARAYANA",
+      "relationship": "Father",
+      "declared_income": 1200000.0,
+      "income_currency": "INR",
+      "income_supports_coverage": true,
+      "jurisdiction": null
+    },
     "enrollment": null,
-    "edges": [],
-    "token_count": 205,
+    "edges": [
+      {
+        "edge_type": "sponsor_link",
+        "source_node": "identity",
+        "target_node": "sponsor",
+        "coherent": true,
+        "detail": null
+      }
+    ],
+    "token_count": 367,
     "source_page_count": 2,
-    "estimated_raw_tokens": 4000
+    "estimated_raw_tokens": 4000,
+    "source_doc_types": [
+      "affidavit",
+      "unknown"
+    ]
   },
   "encoding_metadata": {
-    "token_count": 205,
+    "token_count": 367,
     "page_count": 2,
     "estimated_raw_tokens": 4000,
-    "duration_ms": 34495
+    "duration_ms": 14606,
+    "source_doc_types": [
+      "affidavit",
+      "unknown"
+    ],
+    "source_is_affidavit": true
   },
-  "rule_findings": [],
+  "rule_findings": [
+    {
+      "rule_id": "FIN-004",
+      "severity": "critical",
+      "field_path": "financial.closing_balance",
+      "message": "Closing balance (1,744,665 JPY) below minimum requirement (2,000,000 JPY). Shortfall: 255,335 JPY",
+      "expected": "balance ≥ 2,000,000 JPY",
+      "actual": "1,744,665 JPY"
+    }
+  ],
   "agent_findings": [
     {
       "agent_id": "identity_agent",
       "anomalies": [
         {
-          "field_path": "canonical_name",
-          "severity": "critical",
-          "explanation": "The applicant's canonical name is missing, which is a fundamental requirement for identity verification.",
-          "rule_id": null
-        },
-        {
-          "field_path": "date_of_birth",
-          "severity": "critical",
-          "explanation": "The applicant's date of birth is missing, preventing verification of age and identity across documents.",
-          "rule_id": null
-        },
-        {
           "field_path": "nationality",
           "severity": "critical",
-          "explanation": "The applicant's nationality is missing, which is essential for visa eligibility and passport validation.",
+          "explanation": "Applicant nationality is not specified. This is a mandatory field for identity verification and visa processing.",
           "rule_id": null
         },
         {
           "field_path": "passport_number",
           "severity": "critical",
-          "explanation": "The applicant's passport number is missing, preventing verification of identity and travel document authenticity.",
-          "rule_id": null
-        },
-        {
-          "field_path": "name_variants",
-          "severity": "critical",
-          "explanation": "No name variants are provided, along with a missing canonical name, rendering comprehensive identity verification impossible.",
+          "explanation": "Applicant passport number is missing. A valid passport is a required document for any visa application.",
           "rule_id": null
         }
       ],
       "confidence": 1.0,
       "agent_verdict": "critical",
-      "summary": "Critical identity information is entirely missing, making a full assessment impossible and justifying immediate visa rejection."
+      "summary": "The application is critically deficient due to missing nationality and passport number, preventing basic identity verification."
     },
     {
       "agent_id": "financial_agent",
       "anomalies": [
         {
-          "field_path": "financial.closing_balance",
-          "severity": "critical",
-          "explanation": "The closing balance is null, failing to demonstrate the required minimum bank balance of ¥2,000,000 for a Japanese Student visa.",
-          "rule_id": null
-        },
-        {
           "field_path": "financial.transaction_count",
           "severity": "critical",
-          "explanation": "The transaction count is 0, indicating a complete absence of financial activity, which fails to meet the requirement for 6 months of consecutive bank statements.",
+          "explanation": "The financial record shows zero transactions, credits, or debits. This fails to meet the 6-month consecutive bank statement requirement needed to assess financial stability and the legitimate accumulation of funds.",
           "rule_id": null
         },
         {
-          "field_path": "financial.avg_monthly_income",
+          "field_path": "financial.closing_balance",
           "severity": "critical",
-          "explanation": "Average monthly income is null, making it impossible to assess if the applicant or sponsor can meet the financial requirements (e.g., sponsor income ≥1.2× total program costs).",
+          "explanation": "The closing balance of 1,744,664.76 INR is over 17 times the declared monthly income of 100,000.0 INR. This accumulation is completely undocumented within the provided transaction history.",
           "rule_id": null
         },
         {
-          "field_path": "financial.currency",
+          "field_path": "financial.source_is_affidavit",
           "severity": "critical",
-          "explanation": "The currency of the financial data is null, preventing proper verification of any financial figures against the jurisdiction's requirements.",
+          "explanation": "The source of funds is supported only by an affidavit, which is insufficient primary evidence. The origin of the large balance is unverifiable without supporting transactional or legal documents.",
+          "rule_id": null
+        },
+        {
+          "field_path": "financial.opening_balance",
+          "severity": "critical",
+          "explanation": "The opening balance is null, indicating an incomplete financial record that violates the requirement for a continuous 6-month statement history.",
           "rule_id": null
         }
       ],
       "confidence": 1.0,
       "agent_verdict": "critical",
-      "summary": "The provided financial data is entirely missing or zero, preventing any meaningful assessment against visa requirements and indicating a critical lack of supporting documentation."
+      "summary": "The application is critically flawed due to a complete lack of required transaction history, an unverifiable source of funds, and an unexplained large balance relative to income."
     },
     {
       "agent_id": "temporal_agent",
       "anomalies": [
         {
-          "field_path": "temporal.doc_date_ranges",
+          "field_path": "doc_date_ranges",
           "severity": "critical",
-          "explanation": "No document date ranges were provided, indicating a complete absence of the required 6 months of consecutive bank statements, which is a fundamental temporal requirement for the visa application.",
+          "explanation": "The application is missing the mandatory six months of consecutive bank statements. This complete absence of documentation makes it impossible to verify the history, source, and stability of the declared funds.",
           "rule_id": null
         },
         {
-          "field_path": "financial.total_credits",
+          "field_path": "employment_start",
           "severity": "critical",
-          "explanation": "The financial data shows no credits and null balances, failing to provide any evidence of the minimum required bank balance of ¥2,000,000 as per jurisdiction requirements.",
-          "rule_id": null
-        },
-        {
-          "field_path": "financial.avg_monthly_income",
-          "severity": "critical",
-          "explanation": "No average monthly income or sponsor income details were provided, making it impossible to verify if the sponsor meets the required income threshold of ≥1.2× total program costs.",
-          "rule_id": null
-        },
-        {
-          "field_path": "temporal.visa_window_start",
-          "severity": "critical",
-          "explanation": "Both the visa_window_start and visa_window_end dates are missing, which prevents any temporal verification of the Certificate of Eligibility (COE) matching application dates or coverage of required pre-application periods.",
+          "explanation": "No employment start date or employment history has been provided for the applicant or sponsor. This prevents the verification of the source of income and the sponsor's ability to meet financial support requirements.",
           "rule_id": null
         }
       ],
       "confidence": 1.0,
       "agent_verdict": "critical",
-      "summary": "The application is critically deficient, lacking all required temporal and financial documentation including bank statements, proof of funds, sponsor income details, and visa application window dates, warranting an immediate rejection."
+      "summary": "The application is critically deficient, lacking any bank statements or employment history, making financial and temporal verification impossible."
     },
     {
       "agent_id": "sponsor_agent",
       "anomalies": [
         {
-          "field_path": "SPONSOR DATA",
+          "field_path": "applicant_financials.source_is_affidavit",
           "severity": "critical",
-          "explanation": "No sponsor data was provided in the application, indicating a complete lack of financial sponsorship documentation. This means there is no declared income to assess against program costs.",
+          "explanation": "Financial data is provided via an affidavit, but visa regulations require six months of consecutive bank statements, making it impossible to verify the history and stability of the funds.",
           "rule_id": null
         },
         {
-          "field_path": "APPLICANT FINANCIAL DATA.closing_balance",
+          "field_path": "sponsor.declared_income",
           "severity": "critical",
-          "explanation": "The applicant's financial data shows a closing balance of null/zero, falling critically short of the required ¥2,000,000 minimum bank balance for a Japanese Student visa. The shortfall is at least ¥2,000,000.",
+          "explanation": "The sponsor's declared income of 1,200,000 INR is insufficient to meet the requirement to cover at least 1.2 times the total program costs for studying in Japan, which typically exceed this amount annually.",
           "rule_id": null
         },
         {
-          "field_path": "APPLICANT FINANCIAL DATA",
-          "severity": "critical",
-          "explanation": "No bank statements for the required 6 consecutive months were provided, preventing verification of consistent financial stability as required by the jurisdiction.",
+          "field_path": "sponsor.jurisdiction",
+          "severity": "warning",
+          "explanation": "The sponsor's jurisdiction is not specified, preventing verification of their employment, residence, and the authenticity of their claimed income.",
+          "rule_id": null
+        },
+        {
+          "field_path": "applicant_financials.closing_balance",
+          "severity": "warning",
+          "explanation": "While the closing balance of 1,744,664.76 INR may be numerically sufficient when converted, its legitimacy cannot be confirmed due to the absence of the required 6-month statement history.",
           "rule_id": null
         }
       ],
       "confidence": 1.0,
       "agent_verdict": "critical",
-      "summary": "The application critically lacks financial sponsorship documentation, and the applicant has not demonstrated the required self-funding capacity, making the visa ineligible."
+      "summary": "The application should be rejected due to the use of an affidavit instead of required bank statements and the sponsor's insufficient declared income."
     },
     {
       "agent_id": "enrollment_agent",
@@ -179,67 +193,31 @@
         {
           "field_path": "enrollment",
           "severity": "critical",
-          "explanation": "All enrollment data is entirely missing, preventing assessment against Japanese Student (COE) visa requirements concerning program details, duration, and alignment with visa timelines. This directly impacts the ability to verify a student visa application.",
-          "rule_id": null
-        },
-        {
-          "field_path": "financial.currency",
-          "severity": "critical",
-          "explanation": "Critical financial data, including currency, opening balance, closing balance, and average monthly income, is entirely missing. This prevents any assessment of the required minimum bank balance of ¥2,000,000 for a student visa and overall financial solvency.",
-          "rule_id": null
-        },
-        {
-          "field_path": "financial.closing_balance",
-          "severity": "critical",
-          "explanation": "Critical financial data, including currency, opening balance, closing balance, and average monthly income, is entirely missing. This prevents any assessment of the required minimum bank balance of ¥2,000,000 for a student visa and overall financial solvency.",
-          "rule_id": null
-        },
-        {
-          "field_path": "financial.avg_monthly_income",
-          "severity": "critical",
-          "explanation": "Critical financial data, including currency, opening balance, closing balance, and average monthly income, is entirely missing. This prevents any assessment of the required minimum bank balance of ¥2,000,000 for a student visa and overall financial solvency.",
-          "rule_id": null
-        },
-        {
-          "field_path": "financial.total_credits",
-          "severity": "critical",
-          "explanation": "No transaction history, total credits, total debits, or transaction count are provided, indicating a complete lack of financial activity records.",
-          "rule_id": null
-        },
-        {
-          "field_path": "financial.total_debits",
-          "severity": "critical",
-          "explanation": "No transaction history, total credits, total debits, or transaction count are provided, indicating a complete lack of financial activity records.",
-          "rule_id": null
-        },
-        {
-          "field_path": "financial.transaction_count",
-          "severity": "critical",
-          "explanation": "No transaction history, total credits, total debits, or transaction count are provided, indicating a complete lack of financial activity records.",
+          "explanation": "The application for a student visa contains no enrollment data. This is a fundamental failure, making it impossible to verify the applicant's purpose of entry, program details, or associated costs.",
           "rule_id": null
         },
         {
           "field_path": "temporal.doc_date_ranges",
           "severity": "critical",
-          "explanation": "No financial document date ranges are provided, indicating a complete absence of the required 6 months of consecutive bank statements as per jurisdiction context.",
+          "explanation": "The application fails to provide the required 6 months of consecutive bank statements. The provided financial data shows zero transactions and the document date range is empty, which is an automatic disqualifier.",
           "rule_id": null
         },
         {
-          "field_path": "temporal.visa_window_start",
+          "field_path": "financial.source_is_affidavit",
           "severity": "critical",
-          "explanation": "Visa application timeline dates (visa_window_start and visa_window_end) are missing, which prevents any chronological alignment checks against enrollment or other temporal data.",
+          "explanation": "The source of the entire 1,744,664.76 INR closing balance is substantiated only by an affidavit, which is not considered sufficient proof of funds. With no transaction history, the origin of this large sum is undocumented and suspicious.",
           "rule_id": null
         },
         {
-          "field_path": "temporal.visa_window_end",
-          "severity": "critical",
-          "explanation": "Visa application timeline dates (visa_window_start and visa_window_end) are missing, which prevents any chronological alignment checks against enrollment or other temporal data.",
+          "field_path": "financial.closing_balance",
+          "severity": "warning",
+          "explanation": "The sufficiency of the closing balance cannot be verified. Without program cost and duration from the missing enrollment data, it is impossible to assess if funds cover tuition and living expenses as required.",
           "rule_id": null
         }
       ],
       "confidence": 1.0,
       "agent_verdict": "critical",
-      "summary": "Critical deficiencies in both financial and enrollment documentation prevent any assessment of visa eligibility against Japanese Student (COE) visa requirements, with all core financial and enrollment data being entirely absent."
+      "summary": "The student visa application is critically flawed due to a complete lack of enrollment documentation and the failure to provide the mandatory six-month financial history, warranting immediate rejection."
     }
   ],
   "completed_agents": [
@@ -279,48 +257,39 @@
     "verdict": "FAIL",
     "risk_score": 1.0,
     "critical_issues": [
-      "Applicant's canonical name, date of birth, nationality, and passport number are entirely missing, preventing fundamental identity verification.",
-      "No name variants were provided, making comprehensive identity verification impossible.",
-      "Financial closing balance is null, failing to meet the minimum required bank balance of ¥2,000,000 for a Japanese Student visa.",
-      "No financial transaction history (transaction count is 0, total credits/debits are 0) or bank statements for the required 6 consecutive months were provided, indicating a complete absence of financial activity and stability proof.",
-      "Average monthly income and currency details are null, making it impossible to assess financial solvency or verify figures against requirements.",
-      "No document date ranges were provided for financial statements, indicating a lack of the required historical financial records.",
-      "Both visa window start and end dates are missing, preventing temporal verification against application dates or pre-application periods.",
-      "No sponsor data was provided, indicating a complete absence of financial sponsorship documentation.",
-      "All enrollment data is missing, preventing assessment against Japanese Student (COE) visa requirements concerning program details and duration."
+      "Application is critically incomplete, lacking mandatory identity, financial, and enrollment documentation.",
+      "No passport number or nationality provided for the applicant, preventing basic identity verification.",
+      "Financial evidence is provided via an affidavit, which is insufficient. Official, consecutive 6-month bank statements are required and have not been submitted.",
+      "No proof of enrollment in an educational institution has been provided, failing to establish the purpose of travel.",
+      "Sponsor's declared income of 1,200,000 INR is insufficient to cover typical program and living costs.",
+      "The closing liquid balance of 1,744,664.76 INR is below the minimum financial threshold required.",
+      "No employment history for the sponsor was provided to substantiate the source of their declared income."
     ],
-    "warning_issues": [],
-    "rejection_narrative": "The application for a visa is hereby rejected due to substantial deficiencies across multiple critical categories. Identity verification is rendered impossible as fundamental details such as the applicant's canonical name, date of birth, nationality, and passport number are entirely absent from the submitted documentation (identity.canonical_name, identity.date_of_birth, identity.nationality, identity.passport_number). Furthermore, no name variants were provided, which is essential for comprehensive identity assessment (identity.name_variants).\n\nFinancially, the application demonstrates a critical lack of supporting evidence. The closing balance is recorded as null, failing to satisfy the minimum required bank balance of ¥2,000,000 for a Japanese Student visa (financial.closing_balance). The absence of any financial transactions (financial.transaction_count: 0, financial.total_credits: 0.0, financial.total_debits: 0.0) and the lack of bank statements covering the required 6 consecutive months prevent any assessment of financial activity or stability (temporal.doc_date_ranges). Critical details such as average monthly income and the currency of financial figures are also missing, rendering an evaluation of financial solvency impossible (financial.avg_monthly_income, financial.currency).\n\nTemporal requirements are also unmet, as both the visa window start and end dates are absent, precluding chronological alignment and verification against application timelines or the Certificate of Eligibility (temporal.visa_window_start, temporal.visa_window_end). Additionally, no sponsor data has been provided, indicating a complete lack of financial sponsorship documentation, which is often a critical component of student visa applications (sponsor).\n\nFinally, all enrollment data is entirely missing (enrollment). This deficiency prevents any assessment against the specific requirements for a Japanese Student visa, including program details, duration, and alignment with proposed visa timelines. The cumulative effect of these significant omissions constitutes a failure to provide the necessary information for a complete and compliant visa application.",
+    "warning_issues": [
+      "The sponsor's jurisdiction is not specified, which hinders verification of their financial standing.",
+      "Sufficiency of the closing balance cannot be assessed without enrollment data detailing program costs."
+    ],
+    "rejection_narrative": "The application is refused on the grounds that the applicant has failed to provide fundamental documentation required to assess their eligibility. The application is materially incomplete and does not satisfy regulatory requirements.\n\nFirst, key identity information is missing. The submitted documents do not contain the applicant's passport number or nationality, making basic identity verification impossible. \n\nSecond, the applicant has not demonstrated sufficient financial capacity. The financial evidence consists solely of a sworn affidavit. This document is not a substitute for the mandatory six months of consecutive, official bank statements required to verify the origin, accumulation, and stability of funds. Consequently, the declared closing balance of 1,744,664.76 INR is unsubstantiated. Furthermore, the sponsor's declared annual income of 1,200,000 INR is deemed insufficient to cover the anticipated costs of tuition and living expenses, and no evidence of the sponsor's employment has been provided to verify this income.\n\nThird, the purpose of travel is not established. The application lacks any proof of enrollment, such as a letter of acceptance from a designated learning institution. Without this, the applicant's stated intent to study cannot be verified.\n\nDue to these critical and numerous deficiencies, the application is refused.",
     "rebuttal_guidance": [
-      "Submit a valid passport or national ID clearly stating your full legal name, date of birth, and nationality.",
-      "Provide official documentation listing all legal name variants, if applicable, to ensure consistent identity verification.",
-      "Submit updated bank statements demonstrating a closing balance of at least ¥2,000,000, accompanied by a clear explanation of fund sources.",
-      "Provide complete bank statements for the past 6 consecutive months, showing all transactions, credits, and debits, to demonstrate consistent financial activity.",
-      "Submit bank statements or official financial attestations that clearly state the currency and detail average monthly income.",
-      "Ensure all submitted financial documents include clear date ranges covering the required 6-month period.",
-      "Provide the official Certificate of Eligibility (COE) or equivalent document clearly stating the visa window start and end dates.",
-      "If applicable, submit comprehensive sponsor documentation, including proof of income, bank statements, and a letter of support, demonstrating the sponsor's ability to meet financial requirements.",
-      "Submit complete enrollment documentation, including the Certificate of Eligibility (COE), acceptance letter, and program details, specifying the course, institution, and duration."
+      "Submit a clear, valid copy of the applicant's passport bio-data page showing the full name, passport number, and nationality.",
+      "Submit complete, official bank statements for the primary sponsor for the last six consecutive months. These must be from a financial institution and not a self-declared affidavit.",
+      "Submit an official Letter of Acceptance from the designated educational institution, detailing the program of study, duration, and associated costs.",
+      "Provide verifiable proof of the sponsor's current employment and income, such as a letter from their employer, recent salary slips, and tax documents.",
+      "Provide an updated financial statement showing a closing balance that meets or exceeds the minimum requirement, which must be supported by a six-month transaction history."
     ],
     "citations": [
-      "identity.canonical_name",
-      "identity.date_of_birth",
-      "identity.nationality",
       "identity.passport_number",
-      "identity.name_variants",
-      "financial.closing_balance",
-      "financial.transaction_count",
-      "financial.avg_monthly_income",
-      "financial.currency",
+      "identity.nationality",
+      "financial.source_is_affidavit",
       "temporal.doc_date_ranges",
-      "financial.total_credits",
-      "financial.total_debits",
-      "temporal.visa_window_start",
-      "temporal.visa_window_end",
-      "sponsor",
-      "enrollment"
+      "enrollment",
+      "sponsor.declared_income",
+      "temporal.employment_start",
+      "financial.closing_balance",
+      "sponsor.jurisdiction"
     ]
   },
   "risk_score": 1.0,
-  "raw_purged": true
+  "raw_purged": true,
+  "_debug_logger": "<debug.logger.DebugLogger object at 0x000001DC7C69FCB0>"
 }

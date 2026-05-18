@@ -1,0 +1,41 @@
+{
+  "agent_id": "financial_agent",
+  "elapsed_s": 24.75,
+  "parse_error": null,
+  "verdict": "critical",
+  "confidence": 1.0,
+  "anomaly_count": 4,
+  "summary": "The application is critically flawed due to a complete lack of required transaction history, an unverifiable source of funds, and an unexplained large balance relative to income.",
+  "full_finding": {
+    "agent_id": "financial_agent",
+    "anomalies": [
+      {
+        "field_path": "financial.transaction_count",
+        "severity": "critical",
+        "explanation": "The financial record shows zero transactions, credits, or debits. This fails to meet the 6-month consecutive bank statement requirement needed to assess financial stability and the legitimate accumulation of funds.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.closing_balance",
+        "severity": "critical",
+        "explanation": "The closing balance of 1,744,664.76 INR is over 17 times the declared monthly income of 100,000.0 INR. This accumulation is completely undocumented within the provided transaction history.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.source_is_affidavit",
+        "severity": "critical",
+        "explanation": "The source of funds is supported only by an affidavit, which is insufficient primary evidence. The origin of the large balance is unverifiable without supporting transactional or legal documents.",
+        "rule_id": null
+      },
+      {
+        "field_path": "financial.opening_balance",
+        "severity": "critical",
+        "explanation": "The opening balance is null, indicating an incomplete financial record that violates the requirement for a continuous 6-month statement history.",
+        "rule_id": null
+      }
+    ],
+    "confidence": 1.0,
+    "agent_verdict": "critical",
+    "summary": "The application is critically flawed due to a complete lack of required transaction history, an unverifiable source of funds, and an unexplained large balance relative to income."
+  }
+}
