@@ -1,0 +1,68 @@
+# ─────────────────────────────────────────────────────────────────────
+# Uplan — Lobster Trap YAML Policy (Phase 2 — Scaffolded)
+# ─────────────────────────────────────────────────────────────────────
+# First-match-wins policy rules for Lobster Trap DPI proxy.
+# These rules inspect BOTH prompts (ingress) and responses (egress).
+
+version: "1.0"
+name: uplan-immigration-policy
+
+rules:
+  # ── Egress: Block PII in responses ────────────────────────────────
+
+  - id: deny-passport-plaintext
+    direction: egress
+    description: "Block passport numbers from appearing in plaintext responses"
+    match:
+      pattern: '\b[A-Z]{1,2}\d{6,9}\b'
+      context: "Passport number pattern detected in model response"
+    action: DENY
+    severity: critical
+
+  - id: deny-account-numbers
+    direction: egress
+    description: "Block bank account numbers in plaintext responses"
+    match:
+      pattern: '\b\d{8,18}\b'
+      context: "Potential account number in model response"
+    action: DENY
+    severity: critical
+
+  # ── Ingress: Block prompt injection ───────────────────────────────
+
+  - id: deny-prompt-injection
+    direction: ingress
+    description: "Block common prompt injection patterns"
+    match:
+      pattern: '(ignore previous|forget your instructions|you are now|new system prompt)'
+      flags: case_insensitive
+    action: DENY
+    severity: critical
+
+  # ── Logging: Audit all financial data access ──────────────────────
+
+  - id: log-financial-access
+    direction: ingress
+    description: "Log all prompts containing financial graph data"
+    match:
+      pattern: '"financial":\s*\{'
+    action: LOG
+    severity: info
+
+  - id: log-identity-access
+    direction: ingress
+    description: "Log all prompts containing identity data"
+    match:
+      pattern: '"identity":\s*\{'
+    action: LOG
+    severity: info
+
+  # ── Fallback: Allow everything else ───────────────────────────────
+
+  - id: allow-default
+    direction: both
+    description: "Allow all traffic not matched by previous rules"
+    match:
+      pattern: '.*'
+    action: ALLOW
+    severity: info
