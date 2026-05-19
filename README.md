@@ -1,5 +1,8 @@
 ## ⚠️ Scope & Current Limitations (Proof of Concept)
 
+<img width="1851" height="857" alt="image" src="https://github.com/user-attachments/assets/6aefce06-66ea-4003-ab64-99747de68982" />
+
+
 AS A NOTE,
 
 As a brief addendum to our submission video, we want to be transparent about the current boundaries of this prototype.
