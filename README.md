@@ -3,6 +3,17 @@
 <img width="1851" height="857" alt="image" src="https://github.com/user-attachments/assets/6aefce06-66ea-4003-ab64-99747de68982" />
 
 
+## Quick look into tech stack
+
+| Component | Technology | Description / Role |
+| :--- | :--- | :--- |
+| **Backend** | Python (FastAPI) | High-performance async API framework for pipeline orchestration and background tasks. |
+| **AI / Core Engine** | Gemini | Powering the LLM orchestration agents, document parsing, and extraction logic. |
+| **Frontend** | HTML / CSS / JS | Lightweight, responsive interface for document uploads and real-time status tracking. |
+| **Deployment** | Streamlit | Rapid prototyping interface tool used for initial internal UI/UX evaluation. |
+| **Hosting** | Hugging Face Spaces | Cloud hosting infrastructure leveraging Git-based workflows to run the live POC pipeline. |
+
+
 AS A NOTE,
 
 As a brief addendum to our submission video, we want to be transparent about the current boundaries of this prototype.
