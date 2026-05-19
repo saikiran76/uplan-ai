@@ -35,13 +35,14 @@ To scale this from a hackathon POC to an enterprise-grade universal adjudication
 
 Because we couldn't showcase the raw PII data in our submission video, we are providing the exact test dossiers we used to evaluate the pipeline.
 
+* **Sample identity document**
 <img width="1251" height="1848" alt="Screenshot_2026-05-19-10-39-26-26_e2d5b3f32b79de1d45acd1fad96fbb0f" src="https://github.com/user-attachments/assets/f5f73364-c012-4c5d-87b0-30f770dd1f00" />
-**Sample identity document**
+
 <img width="2459" height="1979" alt="Screenshot_2026-05-19-10-35-22-26_e2d5b3f32b79de1d45acd1fad96fbb0f" src="https://github.com/user-attachments/assets/b168ac5e-937a-4068-9e7d-40a1a1f38914" />
-**Bank records**
+* **Bank records**
 
 <img width="1727" height="1287" alt="Screenshot_2026-05-19-10-33-35-62_a1b1bbe5f63d5b96c1a0f87c197ebfae" src="https://github.com/user-attachments/assets/790e1103-4ae6-4116-970f-374bd97f85c9" />
-**Sample affadavit(one legal doc)**
+* **Sample affadavit(one legal doc)**
 
 
 Want to run the pipeline yourself? We have packaged the test documents into a zip file so you can upload them to the live Hugging Face Space and watch the async architecture in real-time
